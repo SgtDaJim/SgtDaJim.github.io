@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>A Pelican Blog</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="A Pelican Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">A Pelican Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/bypass-360-and-safedog-privilege-escalation.html">123</a></li>
+                    <li><a href="/category/life.html">Life</a></li>
+                    <li><a href="/category/technology.html">Technology</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/2017-2-25-thought.html">2017-2-25有感</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T00:00:00+00:00">
+                Published: 周六 25 二月 2017
+        </abbr>
+
+<p>In <a href="/category/life.html">Life</a>.</p>
+
+</footer><!-- /.post-info --><ul>
+<li>“你是xxx（某歌星/影星/球星等）的粉丝吗？”</li>
+<li>“是啊，我很喜欢他的（歌/电影）的啊。”</li>
+<li>“听说的最近（出轨了/分手了/离婚了）啊！”</li>
+<li>“哦，关我屁事。”</li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2017-2-20-midnight-thought.html" rel="bookmark"
+                           title="Permalink to 2017-2-20凌晨">2017-2-20凌晨</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-20T00:00:00+00:00">
+                Published: 周一 20 二月 2017
+        </abbr>
+
+<p>In <a href="/category/life.html">Life</a>.</p>
+
+</footer><!-- /.post-info -->                <p>打游戏打到一点多<br>
+就上床玩手机<br>
+到两点<br>
+朋友突然问谁没睡<br>
+我打了个“？”<br>
+结果朋友说不舒服，想去医院<br>
+我直接说等我换衣服，到他宿舍门口叫他。<br>
+现在3点49分<br>
+期间陪朋友看医生，打点滴，帮他倒水，付费，拿药<br>
+现在坐在他床边等他打点滴<br>
+想了很多东西<br>
+我想起我寒假口角炎的时候一个人坐那打点滴<br>
+药水很冷，很痛<br>
+而且没法上厕所<br>
+难受的一比<br>
+我很庆幸我朋友有我这个朋友<br>
+倒不是说我吹我自己<br>
+可是没我，他一个人估计麻烦到头晕<br>
+我相信如果是我不舒服<br>
+他也会帮我<br>
+毕竟这就是朋友  </p>
+                <a class="readmore" href="/2017-2-20-midnight-thought.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/install-ss-and-use-bbr-on-vps.html" rel="bookmark"
+                           title="Permalink to 动手配置Shadowsocks服务器端+TCP BBR">动手配置Shadowsocks服务器端+TCP BBR</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-19T00:00:00+00:00">
+                Published: 周日 19 二月 2017
+        </abbr>
+
+<p>In <a href="/category/technology.html">Technology</a>.</p>
+<p>tags: <a href="/tag/vps.html">VPS</a> <a href="/tag/shadowsocks.html">Shadowsocks</a> <a href="/tag/ss.html">SS</a> <a href="/tag/bbr.html">BBR</a> </p>
+</footer><!-- /.post-info -->                <p>最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。<br>
+搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  </p>
+<p>主机系统：CentOS 7</p>
+<p>用xshell连上了主机。<br>
+<img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps1.png">  </p>
+<p>Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。<br>
+在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。<br>
+而CentOS中是自带了Python的。  </p>
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps2.png">  </p>
+<p>可是并没有安装pip，所以要先安装pip。</p>
+<div class="highlight"><pre><span></span>yum install pip
+</pre></div>
+
+
+<p>可是，问题出现了。  </p>
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps3.png"></p>
+<p>No package。。
+谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。</p>
+<p><img alt="wiki" src="/images/install-ss-and-use-bbr-on-vps4.png"></p>
+<p>那就安装吧。</p>
+<div class="highlight"><pre><span></span>yum install epel-release
+</pre></div>
+
+
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps5.png"></p>
+<p>先来查找下pip的package的名称是什么。</p>
+<div class="highlight"><pre><span></span>yum search pip
+</pre></div>
+
+
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps6.png"></p>
+<p>因为系统中的python版本为2.x，那我就安装python2-pip。</p>
+<div class="highlight"><pre><span></span>yum install python2-pip
+</pre></div>
+
+
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps7.png"></p>
+<p>这下可以安装shadowsocks了。</p>
+<div class="highlight"><pre><span></span>pip install shadowsocks
+</pre></div>
+
+
+<p><img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps8.png"></p>
+<p>安装完成 …</p>
+                <a class="readmore" href="/install-ss-and-use-bbr-on-vps.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tui-jian-tu-cao-da-hui-2017-02-12qi.html" rel="bookmark"
+                           title="Permalink to 推荐《吐槽大会》2017-02-12期">推荐《吐槽大会》2017-02-12期</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-12T00:00:00+00:00">
+                Published: 周日 12 二月 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/roes.html">Ro$es</a>
+        </address>
+<p>In <a href="/category/life.html">Life</a>.</p>
+
+</footer><!-- /.post-info -->                <p>本期的吐槽对象是唐国强老师<br>
+但这只是其中一个亮点<br>
+这期吐槽大会，估计是有稿子，但嘉宾不一定完全照搬稿子吐槽<br>
+李艾，王刚，唐国强的台词都有明显的锋利度，在突出一些事情<br>
+特别是唐国强<br>
+他的吐槽，并不是吐槽，而是在演讲，在阐述一些道理<br>
+虽然这有违“吐槽”二字，但却让我丝毫没有不舒适感<br>
+反而十分享受他的演讲<br>
+另外<br>
+王刚和唐国强真的是德高望重的老艺术家<br>
+举手投足都是戏<br>
+流露出了无穷无尽的演员经验和良好的职业素养<br>
+也许<br>
+这就是真正的人生如戏吧  </p>
+<p><img alt="唐国强图片1" src="/images/唐国强图片1.png"><br>
+<img alt="唐国强图片2" src="/images/唐国强图片2.png"><br>
+<img alt="王刚图片1" src="/images/王刚图片1.png">  </p>
+                <a class="readmore" href="/tui-jian-tu-cao-da-hui-2017-02-12qi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/words-in-Two-Steps-From-Heaven.html" rel="bookmark"
+                           title="Permalink to 《幕后玩家》有意思的台词">《幕后玩家》有意思的台词</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-12-23T00:00:00+00:00">
+                Published: 周五 23 十二月 2016
+        </abbr>
+
+<p>In <a href="/category/life.html">Life</a>.</p>
+
+</footer><!-- /.post-info -->                <p>当我可以放下面子去赚钱，就代表我懂事；<br>
+当我可以用钱买回面子，就是我成功了；<br>
+到我可以用面子赚钱的时候，我已经是一个人物了。<br>
+如果我还停留在喝酒吹水，不懂装懂，凡事都要讲面子，我这辈子，只不过是不外如是。  </p>
+<p>--人生真是无常。<br>
+--无常才是恒常。</p>
+                <a class="readmore" href="/words-in-Two-Steps-From-Heaven.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/bypass-360-and-safedog-privilege-escalation.html" rel="bookmark"
+                           title="Permalink to 一次过安全狗和360的渗透加提权过程">一次过安全狗和360的渗透加提权过程</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-20T00:00:00+00:00">
+                Published: 周二 20 九月 2016
+        </abbr>
+
+<p>In <a href="/category/technology.html">Technology</a>.</p>
+<p>tags: <a href="/tag/360.html">360</a> <a href="/tag/an-quan-gou.html">安全狗</a> <a href="/tag/shen-tou.html">渗透</a> <a href="/tag/ti-quan.html">提权</a> </p>
+</footer><!-- /.post-info -->                <p>用PDF记录了。<br>
+<a href="{filename}/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf">一次过安全狗和360的渗透加提权过程 - Ro$es.pdf</a></p>
+                <a class="readmore" href="/bypass-360-and-safedog-privilege-escalation.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

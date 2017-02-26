@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog - Technology</title><link href="/" rel="alternate"></link><link href="/feeds/technology.atom.xml" rel="self"></link><id>/</id><updated>2017-02-19T00:00:00+00:00</updated><entry><title>动手配置Shadowsocks服务器端+TCP BBR</title><link href="/install-ss-and-use-bbr-on-vps.html" rel="alternate"></link><published>2017-02-19T00:00:00+00:00</published><updated>2017-02-19T00:00:00+00:00</updated><author><name></name></author><id>tag:None,2017-02-19:/install-ss-and-use-bbr-on-vps.html</id><summary type="html">&lt;p&gt;最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。&lt;br&gt;
+搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  &lt;/p&gt;
+&lt;p&gt;主机系统：CentOS 7&lt;/p&gt;
+&lt;p&gt;用xshell连上了主机。&lt;br&gt;
+&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps1.png"&gt;  &lt;/p&gt;
+&lt;p&gt;Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。&lt;br&gt;
+在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。&lt;br&gt;
+而CentOS中是自带了Python的。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;可是并没有安装pip，所以要先安装pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可是，问题出现了。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps3.png"&gt;&lt;/p&gt;
+&lt;p&gt;No package。。
+谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="wiki" src="/images/install-ss-and-use-bbr-on-vps4.png"&gt;&lt;/p&gt;
+&lt;p&gt;那就安装吧。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install epel-release
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps5.png"&gt;&lt;/p&gt;
+&lt;p&gt;先来查找下pip的package的名称是什么。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum search pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps6.png"&gt;&lt;/p&gt;
+&lt;p&gt;因为系统中的python版本为2.x，那我就安装python2-pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install python2-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps7.png"&gt;&lt;/p&gt;
+&lt;p&gt;这下可以安装shadowsocks了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install shadowsocks
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps8.png"&gt;&lt;/p&gt;
+&lt;p&gt;安装完成 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。&lt;br&gt;
+搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  &lt;/p&gt;
+&lt;p&gt;主机系统：CentOS 7&lt;/p&gt;
+&lt;p&gt;用xshell连上了主机。&lt;br&gt;
+&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps1.png"&gt;  &lt;/p&gt;
+&lt;p&gt;Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。&lt;br&gt;
+在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。&lt;br&gt;
+而CentOS中是自带了Python的。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;可是并没有安装pip，所以要先安装pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可是，问题出现了。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps3.png"&gt;&lt;/p&gt;
+&lt;p&gt;No package。。
+谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="wiki" src="/images/install-ss-and-use-bbr-on-vps4.png"&gt;&lt;/p&gt;
+&lt;p&gt;那就安装吧。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install epel-release
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps5.png"&gt;&lt;/p&gt;
+&lt;p&gt;先来查找下pip的package的名称是什么。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum search pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps6.png"&gt;&lt;/p&gt;
+&lt;p&gt;因为系统中的python版本为2.x，那我就安装python2-pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install python2-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps7.png"&gt;&lt;/p&gt;
+&lt;p&gt;这下可以安装shadowsocks了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install shadowsocks
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps8.png"&gt;&lt;/p&gt;
+&lt;p&gt;安装完成。接下来配置shadowsocks。&lt;br&gt;
+shadowsocks有两种配置方法，一种是命令行配置，另一种是配置文件配置。&lt;br&gt;
+我使用了文件配置，个人感觉比较直观。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/shadowsocks/config.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
+  &amp;quot;server&amp;quot;:&amp;quot;x.x.x.x&amp;quot;, #vps的ip
+  &amp;quot;server_port&amp;quot;:2333, #服务器端口
+  &amp;quot;local_address&amp;quot;:&amp;quot;127.0.0.1&amp;quot;, #本地地址
+  &amp;quot;local_port&amp;quot;:1080,  #本地代理端口
+  &amp;quot;password&amp;quot;:&amp;quot;xxxxx&amp;quot;, #认证密码
+  &amp;quot;timeout&amp;quot;:5,        #超时时间，单位为秒
+  &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; #加密方式，推荐使用aes-256-cfb
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;写完保存。&lt;br&gt;
+然后执行命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssserver -c /etc/shadowsocks/config.json -d start
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;后台运行shadowsocks程序。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps9.png"&gt;&lt;/p&gt;
+&lt;p&gt;服务端配置完成。&lt;br&gt;
+客户端看看是否能连接。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="/images/install-ss-and-use-bbr-on-vps10.png"&gt;&lt;/p&gt;
+&lt;p&gt;谷歌打不开。。&lt;br&gt;
+看看日志怎么回事&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="/images/install-ss-and-use-bbr-on-vps11.png"&gt;&lt;/p&gt;
+&lt;p&gt;一堆timeout。。&lt;br&gt;
+配置过程应该是没问题的。。&lt;br&gt;
+想了想，好像是忘了在vps中开端口。。&lt;br&gt;
+试试把端口打开看看。&lt;br&gt;
+CentOS 7使用了firewalld防火墙。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;firewall-cmd --zone&lt;span class="o"&gt;=&lt;/span&gt;public --add-port&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2333&lt;/span&gt;/tcp --permanent
+firewall-cmd --zone&lt;span class="o"&gt;=&lt;/span&gt;public --add-port&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2333&lt;/span&gt;/udp --permanent
+firewall-cmd --complete-reload
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;全部success。&lt;br&gt;
+再次打开谷歌看看。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="explore" src="/images/install-ss-and-use-bbr-on-vps12.png"&gt;&lt;/p&gt;
+&lt;p&gt;成功。&lt;br&gt;
+shadowsocks算是配置完了。&lt;br&gt;
+看看在youtube上看视频速度如何。  &lt;/p&gt;
+&lt;p&gt;打开youtube速度还是很快的。&lt;br&gt;
+点一个Carpool Karaoke看看。&lt;br&gt;
+清晰度切换到720P  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="/images/install-ss-and-use-bbr-on-vps13.png"&gt;&lt;/p&gt;
+&lt;p&gt;看看统计信息。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="/images/install-ss-and-use-bbr-on-vps14.png"&gt;&lt;/p&gt;
+&lt;p&gt;这速度。。难受。。&lt;/p&gt;
+&lt;p&gt;最近BBR很火。&lt;br&gt;
+BBR是谷歌开发的TCP拥塞控制算法，目的就是要尽量跑满带宽，并且尽量不要有排队的情况。&lt;br&gt;
+最近这货已经被开源，提交到了Linux内核。现在更新到最新内核应该就能用上BBR。&lt;br&gt;
+那我也来试一试。&lt;br&gt;
+CentOS可以直接使用ELRepo Project上的最新内核。&lt;br&gt;
+CentOS 7执行命令：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+yum --enablerepo&lt;span class="o"&gt;=&lt;/span&gt;elrepo-kernel install kernel-ml -y
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps15.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps16.png"&gt;&lt;/p&gt;
+&lt;p&gt;新内核安装完成。&lt;br&gt;
+查查内核情况：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;egrep ^menuentry /etc/grub2.cfg &lt;span class="p"&gt;|&lt;/span&gt; cut -f &lt;span class="m"&gt;2&lt;/span&gt; -d &lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps17.png"&gt;&lt;/p&gt;
+&lt;p&gt;第一个就是最新的。&lt;br&gt;
+现在把引导文件中默认引导设为最新内核。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;grub2-set-default &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# 0就是第一个内核，刚才看到的第一个&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后reboot，重启。  &lt;/p&gt;
+&lt;p&gt;（新主机重启只要几十秒。。很恐怖）  &lt;/p&gt;
+&lt;p&gt;看看内核  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps18.png"&gt;&lt;/p&gt;
+&lt;p&gt;新内核美滋滋 ~&lt;/p&gt;
+&lt;p&gt;接着把BBR打开。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/sysctl.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在这个文件中加入两行：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;net.core.default_qdisc &lt;span class="o"&gt;=&lt;/span&gt; fq
+net.ipv4.tcp_congestion_control &lt;span class="o"&gt;=&lt;/span&gt; bbr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;保存退出。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps19.png"&gt;&lt;/p&gt;
+&lt;p&gt;然后&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sysctl -p
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps20.png"&gt;&lt;/p&gt;
+&lt;p&gt;现在BBR设置应该生效了。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep bbr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps21.png"&gt;&lt;/p&gt;
+&lt;p&gt;BBR正常启动了。&lt;br&gt;
+在用youtube测测速。。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps22.png"&gt;&lt;/p&gt;
+&lt;p&gt;好很多了。。。&lt;br&gt;
+这下看1080P就美滋滋了~  &lt;/p&gt;
+&lt;h4&gt;以上配置方法都是谷歌的，绝无半点抄袭之意，如有意见，请联系提出。&lt;/h4&gt;
+&lt;h4&gt;感谢谷歌，也感谢所有乐于分享的人。&lt;/h4&gt;</content><category term="VPS"></category><category term="Shadowsocks"></category><category term="SS"></category><category term="BBR"></category></entry><entry><title>一次过安全狗和360的渗透加提权过程</title><link href="/bypass-360-and-safedog-privilege-escalation.html" rel="alternate"></link><published>2016-09-20T00:00:00+00:00</published><updated>2016-09-20T00:00:00+00:00</updated><author><name></name></author><id>tag:None,2016-09-20:/bypass-360-and-safedog-privilege-escalation.html</id><summary type="html">&lt;p&gt;用PDF记录了。&lt;br&gt;
+&lt;a href="{filename}/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf"&gt;一次过安全狗和360的渗透加提权过程 - Ro$es.pdf&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;用PDF记录了。&lt;br&gt;
+&lt;a href="{filename}/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf"&gt;一次过安全狗和360的渗透加提权过程 - Ro$es.pdf&lt;/a&gt;&lt;/p&gt;</content><category term="360"></category><category term="安全狗"></category><category term="渗透"></category><category term="提权"></category></entry></feed>
