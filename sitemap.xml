@@ -4,154 +4,154 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/</loc>
-<lastmod>2017-02-26T17:21:54-00:00</lastmod>
+<loc>sgtdajim.github.io/</loc>
+<lastmod>2017-02-26T17:26:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/archives.html</loc>
-<lastmod>2017-02-26T17:21:54-00:00</lastmod>
+<loc>sgtdajim.github.io/archives.html</loc>
+<lastmod>2017-02-26T17:26:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tags.html</loc>
-<lastmod>2017-02-26T17:21:54-00:00</lastmod>
+<loc>sgtdajim.github.io/tags.html</loc>
+<lastmod>2017-02-26T17:26:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/categories.html</loc>
-<lastmod>2017-02-26T17:21:54-00:00</lastmod>
+<loc>sgtdajim.github.io/categories.html</loc>
+<lastmod>2017-02-26T17:26:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pages/bypass-360-and-safedog-privilege-escalation.html</loc>
+<loc>sgtdajim.github.io/pages/bypass-360-and-safedog-privilege-escalation.html</loc>
 <lastmod>2016-09-20T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/articles/2017/2月/25/2017-2-25-thought/</loc>
+<loc>sgtdajim.github.io/articles/2017/2月/25/2017-2-25-thought/</loc>
 <lastmod>2017-02-25T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/articles/2017/2月/20/2017-2-20-midnight-thought/</loc>
+<loc>sgtdajim.github.io/articles/2017/2月/20/2017-2-20-midnight-thought/</loc>
 <lastmod>2017-02-20T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/</loc>
+<loc>sgtdajim.github.io/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/</loc>
 <lastmod>2017-02-19T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/articles/2017/2月/12/tui-jian-tu-cao-da-hui-2017-02-12qi/</loc>
+<loc>sgtdajim.github.io/articles/2017/2月/12/tui-jian-tu-cao-da-hui-2017-02-12qi/</loc>
 <lastmod>2017-02-12T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/articles/2016/12月/23/words-in-Two-Steps-From-Heaven/</loc>
+<loc>sgtdajim.github.io/articles/2016/12月/23/words-in-Two-Steps-From-Heaven/</loc>
 <lastmod>2016-12-23T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/</loc>
+<loc>sgtdajim.github.io/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/</loc>
 <lastmod>2016-09-20T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>/category/life.html</loc>
+<loc>sgtdajim.github.io/category/life.html</loc>
 <lastmod>2017-02-25T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/technology.html</loc>
+<loc>sgtdajim.github.io/category/technology.html</loc>
 <lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ss.html</loc>
+<loc>sgtdajim.github.io/tag/ss.html</loc>
 <lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/bbr.html</loc>
+<loc>sgtdajim.github.io/tag/bbr.html</loc>
 <lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/360.html</loc>
+<loc>sgtdajim.github.io/tag/shen-tou.html</loc>
 <lastmod>2016-09-20T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/vps.html</loc>
+<loc>sgtdajim.github.io/tag/an-quan-gou.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sgtdajim.github.io/tag/ti-quan.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>sgtdajim.github.io/tag/vps.html</loc>
 <lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/an-quan-gou.html</loc>
+<loc>sgtdajim.github.io/tag/360.html</loc>
 <lastmod>2016-09-20T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/shadowsocks.html</loc>
+<loc>sgtdajim.github.io/tag/shadowsocks.html</loc>
 <lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/ti-quan.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/shen-tou.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/author/roes.html</loc>
+<loc>sgtdajim.github.io/author/roes.html</loc>
 <lastmod>2017-02-25T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
