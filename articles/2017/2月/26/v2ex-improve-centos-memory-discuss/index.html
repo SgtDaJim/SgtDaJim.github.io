@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with SS" />
+    <meta name="description" content="" />
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:SS - Ro$es Echo</title>
+    <title>V2EX上关于如何优化CentOS服务器内存的讨论 - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -70,19 +70,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">SS</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  CST, 2017 02 19, 星期日
+  CST, 2017 02 26, 星期日
 </abbr> <h1>
-  <a href="/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/" rel="bookmark"
-     title="Permalink to 动手配置Shadowsocks服务器端+TCP BBR">
-    动手配置Shadowsocks服务器端+TCP BBR
+  <a href="/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/" rel="bookmark"
+     title="Permalink to V2EX上关于如何优化CentOS服务器内存的讨论">
+    V2EX上关于如何优化CentOS服务器内存的讨论
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -93,27 +88,82 @@
     </a>
     <div>
       <span class="label label-default">Tags</span>
-        <a href="/tag/vps.html"><i class="fa fa-tag"></i>VPS</a>&nbsp;
-        <a href="/tag/shadowsocks.html"><i class="fa fa-tag"></i>Shadowsocks</a>&nbsp;
-        <a href="/tag/ss.html"><i class="fa fa-tag"></i>SS</a>&nbsp;
-        <a href="/tag/bbr.html"><i class="fa fa-tag"></i>BBR</a>&nbsp;
+        <a href="/tag/v2ex.html"><i class="fa fa-tag"></i>V2EX</a>&nbsp;
+        <a href="/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
+        <a href="/tag/nei-cun-you-hua.html"><i class="fa fa-tag"></i>内存优化</a>&nbsp;
     </div>
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。<br>
-搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  </p>
-<p>主机系统：CentOS 7</p>
-<p>用xshell连上了主机 …</p>
-		<p class="content-emphasis"><a href="/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>V站链接：<a href="http://cn.v2ex.com/t/343252">请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？</a>  </p>
+<p><code>@hl</code> 的回复  </p>
+<p>Linux 内存不是用的越少越好， Centos7 版本以前，通常看到的内存 used 比较多是因为包含了 buffer 和 cache 占用 <br>
+Centos7 版本以后，内存 used 显示数值不包含 buffer 和 cache   </p>
+<p>Linux 中内存不用白不用，会尽可能的 cache 和 buffer 一些数据，以方便下次使用。 
+但实际上这些内存大部分也是在应用需要的时候可以释放出来供应用使用。   </p>
+<p>大部分人在对 linux 做内存优化，都是简单的关闭不使用的服务，调整自己应用的参数来减少内存的占用 
+因此我也仅通过最简单的方式来介绍下如何调整 </p>
+<h1>关闭服务</h1>
+<p>Centos7 版本以前可以通过 chkconfig --list 来查看服务列表 <br>
+找到当前 runlevel 下自启动的服务名<br>
+然后通过 chkconfig --level 3 service_name off 关闭指定 RUNLEVEL 下自启动服务 <br>
+重启后生效或者通过 /etc/init.d/servicce_name stop 的方式来实时生效。 </p>
+<p>Centos7 以后的版本需要通过
+systemctl list-unit-files --type=service --state=enabled <br>
+查看自启动服务<br>
+通过 systemctl disable service_name 关闭启动 <br>
+通过 systemctl stop service_name 停止服务运行   </p>
+<h1>调整应用参数</h1>
+<p>这个部分需要了解自己启动的服务软件简单的工作原理和配置方法 
+VPS 中安装的 LNMP 环境主要包含三个套件： Nginx, MySQL, php </p>
+<h1>Nginx</h1>
+<p>工作进程数量直接决定了 Nginx 对内存的占用，平均一个工作进程占用 10~40m 不等 <br>
+可通过配置文件中 worker_processes 指定 </p>
+<h1>MySQL</h1>
+<p>MySQL 比较复杂，大致可以从全局共享内存使用和线程独享内存使用两个方向入手 </p>
+<p>全局共享内存可理解为 MySQL 启动的时候就需要分配的全局内存使用 
+比较明显的是可以调整以下几个参数（但不完全就是以下几个）</p>
+<div class="highlight"><pre><span></span>key_buffer_size 
+innodb_buffer_pool_size 
+innodb_additional_memory_pool_size 
+innodb_log_buffer_size 
+query_cache_size 
+</pre></div>
 
-<nav class="index-pager">
 
-</nav> <!-- /index-pager -->
+<p>线程独享内存使用可以理解为每个到 MySQL 的链接都会分配一部分内存 </p>
+<div class="highlight"><pre><span></span>read_buffer_size 
+sort_buffer_size 
+read_rnd_buffer_size 
+tmp_table_size 
+</pre></div>
+
+
+<p>除此之外 MySQL 还有灰常多的参数可以调整影响到内存的使用，可以参考官方文档了 </p>
+<p>以上列出的参数，也并不是调整了就有效果，因为 MySQL 还有一个重要的东西就是存储引擎   <br>
+常用的比如 InnoDB ， MyISAM 很多参数都是针对存储引擎的，比如你只使用 InnoDB,却调整了 MyISAM 的参数，那也是没有效果的 </p>
+<h1>php</h1>
+<p>由于本人没有搞过 php 所以具体也不清楚详细的调整 <br>
+php 没有运行在 nginx 下的 module ，所以大部分通过 php-fpm 的方式启动 <br>
+php-fpm 提供 fastcgi 的协议访问， nginx 再通过 fastcgi 反代到 php-fpm   </p>
+<p>所以这里的 php-fpm 也是一个多进程应用，也可以通过调整 php-fpm 的启动进程数量来达到控制内存占用的效果  </p>
+<p>以上这些都是从简单的方面来优化的，但还是那句话，一切看你时机的使用情况，这些参数不是越低越好 <br>
+比如 nginx 只给 1 个进程，php-fpm 只给一个进程，在你狂刷浏览器时就会发现你经常会遇到 502，503 错误 </p>
+<p>鉴于在题主是在放在 vps 中的小博客，实在不需要搞到太深度的调优。  如果想了解仍可去搜索一些相关的资料: <br>
+linux 内核参数调优 <br>
+linux io 队列调优 <br>
+nginx 如何通过编译安装精简模块 <br>
+php 编译安装 精简不必要模块 <br>
+mysql 编译安装精简存储引擎  </p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="/tag/v2ex.html"><i class="fa fa-tag"></i>V2EX</a>&nbsp;
+	<a href="/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
+	<a href="/tag/nei-cun-you-hua.html"><i class="fa fa-tag"></i>内存优化</a>&nbsp;
+</div>
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
