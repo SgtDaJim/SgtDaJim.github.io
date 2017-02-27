@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2017-02-27T20:55:49-00:00</lastmod>
+<lastmod>2017-02-27T21:48:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2017-02-27T20:55:49-00:00</lastmod>
+<lastmod>2017-02-27T21:48:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2017-02-27T20:55:49-00:00</lastmod>
+<lastmod>2017-02-27T21:48:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2017-02-27T20:55:49-00:00</lastmod>
+<lastmod>2017-02-27T21:48:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -130,22 +130,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>/tag/ti-quan.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/mount.html</loc>
+<lastmod>2017-01-25T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/an-quan-gou.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>/tag/linux.html</loc>
 <lastmod>2017-01-25T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/ntfs.html</loc>
-<lastmod>2017-01-25T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/v2ex.html</loc>
-<lastmod>2017-02-26T20:38:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -158,15 +165,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/vps.html</loc>
-<lastmod>2017-02-19T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/bbr.html</loc>
-<lastmod>2017-02-19T00:00:00+08:06</lastmod>
+<loc>/tag/shen-tou.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -186,15 +186,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/nei-cun-you-hua.html</loc>
-<lastmod>2017-02-26T20:38:58+08:06</lastmod>
+<loc>/tag/ntfs.html</loc>
+<lastmod>2017-01-25T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/shen-tou.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<loc>/tag/nei-cun-you-hua.html</loc>
+<lastmod>2017-02-26T20:38:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -207,15 +207,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/ti-quan.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<loc>/tag/bbr.html</loc>
+<lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/an-quan-gou.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<loc>/tag/v2ex.html</loc>
+<lastmod>2017-02-26T20:38:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -228,8 +228,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/mount.html</loc>
-<lastmod>2017-01-25T00:00:00+08:06</lastmod>
+<loc>/tag/vps.html</loc>
+<lastmod>2017-02-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
