@@ -104,6 +104,88 @@
 <abbr class="article-header-date">
   CST, 2017 01 25, 星期三
 </abbr> <h1>
+  <a href="http://roses-echo.com/articles/2017/1月/25/linux-note-file-system-structure/" rel="bookmark"
+     title="Permalink to Linux学习笔记 - Linux文件系统结构">
+    Linux学习笔记 - Linux文件系统结构
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
+    in 
+    <a href="http://roses-echo.com/category/technology.html">
+      Technology
+    </a>
+    <div>
+      <span class="label label-default">Tags</span>
+        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
+        <a href="http://roses-echo.com/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
+    </div>
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		<p><em>参考资料：《循序渐进Linux第二版》</em> </p>
+<hr>
+<h3>目录结构</h3>
+<p>Linux系统以树形结构统一管理和组织文件。  </p>
+<p><img alt="structure" src="http://roses-echo.com/images/linux-note-file-system-structure/1.png">  </p>
+<h3>目录功能介绍</h3>
+<p>很多Linux发行版目录结构布局都遵循FSSTND标准。这一标准的特点是根目录非常简洁，只包含系统最基本的文件。  </p>
+<h4>/etc目录</h4>
+<p>主要用于存放系统管理相关的配置文件以及子目录 …</p>
+		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2017/1月/25/linux-note-file-system-structure/">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<abbr class="article-header-date">
+  CST, 2017 01 25, 星期三
+</abbr> <h1>
+  <a href="http://roses-echo.com/articles/2017/1月/25/linux-note-hardware-managing/" rel="bookmark"
+     title="Permalink to Linux学习笔记 - Linux硬件资源管理">
+    Linux学习笔记 - Linux硬件资源管理
+  </a>
+</h1><div class="article-header-info">
+  <p>
+      Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
+    in 
+    <a href="http://roses-echo.com/category/technology.html">
+      Technology
+    </a>
+    <div>
+      <span class="label label-default">Tags</span>
+        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
+        <a href="http://roses-echo.com/tag/hardware.html"><i class="fa fa-tag"></i>Hardware</a>&nbsp;
+    </div>
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		<p><em>参考资料：《循序渐进Linux第二版》</em></p>
+<hr>
+<p>列出所有的PCI设备  </p>
+<div class="highlight"><pre><span></span>lspci
+</pre></div>
+
+
+<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/1.png"><br>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/2.png"></p>
+<p>查看cpu信息</p>
+<div class="highlight"><pre><span></span>more /proc/cpuinfo
+</pre></div>
+
+
+<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/3.png"></p>
+<ul>
+<li>processor -- 逻辑处理器的唯一标识符 …</li></ul>
+		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2017/1月/25/linux-note-hardware-managing/">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<abbr class="article-header-date">
+  CST, 2017 01 25, 星期三
+</abbr> <h1>
   <a href="http://roses-echo.com/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/" rel="bookmark"
      title="Permalink to Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载">
     Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载
@@ -139,41 +221,6 @@
 		</a></p>
       </div>    </article>
     <hr />
-    <article>
-<abbr class="article-header-date">
-  CST, 2017 01 23, 星期一
-</abbr> <h1>
-  <a href="http://roses-echo.com/articles/2017/1月/23/linux-note-os-install-and-basic-config/" rel="bookmark"
-     title="Permalink to Linux系统的安装与基础配置">
-    Linux系统的安装与基础配置
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
-    in 
-    <a href="http://roses-echo.com/category/technology.html">
-      Technology
-    </a>
-    <div>
-      <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
-        <a href="http://roses-echo.com/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
-    </div>
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
-<h3>安装方式</h3>
-<p>Linux的安装方式分为硬盘安装、U盘安装、网络安装和光驱安装。<br>
-可以使用Kickstart工具进行无人值守的Linux系统自动安装。</p>
-<h3>分区命名方案</h3>
-<p>/dev/hda2 …</p>
-		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2017/1月/23/linux-note-os-install-and-basic-config/">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
 
 <nav class="index-pager">
 	<ul class="pagination">
@@ -187,10 +234,15 @@
           <a href="http://roses-echo.com/tag/linux.html">1</a>
         </li>
         <li class="active"> <span>2</span> </li>
-
-        <li class="next disabled">
-          <span><i class="fa fa-chevron-circle-right fa-fw fa-lg"></i> Next</span>
+        <li>
+          <a href="http://roses-echo.com/tag/linux3.html">3</a>
         </li>
+
+		<li class="next">
+		  <a href="http://roses-echo.com/tag/linux3.html">
+			Next <i class="fa fa-chevron-circle-right fa-fw fa-lg"></i>
+		  </a>
+		</li>
 	</ul>
 
 </nav> <!-- /index-pager -->
@@ -243,41 +295,8 @@
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
-      </a>
-      <a href="http://roses-echo.com/tag/ss.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>SS
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/mount.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mount
-      </a>
       <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
       </a>
       <a href="http://roses-echo.com/tag/shadowsocks.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
@@ -285,8 +304,47 @@
       <a href="http://roses-echo.com/tag/ntfs.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
       </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
       <a href="http://roses-echo.com/tag/centos.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/runlevel.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
+      </a>
+      <a href="http://roses-echo.com/tag/mount.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/ss.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>SS
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
       </a>
 </p>
 
