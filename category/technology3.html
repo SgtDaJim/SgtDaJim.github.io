@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="description" content="Posts in category Technology" />
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载 - Ro$es Echo</title>
+    <title>Category:Technology - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -94,14 +94,19 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header class="article-header">
+<ol class="breadcrumb">
+    <li><a href="http://roses-echo.com/" title="Home" rel="home">
+		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
+    <li>Categories </li>
+    <li class="active">Technology</li>
+</ol>
+    <article>
 <abbr class="article-header-date">
-  CST, 2017 01 25, 星期三
+  CST, 2016 09 20, 星期二
 </abbr> <h1>
-  <a href="http://roses-echo.com/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/" rel="bookmark"
-     title="Permalink to Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载">
-    Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载
+  <a href="http://roses-echo.com/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/" rel="bookmark"
+     title="Permalink to 一次过安全狗和360的渗透加提权过程">
+    一次过安全狗和360的渗透加提权过程
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -112,101 +117,43 @@
     </a>
     <div>
       <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
-        <a href="http://roses-echo.com/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/ntfs.html"><i class="fa fa-tag"></i>NTFS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/mount.html"><i class="fa fa-tag"></i>mount</a>&nbsp;
+        <a href="http://roses-echo.com/tag/360.html"><i class="fa fa-tag"></i>360</a>&nbsp;
+        <a href="http://roses-echo.com/tag/an-quan-gou.html"><i class="fa fa-tag"></i>安全狗</a>&nbsp;
+        <a href="http://roses-echo.com/tag/shen-tou.html"><i class="fa fa-tag"></i>渗透</a>&nbsp;
+        <a href="http://roses-echo.com/tag/ti-quan.html"><i class="fa fa-tag"></i>提权</a>&nbsp;
     </div>
   </p>
-</div> <!-- /.article-header-info -->  </header>
-  <div class="content-body" itemprop="text articleBody">
-	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
-<p>Linux系统中，使用mount命令进行设备的挂载使用。  </p>
-<div class="highlight"><pre><span></span>mount -t 文件系统类型设备名挂载点
-</pre></div>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		<p>用PDF记录了 …</p>
+		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
 
+<nav class="index-pager">
+	<ul class="pagination">
+		<li class="prev">
+		  <a href="http://roses-echo.com/category/technology2.html">
+			<i class="fa fa-chevron-circle-left fa-fw fa-lg"></i> Previous
+		  </a>
+		</li>
 
-<p>/mnt目录专门用作临时挂载点<br>
-在<strong><em>*CentOS 7.x</em></strong>*中，出现了一个/run自动挂在目录，所有移动设备会自动挂在到这个目录下  </p>
-<p>挂载软盘</p>
-<div class="highlight"><pre><span></span>mount -t msdos/dev/fd0 /mnt/floppy
-</pre></div>
+        <li>
+          <a href="http://roses-echo.com/category/technology.html">1</a>
+        </li>
+        <li>
+          <a href="http://roses-echo.com/category/technology2.html">2</a>
+        </li>
+        <li class="active"> <span>3</span> </li>
 
+        <li class="next disabled">
+          <span><i class="fa fa-chevron-circle-right fa-fw fa-lg"></i> Next</span>
+        </li>
+	</ul>
 
-<p>访问/mnt/floppy即可找到软盘内容。</p>
-<h5>U盘的挂载</h5>
-<p>插入U盘后，可以先使用<code>dmesg</code>命令确定U盘的设备名。<br>
-<img alt="dmesg" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/1.png">  </p>
-<p>可以得出U盘设备名为sdb1  </p>
-<p>使用fdisk -l 同样可以查看U盘是否被识别。<br>
-<img alt="fdisk" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/2.png">  </p>
-<p>接着创建挂载点：</p>
-<p><code>mkdir /mnt/usb</code></p>
-<p>然后挂载U盘： </p>
-<p><code>mount  /dev/sdb1 /mnt/usb</code></p>
-<p><img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/3.png">  </p>
-<p>Linux系统不支持NTFS格式。此时需要使用插件ntfs-3g。</p>
-<p>官网：<a href="http://www.tuxera.com/community/open-source-ntfs-3g/">ntfs-3g</a></p>
-<p><img alt="ntfs-3g" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/4.png">  </p>
-<p>下载压缩包：</p>
-<div class="highlight"><pre><span></span>wget https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz
-</pre></div>
-
-
-<p><img alt="wget" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/5.png">  </p>
-<p>解压压缩包</p>
-<div class="highlight"><pre><span></span>tar -zvxf ntfs-3g_ntfsprogs-2016.2.22.tgz
-</pre></div>
-
-
-<p><img alt="tar" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/6.png">  </p>
-<p>转到ntfs-3g的目录下</p>
-<div class="highlight"><pre><span></span>cd ntfs-3g_ntfsprogs-2016.2.22
-</pre></div>
-
-
-<p>在/usr/local/下创建文件夹ntfs-3g，用于编译安装</p>
-<div class="highlight"><pre><span></span>mkdir /usr/local/ntfs-3g
-</pre></div>
-
-
-<p>编译安装ntfs-3g，指定安装目录/usr/local/ntfs-3g</p>
-<div class="highlight"><pre><span></span>./configure --prefix=/usr/local/ntfs-3g
-</pre></div>
-
-
-<p><img alt="config" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/7.png">   </p>
-<p>开始编译</p>
-<div class="highlight"><pre><span></span>make &amp;&amp; make install
-</pre></div>
-
-
-<p>编译成功后，就可以挂在NTFS格式的U盘了。</p>
-<div class="highlight"><pre><span></span>mount -t ntfs-3g /dev/sdb1 /mnt/usb
-</pre></div>
-
-
-<p><img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/8.png">  </p>
-<p>查看U盘内容</p>
-<div class="highlight"><pre><span></span>cd /mnt/usb
-ls
-</pre></div>
-
-
-<p><img alt="ls" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/9.png">  </p>
-<h5>卸载设备</h5>
-<p>umount 挂载目录</p>
-<div class="highlight"><pre><span></span>umount /mnt/usb
-</pre></div>
-
-
-<p><img alt="umount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/10.png">  </p>
-<p><strong>Linux对文件系统的保护做的很到位，在光盘没有卸载之前，光驱上的弹出键不起任何作用。</strong></p>
-  </div>
-  
-
-</article>
+</nav> <!-- /index-pager -->
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
