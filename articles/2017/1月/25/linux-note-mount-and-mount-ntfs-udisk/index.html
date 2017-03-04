@@ -21,15 +21,16 @@
             crossorigin="anonymous">
 
 
-      <link rel="stylesheet" href="http://roses-echo.com/theme/css/pygment.css" />
-      <link rel="stylesheet" href="http://roses-echo.com/theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="/theme/css/pygment.css" />
+      <link rel="stylesheet" href="/theme/css/voidybootstrap.css" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh" crossorigin="anonymous"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="http://roses-echo.com/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ro$es Echo Atom Feed" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -68,7 +69,7 @@
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="http://roses-echo.com/" rel="home">
+		<a class="navbar-brand" href="/" rel="home">
           <i class="fa fa-home fa-fw fa-lg"> </i> </a>
        </div>
 
@@ -76,9 +77,12 @@
         <ul class="nav navbar-nav">
             <li class="divider"></li>
             <li class="">
-              <a href="http://roses-echo.com/archives.html">Archives</a>
+              <a href="/archives.html">Archives</a>
             </li>
           <li class="divider"></li>
+            <li><a href="/feeds/all.atom.xml" 
+                   type="application/atom+xml" rel="alternate">
+                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
         </ul> <!-- /nav -->
       </div> <!-- /navbar-collapse -->
 	  </div> <!-- /container -->
@@ -86,7 +90,7 @@
 
 	<div class="jumbotron" id="overview">
 	  <div class="container">
-		<h1><a href="http://roses-echo.com/">Ro$es Echo</a></h1>
+		<h1><a href="/">Ro$es Echo</a></h1>
 		<p class="lead">风雪夜归人.</p>
 	  </div>
 	</div>
@@ -99,23 +103,23 @@
 <abbr class="article-header-date">
   CST, 2017 01 25, 星期三
 </abbr> <h1>
-  <a href="http://roses-echo.com/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/" rel="bookmark"
+  <a href="/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/" rel="bookmark"
      title="Permalink to Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载">
     Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
+      Posted by <a href="/author/roes.html">Ro$es</a>
     in 
-    <a href="http://roses-echo.com/category/technology.html">
+    <a href="/category/technology.html">
       Technology
     </a>
     <div>
       <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
-        <a href="http://roses-echo.com/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/ntfs.html"><i class="fa fa-tag"></i>NTFS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/mount.html"><i class="fa fa-tag"></i>mount</a>&nbsp;
+        <a href="/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
+        <a href="/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
+        <a href="/tag/ntfs.html"><i class="fa fa-tag"></i>NTFS</a>&nbsp;
+        <a href="/tag/mount.html"><i class="fa fa-tag"></i>mount</a>&nbsp;
     </div>
   </p>
 </div> <!-- /.article-header-info -->  </header>
@@ -137,30 +141,30 @@
 <p>访问/mnt/floppy即可找到软盘内容。</p>
 <h5>U盘的挂载</h5>
 <p>插入U盘后，可以先使用<code>dmesg</code>命令确定U盘的设备名。<br>
-<img alt="dmesg" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/1.png">  </p>
+<img alt="dmesg" src="/images/linux-note-mount-and-mount-ntfs-udisk/1.png">  </p>
 <p>可以得出U盘设备名为sdb1  </p>
 <p>使用fdisk -l 同样可以查看U盘是否被识别。<br>
-<img alt="fdisk" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/2.png">  </p>
+<img alt="fdisk" src="/images/linux-note-mount-and-mount-ntfs-udisk/2.png">  </p>
 <p>接着创建挂载点：</p>
 <p><code>mkdir /mnt/usb</code></p>
 <p>然后挂载U盘： </p>
 <p><code>mount  /dev/sdb1 /mnt/usb</code></p>
-<p><img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/3.png">  </p>
+<p><img alt="mount" src="/images/linux-note-mount-and-mount-ntfs-udisk/3.png">  </p>
 <p>Linux系统不支持NTFS格式。此时需要使用插件ntfs-3g。</p>
 <p>官网：<a href="http://www.tuxera.com/community/open-source-ntfs-3g/">ntfs-3g</a></p>
-<p><img alt="ntfs-3g" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/4.png">  </p>
+<p><img alt="ntfs-3g" src="/images/linux-note-mount-and-mount-ntfs-udisk/4.png">  </p>
 <p>下载压缩包：</p>
 <div class="highlight"><pre><span></span>wget https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz
 </pre></div>
 
 
-<p><img alt="wget" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/5.png">  </p>
+<p><img alt="wget" src="/images/linux-note-mount-and-mount-ntfs-udisk/5.png">  </p>
 <p>解压压缩包</p>
 <div class="highlight"><pre><span></span>tar -zvxf ntfs-3g_ntfsprogs-2016.2.22.tgz
 </pre></div>
 
 
-<p><img alt="tar" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/6.png">  </p>
+<p><img alt="tar" src="/images/linux-note-mount-and-mount-ntfs-udisk/6.png">  </p>
 <p>转到ntfs-3g的目录下</p>
 <div class="highlight"><pre><span></span>cd ntfs-3g_ntfsprogs-2016.2.22
 </pre></div>
@@ -176,7 +180,7 @@
 </pre></div>
 
 
-<p><img alt="config" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/7.png">   </p>
+<p><img alt="config" src="/images/linux-note-mount-and-mount-ntfs-udisk/7.png">   </p>
 <p>开始编译</p>
 <div class="highlight"><pre><span></span>make &amp;&amp; make install
 </pre></div>
@@ -187,21 +191,21 @@
 </pre></div>
 
 
-<p><img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/8.png">  </p>
+<p><img alt="mount" src="/images/linux-note-mount-and-mount-ntfs-udisk/8.png">  </p>
 <p>查看U盘内容</p>
 <div class="highlight"><pre><span></span>cd /mnt/usb
 ls
 </pre></div>
 
 
-<p><img alt="ls" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/9.png">  </p>
+<p><img alt="ls" src="/images/linux-note-mount-and-mount-ntfs-udisk/9.png">  </p>
 <h5>卸载设备</h5>
 <p>umount 挂载目录</p>
 <div class="highlight"><pre><span></span>umount /mnt/usb
 </pre></div>
 
 
-<p><img alt="umount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/10.png">  </p>
+<p><img alt="umount" src="/images/linux-note-mount-and-mount-ntfs-udisk/10.png">  </p>
 <p><strong>Linux对文件系统的保护做的很到位，在光盘没有卸载之前，光驱上的弹出键不起任何作用。</strong></p>
   </div>
   
@@ -234,9 +238,9 @@ ls
 <div class="col-xs-6 col-md-12">
 <h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
 <ul class="list-unstyled category-links">
-  <li><a href="http://roses-echo.com/category/life.html" >
+  <li><a href="/category/life.html" >
     <i class="fa fa-folder-open fa-fw fa-lg"></i> Life</a></li>
-  <li><a href="http://roses-echo.com/category/technology.html" >
+  <li><a href="/category/technology.html" >
     <i class="fa fa-folder-open fa-fw fa-lg"></i> Technology</a></li>
 </ul>
 </div>
@@ -256,64 +260,70 @@ ls
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/runlevel.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
+      <a href="/tag/ntfs.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
       </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/tao-lu.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>套路
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+      <a href="/tag/an-quan-gou.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
       </a>
-      <a href="http://roses-echo.com/tag/ss.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>SS
+      <a href="/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
       </a>
-      <a href="http://roses-echo.com/tag/mount.html">
+      <a href="/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
+      </a>
+      <a href="/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
       </a>
+      <a href="/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="/tag/tao-lu.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>套路
+      </a>
+      <a href="/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
+      <a href="/tag/runlevel.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
+      </a>
+      <a href="/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="/tag/ss.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>SS
+      </a>
+      <a href="/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
 </p>
+<h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
+    <li><a href="/feeds/all.atom.xml" 
+		   type="application/atom+xml" rel="alternate">
+		<i class="fa fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
+</ul>
 
 <hr />
 

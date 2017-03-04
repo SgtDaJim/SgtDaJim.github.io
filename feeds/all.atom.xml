@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-03-01T01:24:29+08:00</updated><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="/articles/2017/3%E6%9C%88/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-03-01:/articles/2017/3月/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;在注册google账号时 …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;在注册google账号时，不少人会碰到，在给出合法，而且从来没注册过google账号的手机号码进行短信验证时，却提示“该号码无法用于进行验证”。&lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="validate" src="/images/solve-google-validation-phone-number-problem/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;嗨呀。。是不是很气。。&lt;/p&gt;
+&lt;p&gt;连新申请的阿里小号，都有这种提示，特别无语。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重点来了&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法：手机安装google服务框架，下载gmail(FQ什么的在大陆是肯定需要了)，在gmail里面申请google账号，这时填写在PC浏览器上用的手机号码，就不会提示无法验证了。。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>V2EX上关于如何优化CentOS服务器内存的讨论</title><link href="/articles/2017/2%E6%9C%88/26/v2ex-improve-centos-memory-discuss/" rel="alternate"></link><published>2017-02-26T20:38:58+08:00</published><updated>2017-02-26T20:38:58+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-26:/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/</id><summary type="html">&lt;p&gt;V站链接 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;V站链接：&lt;a href="http://cn.v2ex.com/t/343252"&gt;请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@hl&lt;/code&gt; 的回复  &lt;/p&gt;
+&lt;p&gt;Linux 内存不是用的越少越好， Centos7 版本以前，通常看到的内存 used 比较多是因为包含了 buffer 和 cache 占用 &lt;br&gt;
+Centos7 版本以后，内存 used 显示数值不包含 buffer 和 cache   &lt;/p&gt;
+&lt;p&gt;Linux 中内存不用白不用，会尽可能的 cache 和 buffer 一些数据，以方便下次使用。 
+但实际上这些内存大部分也是在应用需要的时候可以释放出来供应用使用。   &lt;/p&gt;
+&lt;p&gt;大部分人在对 linux 做内存优化，都是简单的关闭不使用的服务，调整自己应用的参数来减少内存的占用 
+因此我也仅通过最简单的方式来介绍下如何调整 &lt;/p&gt;
+&lt;h1&gt;关闭服务&lt;/h1&gt;
+&lt;p&gt;Centos7 版本以前可以通过 chkconfig --list 来查看服务列表 &lt;br&gt;
+找到当前 runlevel 下自启动的服务名&lt;br&gt;
+然后通过 chkconfig --level 3 service_name off 关闭指定 RUNLEVEL 下自启动服务 &lt;br&gt;
+重启后生效或者通过 /etc/init.d/servicce_name stop 的方式来实时生效。 &lt;/p&gt;
+&lt;p&gt;Centos7 以后的版本需要通过
+systemctl list-unit-files --type=service --state=enabled &lt;br&gt;
+查看自启动服务&lt;br&gt;
+通过 systemctl disable service_name 关闭启动 &lt;br&gt;
+通过 systemctl stop service_name 停止服务运行   &lt;/p&gt;
+&lt;h1&gt;调整应用参数&lt;/h1&gt;
+&lt;p&gt;这个部分需要了解自己启动的服务软件简单的工作原理和配置方法 
+VPS 中安装的 LNMP 环境主要包含三个套件： Nginx, MySQL, php &lt;/p&gt;
+&lt;h1&gt;Nginx&lt;/h1&gt;
+&lt;p&gt;工作进程数量直接决定了 Nginx 对内存的占用，平均一个工作进程占用 10~40m 不等 &lt;br&gt;
+可通过配置文件中 worker_processes 指定 &lt;/p&gt;
+&lt;h1&gt;MySQL&lt;/h1&gt;
+&lt;p&gt;MySQL 比较复杂，大致可以从全局共享内存使用和线程独享内存使用两个方向入手 &lt;/p&gt;
+&lt;p&gt;全局共享内存可理解为 MySQL 启动的时候就需要分配的全局内存使用 
+比较明显的是可以调整以下几个参数（但不完全就是以下几个）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;key_buffer_size 
+innodb_buffer_pool_size 
+innodb_additional_memory_pool_size 
+innodb_log_buffer_size 
+query_cache_size 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;线程独享内存使用可以理解为每个到 MySQL 的链接都会分配一部分内存 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;read_buffer_size 
+sort_buffer_size 
+read_rnd_buffer_size 
+tmp_table_size 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;除此之外 MySQL 还有灰常多的参数可以调整影响到内存的使用，可以参考官方文档了 &lt;/p&gt;
+&lt;p&gt;以上列出的参数，也并不是调整了就有效果，因为 MySQL 还有一个重要的东西就是存储引擎   &lt;br&gt;
+常用的比如 InnoDB ， MyISAM 很多参数都是针对存储引擎的，比如你只使用 InnoDB,却调整了 MyISAM 的参数，那也是没有效果的 &lt;/p&gt;
+&lt;h1&gt;php&lt;/h1&gt;
+&lt;p&gt;由于本人没有搞过 php 所以具体也不清楚详细的调整 &lt;br&gt;
+php 没有运行在 nginx 下的 module ，所以大部分通过 php-fpm 的方式启动 &lt;br&gt;
+php-fpm 提供 fastcgi 的协议访问， nginx 再通过 fastcgi 反代到 php-fpm   &lt;/p&gt;
+&lt;p&gt;所以这里的 php-fpm 也是一个多进程应用，也可以通过调整 php-fpm 的启动进程数量来达到控制内存占用的效果  &lt;/p&gt;
+&lt;p&gt;以上这些都是从简单的方面来优化的，但还是那句话，一切看你时机的使用情况，这些参数不是越低越好 &lt;br&gt;
+比如 nginx 只给 1 个进程，php-fpm 只给一个进程，在你狂刷浏览器时就会发现你经常会遇到 502，503 错误 &lt;/p&gt;
+&lt;p&gt;鉴于在题主是在放在 vps 中的小博客，实在不需要搞到太深度的调优。  如果想了解仍可去搜索一些相关的资料: &lt;br&gt;
+linux 内核参数调优 &lt;br&gt;
+linux io 队列调优 &lt;br&gt;
+nginx 如何通过编译安装精简模块 &lt;br&gt;
+php 编译安装 精简不必要模块 &lt;br&gt;
+mysql 编译安装精简存储引擎  &lt;/p&gt;</content><category term="V2EX"></category><category term="CentOS"></category><category term="内存优化"></category></entry><entry><title>2017-2-25有感</title><link href="/articles/2017/2%E6%9C%88/25/2017-2-25-thought/" rel="alternate"></link><published>2017-02-25T00:00:00+08:00</published><updated>2017-02-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-25:/articles/2017/2月/25/2017-2-25-thought/</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;“你是xxx …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;ul&gt;
+&lt;li&gt;“你是xxx（某歌星/影星/球星等）的粉丝吗？”&lt;/li&gt;
+&lt;li&gt;“是啊，我很喜欢他的（歌/电影）的啊。”&lt;/li&gt;
+&lt;li&gt;“听说的最近（出轨了/分手了/离婚了）啊！”&lt;/li&gt;
+&lt;li&gt;“哦，关我屁事。”&lt;/li&gt;
+&lt;/ul&gt;</content></entry><entry><title>2017-2-20凌晨</title><link href="/articles/2017/2%E6%9C%88/20/2017-2-20-midnight-thought/" rel="alternate"></link><published>2017-02-20T00:00:00+08:00</published><updated>2017-02-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-20:/articles/2017/2月/20/2017-2-20-midnight-thought/</id><summary type="html">&lt;p&gt;打游戏打到一点多 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;打游戏打到一点多&lt;br&gt;
+就上床玩手机&lt;br&gt;
+到两点&lt;br&gt;
+朋友突然问谁没睡&lt;br&gt;
+我打了个“？”&lt;br&gt;
+结果朋友说不舒服，想去医院&lt;br&gt;
+我直接说等我换衣服，到他宿舍门口叫他。&lt;br&gt;
+现在3点49分&lt;br&gt;
+期间陪朋友看医生，打点滴，帮他倒水，付费，拿药&lt;br&gt;
+现在坐在他床边等他打点滴&lt;br&gt;
+想了很多东西&lt;br&gt;
+我想起我寒假口角炎的时候一个人坐那打点滴&lt;br&gt;
+药水很冷，很痛&lt;br&gt;
+而且没法上厕所&lt;br&gt;
+难受的一比&lt;br&gt;
+我很庆幸我朋友有我这个朋友&lt;br&gt;
+倒不是说我吹我自己&lt;br&gt;
+可是没我，他一个人估计麻烦到头晕&lt;br&gt;
+我相信如果是我不舒服&lt;br&gt;
+他也会帮我&lt;br&gt;
+毕竟这就是朋友  &lt;/p&gt;</content></entry><entry><title>动手配置Shadowsocks服务器端+TCP BBR</title><link href="/articles/2017/2%E6%9C%88/19/install-ss-and-use-bbr-on-vps/" rel="alternate"></link><published>2017-02-19T00:00:00+08:00</published><updated>2017-02-19T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-19:/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/</id><summary type="html">&lt;p&gt;最近有人出一台kvm的主机 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。&lt;br&gt;
+搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  &lt;/p&gt;
+&lt;p&gt;主机系统：CentOS 7&lt;/p&gt;
+&lt;p&gt;用xshell连上了主机。&lt;br&gt;
+&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps1.png"&gt;  &lt;/p&gt;
+&lt;p&gt;Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。&lt;br&gt;
+在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。&lt;br&gt;
+而CentOS中是自带了Python的。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;可是并没有安装pip，所以要先安装pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可是，问题出现了。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps3.png"&gt;&lt;/p&gt;
+&lt;p&gt;No package。。
+谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="wiki" src="/images/install-ss-and-use-bbr-on-vps4.png"&gt;&lt;/p&gt;
+&lt;p&gt;那就安装吧。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install epel-release
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps5.png"&gt;&lt;/p&gt;
+&lt;p&gt;先来查找下pip的package的名称是什么。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum search pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps6.png"&gt;&lt;/p&gt;
+&lt;p&gt;因为系统中的python版本为2.x，那我就安装python2-pip。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install python2-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps7.png"&gt;&lt;/p&gt;
+&lt;p&gt;这下可以安装shadowsocks了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install shadowsocks
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps8.png"&gt;&lt;/p&gt;
+&lt;p&gt;安装完成。接下来配置shadowsocks。&lt;br&gt;
+shadowsocks有两种配置方法，一种是命令行配置，另一种是配置文件配置。&lt;br&gt;
+我使用了文件配置，个人感觉比较直观。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/shadowsocks/config.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
+  &amp;quot;server&amp;quot;:&amp;quot;x.x.x.x&amp;quot;, #vps的ip
+  &amp;quot;server_port&amp;quot;:2333, #服务器端口
+  &amp;quot;local_address&amp;quot;:&amp;quot;127.0.0.1&amp;quot;, #本地地址
+  &amp;quot;local_port&amp;quot;:1080,  #本地代理端口
+  &amp;quot;password&amp;quot;:&amp;quot;xxxxx&amp;quot;, #认证密码
+  &amp;quot;timeout&amp;quot;:5,        #超时时间，单位为秒
+  &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; #加密方式，推荐使用aes-256-cfb
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;写完保存。&lt;br&gt;
+然后执行命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssserver -c /etc/shadowsocks/config.json -d start
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;后台运行shadowsocks程序。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps9.png"&gt;&lt;/p&gt;
+&lt;p&gt;服务端配置完成。&lt;br&gt;
+客户端看看是否能连接。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="/images/install-ss-and-use-bbr-on-vps10.png"&gt;&lt;/p&gt;
+&lt;p&gt;谷歌打不开。。&lt;br&gt;
+看看日志怎么回事&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="/images/install-ss-and-use-bbr-on-vps11.png"&gt;&lt;/p&gt;
+&lt;p&gt;一堆timeout。。&lt;br&gt;
+配置过程应该是没问题的。。&lt;br&gt;
+想了想，好像是忘了在vps中开端口。。&lt;br&gt;
+试试把端口打开看看。&lt;br&gt;
+CentOS 7使用了firewalld防火墙。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;firewall-cmd --zone&lt;span class="o"&gt;=&lt;/span&gt;public --add-port&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2333&lt;/span&gt;/tcp --permanent
+firewall-cmd --zone&lt;span class="o"&gt;=&lt;/span&gt;public --add-port&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2333&lt;/span&gt;/udp --permanent
+firewall-cmd --complete-reload
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;全部success。&lt;br&gt;
+再次打开谷歌看看。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="explore" src="/images/install-ss-and-use-bbr-on-vps12.png"&gt;&lt;/p&gt;
+&lt;p&gt;成功。&lt;br&gt;
+shadowsocks算是配置完了。&lt;br&gt;
+看看在youtube上看视频速度如何。  &lt;/p&gt;
+&lt;p&gt;打开youtube速度还是很快的。&lt;br&gt;
+点一个Carpool Karaoke看看。&lt;br&gt;
+清晰度切换到720P  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="/images/install-ss-and-use-bbr-on-vps13.png"&gt;&lt;/p&gt;
+&lt;p&gt;看看统计信息。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="/images/install-ss-and-use-bbr-on-vps14.png"&gt;&lt;/p&gt;
+&lt;p&gt;这速度。。难受。。&lt;/p&gt;
+&lt;p&gt;最近BBR很火。&lt;br&gt;
+BBR是谷歌开发的TCP拥塞控制算法，目的就是要尽量跑满带宽，并且尽量不要有排队的情况。&lt;br&gt;
+最近这货已经被开源，提交到了Linux内核。现在更新到最新内核应该就能用上BBR。&lt;br&gt;
+那我也来试一试。&lt;br&gt;
+CentOS可以直接使用ELRepo Project上的最新内核。&lt;br&gt;
+CentOS 7执行命令：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+yum --enablerepo&lt;span class="o"&gt;=&lt;/span&gt;elrepo-kernel install kernel-ml -y
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps15.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps16.png"&gt;&lt;/p&gt;
+&lt;p&gt;新内核安装完成。&lt;br&gt;
+查查内核情况：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;egrep ^menuentry /etc/grub2.cfg &lt;span class="p"&gt;|&lt;/span&gt; cut -f &lt;span class="m"&gt;2&lt;/span&gt; -d &lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps17.png"&gt;&lt;/p&gt;
+&lt;p&gt;第一个就是最新的。&lt;br&gt;
+现在把引导文件中默认引导设为最新内核。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;grub2-set-default &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# 0就是第一个内核，刚才看到的第一个&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后reboot，重启。  &lt;/p&gt;
+&lt;p&gt;（新主机重启只要几十秒。。很恐怖）  &lt;/p&gt;
+&lt;p&gt;看看内核  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps18.png"&gt;&lt;/p&gt;
+&lt;p&gt;新内核美滋滋 ~&lt;/p&gt;
+&lt;p&gt;接着把BBR打开。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/sysctl.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在这个文件中加入两行：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;net.core.default_qdisc &lt;span class="o"&gt;=&lt;/span&gt; fq
+net.ipv4.tcp_congestion_control &lt;span class="o"&gt;=&lt;/span&gt; bbr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;保存退出。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps19.png"&gt;&lt;/p&gt;
+&lt;p&gt;然后&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sysctl -p
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps20.png"&gt;&lt;/p&gt;
+&lt;p&gt;现在BBR设置应该生效了。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep bbr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps21.png"&gt;&lt;/p&gt;
+&lt;p&gt;BBR正常启动了。&lt;br&gt;
+在用youtube测测速。。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="/images/install-ss-and-use-bbr-on-vps22.png"&gt;&lt;/p&gt;
+&lt;p&gt;好很多了。。。&lt;br&gt;
+这下看1080P就美滋滋了~  &lt;/p&gt;
+&lt;h4&gt;以上配置方法都是谷歌的，绝无半点抄袭之意，如有意见，请联系提出。&lt;/h4&gt;
+&lt;h4&gt;感谢谷歌，也感谢所有乐于分享的人。&lt;/h4&gt;</content><category term="VPS"></category><category term="Shadowsocks"></category><category term="SS"></category><category term="BBR"></category></entry><entry><title>推荐《吐槽大会》2017-02-12期</title><link href="/articles/2017/2%E6%9C%88/12/tui-jian-tu-cao-da-hui-2017-02-12qi/" rel="alternate"></link><published>2017-02-12T00:00:00+08:00</published><updated>2017-02-12T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-12:/articles/2017/2月/12/tui-jian-tu-cao-da-hui-2017-02-12qi/</id><summary type="html">&lt;p&gt;本期的吐槽对象是唐国强老师 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;本期的吐槽对象是唐国强老师&lt;br&gt;
+但这只是其中一个亮点&lt;br&gt;
+这期吐槽大会，估计是有稿子，但嘉宾不一定完全照搬稿子吐槽&lt;br&gt;
+李艾，王刚，唐国强的台词都有明显的锋利度，在突出一些事情&lt;br&gt;
+特别是唐国强&lt;br&gt;
+他的吐槽，并不是吐槽，而是在演讲，在阐述一些道理&lt;br&gt;
+虽然这有违“吐槽”二字，但却让我丝毫没有不舒适感&lt;br&gt;
+反而十分享受他的演讲&lt;br&gt;
+另外&lt;br&gt;
+王刚和唐国强真的是德高望重的老艺术家&lt;br&gt;
+举手投足都是戏&lt;br&gt;
+流露出了无穷无尽的演员经验和良好的职业素养&lt;br&gt;
+也许&lt;br&gt;
+这就是真正的人生如戏吧  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="唐国强图片1" src="/images/唐国强图片1.png"&gt;&lt;br&gt;
+&lt;img alt="唐国强图片2" src="/images/唐国强图片2.png"&gt;&lt;br&gt;
+&lt;img alt="王刚图片1" src="/images/王刚图片1.png"&gt;  &lt;/p&gt;</content></entry><entry><title>Linux学习笔记 - Linux运行机制与systemd的使用</title><link href="/articles/2017/1%E6%9C%88/26/linux-note-linux-operation-mechanism-and-using-systemd/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-26:/articles/2017/1月/26/linux-note-linux-operation-mechanism-and-using-systemd/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;文章相关资料链接：&lt;/em&gt;&lt;br&gt;
+&lt;a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init1/"&gt;浅析 Linux 初始化 init 系统，第 1 部分: sysvinit&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init2/"&gt;浅析 Linux 初始化 init 系统，第 2 部分: UpStart&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init3/"&gt;浅析 Linux 初始化 init 系统，第 3 部分: Systemd&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;init系统&lt;/h3&gt;
+&lt;p&gt;Linux系统启动过程：&lt;br&gt;
+BIOS -&amp;gt; Linux引导程序将内核映像加载到内存，进行内核初始化 -&amp;gt; 启动PID为1的init进程&lt;br&gt;
+&lt;code&gt;init进程&lt;/code&gt;是系统的&lt;strong&gt;第一个进程&lt;/strong&gt;，负责产生其他所有的用户进程。&lt;br&gt;
+但仅仅将内核运行起来是毫无用途的，因此就需要一个系统能够定义、管理和控制init进程的行为，并且负责组织和运行许多独立的或相关的初始化工作，从而让系统进入一个用户设定的运行模式中，这个系统就是init系统。&lt;/p&gt;
+&lt;p&gt;最早、最流行的init系统：sysvinit。RHEL 7.x/CentOS 7.x发行版本之前的系统中都采用sysvinit。&lt;br&gt;
+优点：概念简单清晰，主要依赖于Shell脚本。&lt;br&gt;
+缺点：一次一个串行地启动进程导致最大弱点：启动太慢。&lt;/p&gt;
+&lt;p&gt;然后开发者进行改进，先后出现upstart和systemd这两个主要的新一代init系统。&lt;br&gt;
+以Ubuntu为代表的Linux发行版使用upstart。&lt;br&gt;
+RHEL 7.x/CentOS 7.x默认开始使用systemd。&lt;br&gt;
+upstart出现很早，systemd出现较晚，但发展更快，大有取代upstart的趋势。&lt;/p&gt;
+&lt;h3&gt;sysvinit的runlevel和systemd的target&lt;/h3&gt;
+&lt;p&gt;sysvinit用术语“runlevel”来定义系统运行级别。&lt;br&gt;
+通常有7种运行级别，在/etc/inittab文件中指定。&lt;br&gt;
+sysvinit通过检查/etc/inittab中是否含有“initdefault”项来启动一个默认的运行级别。
+每个Linux发行版对运行级别的定义都不太一样。但0、1、6三个级别获得了共识：   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0 表示关机模式  &lt;/li&gt;
+&lt;li&gt;1 表示单用户模式，单用户模式下只有系统管理员可以登录  &lt;/li&gt;
+&lt;li&gt;6 表示重启模式，也就是关闭所有运行的进程，然后重新启动系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外4个在RHEL/CentOS发行版定义的含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2 表示多用户模式，不支持文件共享，例如不支持NFS服务。这种模式&lt;strong&gt;不常用&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;3 表示完全的多用户模式，支持NFS服务。这是&lt;strong&gt;最常用&lt;/strong&gt;的用户模式，默认登录到系统的&lt;em&gt;字符界面&lt;/em&gt;。&lt;/li&gt;
+&lt;li&gt;4 表示基本不用的用户模式，可以实现某些特定的登录请求。&lt;/li&gt;
+&lt;li&gt;5 表示完全多用户模式，默认登录到X-Window系统，也就是图形界面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;运行级别与init程序对应。init 1命令进入单用户模式，init 6命令进行重新启动。  &lt;/p&gt;
+&lt;p&gt;在RHEL 7.x/CentOS 7.x版本中，采用systemd管理体系，runlevel被target取代，/etc/inittab也不再使用。&lt;br&gt;
+systemd中，默认target（相当于以前的默认运行级别）通过软链接来实现。&lt;/p&gt;
+&lt;p&gt;查看运行级别与target的对应关系&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ll /lib/systemd/system/runlevel*.target
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="target" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/1.png"&gt;    &lt;/p&gt;
+&lt;p&gt;查看默认target&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ll /etc/systemd/system/default.target
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="target" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;将默认target修改为multi-user.target&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm -rf /etc/systemd/system/default.target
+ln -sf /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="target" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/3.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在将默认target改为reboot.target后，重启系统后将会无限重启！&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;可以通过修改启动脚本，更改启动级别为1，将默认target修改回来。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;系统关机过程&lt;/h3&gt;
+&lt;p&gt;常用关机命令：init、shutdown、halt、reboot&lt;/p&gt;
+&lt;h4&gt;shutdown&lt;/h4&gt;
+&lt;p&gt;可以安全关闭Linux系统，必须由超级用户执行。&lt;br&gt;
+shutdown命令执行后，会以广播的形式通知正在系统中工作的所有用户，系统将在指定时间内关闭，请保存文件，停止作业，注销用户。此时login指令被冻结，新的用户不能登录。当所有用户从系统中注销或指定时间已到，shutdown就发送信号给init程序，要求init修改系统运行级别。如果shutdown指定参数是关机命令，那么执行init 0；如果shutdown指定重启，那么执行init 6。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;man shutdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="man" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/4.png"&gt;&lt;/p&gt;
+&lt;h4&gt;halt&lt;/h4&gt;
+&lt;p&gt;最简单的关机命令，相当于shutdown -h。执行halt时，将终止所有应用程序，然后调用系统指令sync。&lt;br&gt;
+sync将所有内存信息通过文件系统写入硬盘，然后停止内核。&lt;br&gt;
+halt执行时，会先检测系统的运行级别。如果为0或者6，则立即关闭系统，否则调用shutdown来关闭系统。&lt;/p&gt;
+&lt;h4&gt;reboot&lt;/h4&gt;
+&lt;p&gt;执行过程与halt基本类似。不同的是reboot用于重启。&lt;/p&gt;
+&lt;h4&gt;init&lt;/h4&gt;
+&lt;p&gt;切换运行级别。0为关机，6为重启。&lt;/p&gt;
+&lt;h3&gt;系统服务管理工具systemd&lt;/h3&gt;
+&lt;p&gt;使用sysvinit和upstart的系统版本中，使用&lt;code&gt;/etc/rc.d/init.d/&lt;/code&gt;目录中的bash初始化脚本管理服务。&lt;br&gt;
+7.x中，启动脚本被&lt;em&gt;服务单元&lt;/em&gt;取代。服务单元以&lt;code&gt;“.service”&lt;/code&gt;结尾。  &lt;/p&gt;
+&lt;p&gt;systemd在系统中是一个用户级的应用程序，配置文件在&lt;code&gt;/etc/systemd/&lt;/code&gt;下，配置工具命令位于&lt;code&gt;/bin&lt;/code&gt;、&lt;code&gt;/sbin&lt;/code&gt;，备份配置文件位于&lt;code&gt;/lib/systemd&lt;/code&gt;。可以通过&lt;code&gt;rpm -ql systemd&lt;/code&gt;查看所有文件的安装路径。&lt;/p&gt;
+&lt;p&gt;systemd提供了一个非常强大的命令行工具systemctl，可以看作是service和chkconfig的组合体。&lt;br&gt;
+查看、启动、停止、重启、启用或者禁用系统服务，都可以通过systemctl来实现。&lt;br&gt;
+为了向后兼容，旧的service命令在CentOS 7.x中&lt;strong&gt;仍然可用&lt;/strong&gt;，不过会&lt;strong&gt;重定向&lt;/strong&gt;所有命令到systemctl工具。&lt;/p&gt;
+&lt;p&gt;以http服务为例：&lt;br&gt;
+启动服务&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl start httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;停止服务&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl stop httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重启服务（若服务正在运行，则重启；若服务停止，则启动）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl restart httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重启服务（若服务运行，则重启；停止，则无动作）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl try-start httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重新加载配置文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl reload httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;设置开机启动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl enable httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;取消开机启动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl disable httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查看服务运行状态&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl status httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="status" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/5.png"&gt;
+查看http服务是否设置开机启动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl is-enabled httpd.service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="status" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;查看各个运行级别下所有服务的启用和禁用情况&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl list-unit-files --type=service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="status" src="/images/linux-note-linux-operation-mechanism-and-using-systemd/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;用systemctl管理电源：&lt;br&gt;
+关机&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl poweroff
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;重启&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl reboot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;待机&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl suspend
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;休眠&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl hibernate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;混合休眠&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl hybrid-sleep
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="runlevel"></category></entry><entry><title>Linux学习笔记 - Shell简介</title><link href="/articles/2017/1%E6%9C%88/26/linux-note-shell-intro/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-26:/articles/2017/1月/26/linux-note-shell-intro/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;shell是围绕在Linux之外的一个“壳”程序，用户在操作系统上完成的所有任务都是通过shell和Linux系统内核的交互来实现的。&lt;br&gt;
+Linux下的shell有Bourne again shell (bash)[缺省] 、C shell (csh)、Korn shell (ksh)、Bourne shell (sh)和Tenex C shell (tcsh)等。  &lt;/p&gt;
+&lt;p&gt;现在的Linux发行版一般都以&lt;strong&gt;bash&lt;/strong&gt;作为默认shell。&lt;/p&gt;
+&lt;p&gt;shell本身是一个以C语言编写的程序，是&lt;strong&gt;用户和操作系统内核之间通信的桥梁&lt;/strong&gt;。shell既是一种命令解释程序，又是一种功能强大的解释型程序设计语言。作为命令解释程序，shell解释用户输入的命令，然后提交到内核处理，最后把结果返回给用户。&lt;/p&gt;
+&lt;p&gt;为了加快命令的运行，同时更有效的定制shell程序，shell中定义了一些内置命令。&lt;br&gt;
+当用户登录系统后，shell以及内置命令就被系统载入到内存，并且一直运行，直到用户退出系统为止。&lt;br&gt;
+其他可执行文件与shell内置命令不同，当它们被调用时，才会被系统装入内存执行。  &lt;/p&gt;
+&lt;p&gt;字符界面中，“#”表示登录的是系统超级用户，“*”表示登录到系统的是普通用户。&lt;/p&gt;
+&lt;p&gt;shell执行命令解释过程：  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/1.png"&gt;&lt;/p&gt;
+&lt;h3&gt;shell命令的语法分析&lt;/h3&gt;
+&lt;p&gt;对于一些普通的命令，各个shell版本的语法基本相同，只有在编写一个shell脚本或者使用一些shell高级特性的时候，各个版本的shell的差异才会显示出来。&lt;/p&gt;
+&lt;p&gt;shell语法分析：shell对命令的扫描处理过程。&lt;br&gt;
+包括：重定向、文件名扩展和管道等。&lt;/p&gt;
+&lt;p&gt;以bash为例 &lt;/p&gt;
+&lt;p&gt;命令行格式  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;command [options] [arguments]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;command  命令名称&lt;/li&gt;
+&lt;li&gt;options      命令选项&lt;/li&gt;
+&lt;li&gt;arguments 命令参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在选项前一般有“-”符号，用于区别参数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm -rf /*
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;选项可以分开列，也可以单独列。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm -r -f /*
+或
+rm -rf /*
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;有些命令不需要参数。若参数不够，则出现错误提示。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;同一行可以多个命令，用“;”分开。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;一个命令可以分行输入，用“\”分行。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;通配符（可以组合使用）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;“*” 匹配任意一个或多个字符&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“?” 匹配任意单一字符&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“[]” 匹配方括号内所有的单个字符&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;shell的重定向&lt;/h3&gt;
+&lt;p&gt;Linux下系统打开3个文件，即标准输入、标准输出和标准错误输出。
+用户的shell将键盘设为默认的标准输入，默认的标准输出和标准错误输出为屏幕。&lt;/p&gt;
+&lt;h4&gt;输入重定向&lt;/h4&gt;
+&lt;p&gt;改变命令的输入源。利用输入重定向，可以将一个文件的内容作为命令的输入，而不从键盘输入。&lt;br&gt;
+操作符：&lt;code&gt;'&amp;lt;'  '&amp;lt;&amp;lt;'&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;输出重定向&lt;/h4&gt;
+&lt;p&gt;将输出结果输出到一个指定文件中，而不是在屏幕。&lt;br&gt;
+操作符：&lt;code&gt;'&amp;gt;'  '&amp;gt;&amp;gt;'&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;错误重定向&lt;/h4&gt;
+&lt;p&gt;与输出重定向类似。&lt;br&gt;
+操作符：&lt;code&gt;'2&amp;gt;'  '2&amp;gt;&amp;gt;'&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;shell的管道&lt;/h3&gt;
+&lt;p&gt;管道可以把很多命令连接起来，可以把第一个命令的输入当作第二个命令的输出，第二个命令的输出当作第三个命令的输入，依此类推。&lt;br&gt;
+管道符：&lt;code&gt;'|'&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看系统中正在运行的httpd进程。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ps -ef | grep httpd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/5.png"&gt;&lt;/p&gt;
+&lt;h3&gt;shell中的引用&lt;/h3&gt;
+&lt;p&gt;引用即为通知shell将一些有特殊含义的字符当作普通字符处理。&lt;br&gt;
+转义字符&lt;code&gt;\&lt;/code&gt;，单引号&lt;code&gt;''&lt;/code&gt;，双引号&lt;code&gt;""&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将文件“abc*?”重命名为“abc”&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv abc\?\* abc
+或
+mv &amp;#39;abc?*&amp;#39; abc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;双引号用法与单引号基本相同，但某些特殊字符在&lt;strong&gt;双引号&lt;/strong&gt;中依然&lt;strong&gt;起作用&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;从图得知，&lt;code&gt;"$"&lt;/code&gt;,&lt;code&gt;"\"&lt;/code&gt; ,&lt;code&gt;"`"&lt;/code&gt; 在双引号中依然起作用。&lt;/p&gt;
+&lt;p&gt;使用tab键可以自动补全。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-shell-intro/7.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="shell"></category></entry><entry><title>Linux学习笔记 - Linux外在设备的使用</title><link href="/articles/2017/1%E6%9C%88/25/linux-note-external-equipment/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:/articles/2017/1月/25/linux-note-external-equipment/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在Linux系统下，设备都以文件的形式存在，因而不同硬件设备有不同的文件类型。&lt;br&gt;
+硬件与系统下相对应的文件称作设备文件。&lt;br&gt;
+设备文件在外部设备与操作系统之间提供了一个接口，这样，用户使用外在设备就相当于使用普通文件一样。&lt;br&gt;
+设备文件存放在/dev下。  &lt;/p&gt;
+&lt;p&gt;软盘（floppydisk）：/dev/fdx（x为编号）&lt;br&gt;
+U盘（被识别为SCSI设备）：/dev/sdax（a为第一块SCSI设备，或者为b、c……；x为编号）&lt;br&gt;
+IDE光驱：/dev/had&lt;br&gt;
+SCSI光驱：/dev/srx（x为编号）&lt;br&gt;
+/dev/cdrom：一些发行版上有，是一个指向光驱的符号链接&lt;br&gt;
+SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
+&lt;p&gt;常见文件类型&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th align="left"&gt;解释&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;msdos&lt;/td&gt;
+&lt;td align="left"&gt;DOS文件系统类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;vfat&lt;/td&gt;
+&lt;td align="left"&gt;支持长文件名的DOS分区文件系统类型，也可以理解为Windows文件系统类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iso9660&lt;/td&gt;
+&lt;td align="left"&gt;光盘格式文件系统类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ext2/ext3/ext4&lt;/td&gt;
+&lt;td align="left"&gt;Linux下的主流文件系统类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xfs&lt;/td&gt;
+&lt;td align="left"&gt;Linux下一中高性能的日志文件系统，在CentOS7.x版本中成为默认文件系统&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux文件系统结构</title><link href="/articles/2017/1%E6%9C%88/25/linux-note-file-system-structure/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:/articles/2017/1月/25/linux-note-file-system-structure/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt; &lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;目录结构&lt;/h3&gt;
+&lt;p&gt;Linux系统以树形结构统一管理和组织文件。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="structure" src="/images/linux-note-file-system-structure/1.png"&gt;  &lt;/p&gt;
+&lt;h3&gt;目录功能介绍&lt;/h3&gt;
+&lt;p&gt;很多Linux发行版目录结构布局都遵循FSSTND标准。这一标准的特点是根目录非常简洁，只包含系统最基本的文件。  &lt;/p&gt;
+&lt;h4&gt;/etc目录&lt;/h4&gt;
+&lt;p&gt;主要用于存放系统管理相关的配置文件以及子目录，其中比较重要的有系统初始化文件/etc/rc、用户信息文件/etc/passwd等，相关网络配置文件和服务启动文件也在这个目录下。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件名和目录&lt;/th&gt;
+&lt;th&gt;主要作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;passwd&lt;/td&gt;
+&lt;td&gt;用户库文件、每个用户的用户名、UID、GID和工作目录等。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;shadow&lt;/td&gt;
+&lt;td&gt;存放用户密码的文件，密码被加密储存&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group&lt;/td&gt;
+&lt;td&gt;主要存储用户组信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fstab&lt;/td&gt;
+&lt;td&gt;系统开机启动自动挂载分区列表，需要设置开机自动挂载的分区，都可以在此文件加入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;systemd&lt;/td&gt;
+&lt;td&gt;systemd的配置文件目录，是CentOS 7.x版本之后新增目录，此目录是Linux启动的重要部分，用来完成对整个系统的基本初始化设置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hosts&lt;/td&gt;
+&lt;td&gt;IP与名字对应表，与Windows下的hosts文件类似&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resolv.conf&lt;/td&gt;
+&lt;td&gt;DNS配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;systemd/system/*.wants&lt;/td&gt;
+&lt;td&gt;包含所有服务启动脚本，开机时自动启动这些服务，CentOS 7.x版本呢之后新增目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sysconfig/network-scripts/ifcfg-eth0&lt;/td&gt;
+&lt;td&gt;IP地址配置文件，CentOS 7.x之后网卡名从类似eth0,eth1变为enp0s3,enp0s4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;X11&lt;/td&gt;
+&lt;td&gt;X-Window的配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rsyslog.conf&lt;/td&gt;
+&lt;td&gt;系统日志输出配置文件，CentOS 5.x之前版本中对应为syslog.conf，6.x版本以后为rsyslog.conf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;crontab&lt;/td&gt;
+&lt;td&gt;系统级别的守护进程配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sysctl.conf&lt;/td&gt;
+&lt;td&gt;系统内核参数配置文件。在CentOS 7.x版本之后，内核参数配置文件转移到了/usr/lib/sysctl.d目录下，但sysctl.conf仍有效，并且可覆盖/usr/lib/sysctl.d中的配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;services&lt;/td&gt;
+&lt;td&gt;定义系统服务与端口的对应关系&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;profile&lt;/td&gt;
+&lt;td&gt;系统全局环境变量配置文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;/usr目录&lt;/h4&gt;
+&lt;p&gt;主要存放应用程序和文件。软件包默认安装到此目录，所以一般比较大。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件或目录&lt;/th&gt;
+&lt;th&gt;主要作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;lib64以及local/lib64&lt;/td&gt;
+&lt;td&gt;64位操作系统中的函数库目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;src&lt;/td&gt;
+&lt;td&gt;包含所有程序的源代码，其中主要是Linux核心程序源代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;local&lt;/td&gt;
+&lt;td&gt;存放本地安装的软件和其他文件，与Linux无关&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bin以及/local/bin&lt;/td&gt;
+&lt;td&gt;使用者可执行的二进制文件目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lib以及local/lib&lt;/td&gt;
+&lt;td&gt;32位操作系统使用的函数库目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sbin以及local/bin&lt;/td&gt;
+&lt;td&gt;存放系统管理员才能执行的指令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;include&lt;/td&gt;
+&lt;td&gt;包含C语言的头文件，文件扩展名大多是.h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;share&lt;/td&gt;
+&lt;td&gt;存放共享的文件和数据库&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;/var目录&lt;/h4&gt;
+&lt;p&gt;主要存放系统运行以及软件运行的日志信息。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件或目录&lt;/th&gt;
+&lt;th&gt;主要作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;log&lt;/td&gt;
+&lt;td&gt;存放各种应用程序的日志文件，这里的文件是经常变动的，因此需要定期清理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lib&lt;/td&gt;
+&lt;td&gt;存放系统正常运行时需要改变的库文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;spool&lt;/td&gt;
+&lt;td&gt;mail、new、打印机队列和其他队列输入、输出的缓冲目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tmp&lt;/td&gt;
+&lt;td&gt;允许比/tmp存放更大的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lock&lt;/td&gt;
+&lt;td&gt;存放被锁定的文件，很多程序都会在/var/lock产生一个锁文件，以保证其他程序不能同时使用这个设备或文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;local&lt;/td&gt;
+&lt;td&gt;存放/usr/local中所安装程序的可变数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;account&lt;/td&gt;
+&lt;td&gt;存放已经格式化的man页&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;run&lt;/td&gt;
+&lt;td&gt;包含到下次系统启动前的系统信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;/dev目录&lt;/h4&gt;
+&lt;p&gt;包含系统所有的设备文件。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;设备名&lt;/th&gt;
+&lt;th&gt;具体含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;fd*&lt;/td&gt;
+&lt;td&gt;软盘设备，fd0为第一个，fd1为第二个，依此类推&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;audio*&lt;/td&gt;
+&lt;td&gt;声卡设备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hd*&lt;/td&gt;
+&lt;td&gt;IDE硬盘设备，hda代表第一个IDE硬盘，hdb代表第二个，依此类推&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sd*&lt;/td&gt;
+&lt;td&gt;SCSI设备，sda代表第一个SCSI硬盘，sdb代表第二个，依此类推&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lp*&lt;/td&gt;
+&lt;td&gt;并行串口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pty*&lt;/td&gt;
+&lt;td&gt;网络中登录的远程终端设备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ram*&lt;/td&gt;
+&lt;td&gt;系统内存&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tty*&lt;/td&gt;
+&lt;td&gt;Linux上的虚拟控制台，也叫字符控制台。tty1代表第一个，tty2代表第二个，依此类推。Linux上一共有6个虚拟控制台。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ttyS*&lt;/td&gt;
+&lt;td&gt;串行端口。ttys0代表串行端口1，ttys2代表串行端口2，类似于Windows下的COM1，COM2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;console&lt;/td&gt;
+&lt;td&gt;系统控制台，可以直接连接到显示器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;输出空设备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;/proc目录&lt;/h4&gt;
+&lt;p&gt;一个虚拟目录，目录中所信息都是内存的映射，通过这个虚拟的内存映射目录，可以和内核内部数据进行交互，获取有关进程的有用信息，同时也可以在系统运行中修改内核参数。与其他目录不用，/proc存在于内存中，而不是硬盘上。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件或目录&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cpuinfo&lt;/td&gt;
+&lt;td&gt;关于系统CPU的详细信息，包括CPU名称、型号和类型等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meninfo&lt;/td&gt;
+&lt;td&gt;内存信息，包括物理内存和虚拟内存&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;filesystems&lt;/td&gt;
+&lt;td&gt;当前系统支持的文件系统类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;devices&lt;/td&gt;
+&lt;td&gt;内核中设备驱动程序列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;net&lt;/td&gt;
+&lt;td&gt;网络使用协议以及状态信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dma&lt;/td&gt;
+&lt;td&gt;当前使用的dma通道&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ioports&lt;/td&gt;
+&lt;td&gt;当前使用的I/O端口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;modules                                 当前系统系统加载的内核模块信息&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;stat&lt;/td&gt;
+&lt;td&gt;系统的各种状态信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uptime&lt;/td&gt;
+&lt;td&gt;系统总的启动时间和空闲时间，以秒为单位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;version&lt;/td&gt;
+&lt;td&gt;内核版本信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loadavg&lt;/td&gt;
+&lt;td&gt;系统平均负载&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kcore&lt;/td&gt;
+&lt;td&gt;系统物理内存的映像，与物理内存大小完全一样，但实际不占用这么大的空间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kmsg&lt;/td&gt;
+&lt;td&gt;内核输出信息，同时被输出到rsyslog&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4&gt;其他目录&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;目录&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;/boot&lt;/td&gt;
+&lt;td&gt;启动Linux时的一些核心文件，具体包含一些镜像文件和链接文件，因此这个目录非常重要，如果遭到破坏，系统将无法启动。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/bin&lt;/td&gt;
+&lt;td&gt;用户可以执行的二进制文件。（普通命令）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/sbin&lt;/td&gt;
+&lt;td&gt;root用户才能执行的二进制文件。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/home&lt;/td&gt;
+&lt;td&gt;每个用户的工作目录。如A用户的默认工作目录为/home/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/lib&lt;/td&gt;
+&lt;td&gt;共享程序库和映像文件，可供很多程序使用。通过这些共享映射文件，每个程序就不必分别保存自己的库文件（这会增加占用的磁盘空间），Linux提供了一组可供所有程序使用的文件。在该目录中，还包含引导进程所需的静态库文件。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/root&lt;/td&gt;
+&lt;td&gt;Linux超级用户root的默认主目录。如果通过root登录系统，就会自动进入此目录，一般用户没有进入这个目录的权限。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/run&lt;/td&gt;
+&lt;td&gt;外在设备的自动挂载点目录，出现在CentOS 7.x版本中，用来自动挂载光驱和U盘。另外还有/media目录，与/run作用基本类似，在7.x之前版本中使用。还有一个/mnt用来手动挂载一些移动设备，比如可移动磁盘等。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/lost+found&lt;/td&gt;
+&lt;td&gt;用于保存丢失的文件。不恰当的关机操作和磁盘错误均会导致文件丢失。这些会丢失的文件会临时放在/lost+found下，系统重启后，引导进程会运行fsck程序，该程序就能发现这些文件。除了“/”分区上的这个目录外，在每个分区上均有一个lost+found目录。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/tmp&lt;/td&gt;
+&lt;td&gt;临时文件目录。里面的文件可以随时删除。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux硬件资源管理</title><link href="/articles/2017/1%E6%9C%88/25/linux-note-hardware-managing/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:/articles/2017/1月/25/linux-note-hardware-managing/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;列出所有的PCI设备  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lspci
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/1.png"&gt;&lt;br&gt;
+&lt;img alt="lspci" src="/images/linux-note-hardware-managing/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;查看cpu信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;more /proc/cpuinfo
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/3.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;processor -- 逻辑处理器的唯一标识符&lt;/li&gt;
+&lt;li&gt;vendor-id -- 处理器类型&lt;/li&gt;
+&lt;li&gt;physical id -- 每个物理封装的唯一标识符&lt;/li&gt;
+&lt;li&gt;siblings -- 位于相同物理封装中的逻辑处理器的数量&lt;/li&gt;
+&lt;li&gt;core id  -- 每个内核的唯一标识符&lt;/li&gt;
+&lt;li&gt;cpu cores -- 位于相同物理封装中的内核数量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;若siblings是cpu cores的两倍，则说明系统支持超线程，而且超线程已打开；如果siblings和cpu cores一致，则说明系统不支持超线程，或者超线程未打开。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;查看系统物理CPU的个数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat /proc/cpuinfo | grep &amp;quot;physical id&amp;quot; | sort | uniq | wc -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/4.png"&gt;  &lt;/p&gt;
+&lt;p&gt;查看每个物理CPU中内核的个数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat /proc/cpuinfo | grep &amp;quot;cpu cores&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;查看系统所有逻辑CPU个数（所有物理CPU中内核的个数加上超线程个数）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat /proc/cpuinfo | grep &amp;quot;processor&amp;quot; | wc -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;可以得出：有2个物理CPU，每个CPU1个内核，没启用超线程，总共2个逻辑CPU。  &lt;/p&gt;
+&lt;p&gt;查看内存信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;more /proc/meminfo
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;查看磁盘分区信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fdisk -l
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="lspci" src="/images/linux-note-hardware-managing/8.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Hardware"></category></entry><entry><title>Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载</title><link href="/articles/2017/1%E6%9C%88/25/linux-note-mount-and-mount-ntfs-udisk/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Linux系统中，使用mount命令进行设备的挂载使用。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mount -t 文件系统类型设备名挂载点
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;/mnt目录专门用作临时挂载点&lt;br&gt;
+在&lt;strong&gt;&lt;em&gt;*CentOS 7.x&lt;/em&gt;&lt;/strong&gt;*中，出现了一个/run自动挂在目录，所有移动设备会自动挂在到这个目录下  &lt;/p&gt;
+&lt;p&gt;挂载软盘&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mount -t msdos/dev/fd0 /mnt/floppy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;访问/mnt/floppy即可找到软盘内容。&lt;/p&gt;
+&lt;h5&gt;U盘的挂载&lt;/h5&gt;
+&lt;p&gt;插入U盘后，可以先使用&lt;code&gt;dmesg&lt;/code&gt;命令确定U盘的设备名。&lt;br&gt;
+&lt;img alt="dmesg" src="/images/linux-note-mount-and-mount-ntfs-udisk/1.png"&gt;  &lt;/p&gt;
+&lt;p&gt;可以得出U盘设备名为sdb1  &lt;/p&gt;
+&lt;p&gt;使用fdisk -l 同样可以查看U盘是否被识别。&lt;br&gt;
+&lt;img alt="fdisk" src="/images/linux-note-mount-and-mount-ntfs-udisk/2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;接着创建挂载点：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mkdir /mnt/usb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后挂载U盘： &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mount  /dev/sdb1 /mnt/usb&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mount" src="/images/linux-note-mount-and-mount-ntfs-udisk/3.png"&gt;  &lt;/p&gt;
+&lt;p&gt;Linux系统不支持NTFS格式。此时需要使用插件ntfs-3g。&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href="http://www.tuxera.com/community/open-source-ntfs-3g/"&gt;ntfs-3g&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ntfs-3g" src="/images/linux-note-mount-and-mount-ntfs-udisk/4.png"&gt;  &lt;/p&gt;
+&lt;p&gt;下载压缩包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="wget" src="/images/linux-note-mount-and-mount-ntfs-udisk/5.png"&gt;  &lt;/p&gt;
+&lt;p&gt;解压压缩包&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -zvxf ntfs-3g_ntfsprogs-2016.2.22.tgz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="tar" src="/images/linux-note-mount-and-mount-ntfs-udisk/6.png"&gt;  &lt;/p&gt;
+&lt;p&gt;转到ntfs-3g的目录下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ntfs-3g_ntfsprogs-2016.2.22
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在/usr/local/下创建文件夹ntfs-3g，用于编译安装&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir /usr/local/ntfs-3g
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编译安装ntfs-3g，指定安装目录/usr/local/ntfs-3g&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./configure --prefix=/usr/local/ntfs-3g
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="config" src="/images/linux-note-mount-and-mount-ntfs-udisk/7.png"&gt;   &lt;/p&gt;
+&lt;p&gt;开始编译&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make &amp;amp;&amp;amp; make install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编译成功后，就可以挂在NTFS格式的U盘了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mount -t ntfs-3g /dev/sdb1 /mnt/usb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="mount" src="/images/linux-note-mount-and-mount-ntfs-udisk/8.png"&gt;  &lt;/p&gt;
+&lt;p&gt;查看U盘内容&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /mnt/usb
+ls
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="ls" src="/images/linux-note-mount-and-mount-ntfs-udisk/9.png"&gt;  &lt;/p&gt;
+&lt;h5&gt;卸载设备&lt;/h5&gt;
+&lt;p&gt;umount 挂载目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;umount /mnt/usb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="umount" src="/images/linux-note-mount-and-mount-ntfs-udisk/10.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linux对文件系统的保护做的很到位，在光盘没有卸载之前，光驱上的弹出键不起任何作用。&lt;/strong&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="NTFS"></category><category term="mount"></category></entry><entry><title>Linux系统的安装与基础配置</title><link href="/articles/2017/1%E6%9C%88/23/linux-note-os-install-and-basic-config/" rel="alternate"></link><published>2017-01-23T00:00:00+08:00</published><updated>2017-01-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-23:/articles/2017/1月/23/linux-note-os-install-and-basic-config/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;安装方式&lt;/h3&gt;
+&lt;p&gt;Linux的安装方式分为硬盘安装、U盘安装、网络安装和光驱安装。&lt;br&gt;
+可以使用Kickstart工具进行无人值守的Linux系统自动安装。&lt;/p&gt;
+&lt;h3&gt;分区命名方案&lt;/h3&gt;
+&lt;p&gt;/dev/hda2&lt;br&gt;
+/dev/sdb3&lt;br&gt;
+/dev ：所有设备文件的存放目录&lt;br&gt;
+hd和sd：分区的前两个字母，代表该分区所在的设备类型。hd代表IDE硬盘，sd代表SCSI硬盘。&lt;br&gt;
+a：分区命名的第三个字母，表示分区在哪个设备上。/dev/hda 代表第1块IDE硬盘，/dev/sdb代表第2块SCSI硬盘。&lt;br&gt;
+2：数字代表分区。Linux下前4个分区（主分区或扩展分区）用数字1~4表示，逻辑分区从5开始。/dev/sdb3代表第2块SCSI硬盘的第3个主分区或扩展分区。/dev/sdc6代表第3块SCSI硬盘的第2个逻辑分区。  &lt;/p&gt;
+&lt;h3&gt;Windows+Linux双系统注意事项&lt;/h3&gt;
+&lt;p&gt;两种系统的文件系统不兼容。要从Windows系统完全删除分区，余出空间，从而安装Linux。&lt;br&gt;
+最好先安装Windows。因为每次安装Windows都会重新修改系统引导文件。安装Windows后Linux可能会没引导。  &lt;/p&gt;
+&lt;h3&gt;CentOS安装过程中的Troubleshooting模式&lt;/h3&gt;
+&lt;p&gt;Troubleshooting 主要用于帮助解决各种安装问题以及对系统的故障修复。&lt;br&gt;
+Troubleshooting中的各个选项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;图形模式下安装CentOS&lt;/li&gt;
+&lt;li&gt;救援CentOS模式（最常用）（可用于系统内核问题、配置文件错误、磁盘错误等造成系统无法启动时的故障修复）&lt;/li&gt;
+&lt;li&gt;内存测试&lt;/li&gt;
+&lt;li&gt;从本地驱动器启动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Linux安装中的一些注意事项&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;对于Linux服务器来说，安全是第一位的，需要什么就安装什么，不需要的一定不要安装，多余的软件不但占用磁盘空间，而且会给服务器带来潜在的安全隐患。因此，当Linux作为一个服务器来使用时，要遵循按需安装、不用不装的原则。&lt;/strong&gt;比如，要搭建一个DNS服务器，仅仅需要安装DNS软件包和一个基础系统内核即可。&lt;strong&gt;这样可以最大限度地提高系统效率和保障系统安全。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Linux系统下必须的分区为根分区（用“/”标识）和交换分区（swap）。&lt;br&gt;
+swap分区相当于Windows中虚拟内存的概念，也就是内存数据与硬盘的交换。&lt;br&gt;
+swap分区大小基本原则：如果内存较小（例如物理内存小于4GB），一般设置swap分区大小为物理内存的2倍；如果大于4GB而小于16GB，可以设置swap分区大小等于物理内存；如果内存大小在16GB以上，可以设置swap分区大小为0。但并不建议设置为0，一定大小的swap分区还是有作用的。&lt;/p&gt;
+&lt;p&gt;只划分根分区和swap分区可以完成安装但不建议。一旦根分区遭到破坏，系统无法启动，根分区中资料也可能丢失。建议给独立的应用分配独立的分区，能最大限度减少系统崩溃造成的损失。   &lt;/p&gt;
+&lt;p&gt;建议独立分配的分区：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/boot：存储系统的引导信息和内核等信息&lt;/li&gt;
+&lt;li&gt;/usr：存储系统应用软件安装信息&lt;/li&gt;
+&lt;li&gt;/var：存储系统日志信息&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>《幕后玩家》有意思的台词</title><link href="/articles/2016/12%E6%9C%88/23/words-in-Two-Steps-From-Heaven/" rel="alternate"></link><published>2016-12-23T00:00:00+08:00</published><updated>2016-12-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2016-12-23:/articles/2016/12月/23/words-in-Two-Steps-From-Heaven/</id><summary type="html">&lt;p&gt;当我可以放下面子去赚钱 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;当我可以放下面子去赚钱，就代表我懂事；&lt;br&gt;
+当我可以用钱买回面子，就是我成功了；&lt;br&gt;
+到我可以用面子赚钱的时候，我已经是一个人物了。&lt;br&gt;
+如果我还停留在喝酒吹水，不懂装懂，凡事都要讲面子，我这辈子，只不过是不外如是。  &lt;/p&gt;
+&lt;p&gt;--人生真是无常。&lt;br&gt;
+--无常才是恒常。&lt;/p&gt;</content></entry><entry><title>一次过安全狗和360的渗透加提权过程</title><link href="/articles/2016/9%E6%9C%88/20/bypass-360-and-safedog-privilege-escalation/" rel="alternate"></link><published>2016-09-20T00:00:00+08:00</published><updated>2016-09-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2016-09-20:/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/</id><summary type="html">&lt;p&gt;用PDF记录了 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;用PDF记录了。&lt;br&gt;
+&lt;a href="/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf"&gt;一次过安全狗和360的渗透加提权过程 - Ro$es.pdf&lt;/a&gt;&lt;/p&gt;</content><category term="360"></category><category term="安全狗"></category><category term="渗透"></category><category term="提权"></category></entry></feed>
