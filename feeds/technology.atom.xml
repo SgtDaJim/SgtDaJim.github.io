@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-03-01T01:24:29+08:00</updated><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="http://roses-echo.com/articles/2017/3%E6%9C%88/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-03-01:/articles/2017/3月/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="roses-echo.com/" rel="alternate"></link><link href="roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>roses-echo.com/</id><updated>2017-03-01T01:24:29+08:00</updated><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="roses-echo.com/articles/2017/3%E6%9C%88/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-03-01:roses-echo.com/articles/2017/3月/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr&gt;
 &lt;p&gt;在注册google账号时 …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
 &lt;p&gt;在注册google账号时，不少人会碰到，在给出合法，而且从来没注册过google账号的手机号码进行短信验证时，却提示“该号码无法用于进行验证”。&lt;/p&gt;
 &lt;p&gt;如图：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="validate" src="http://roses-echo.com/images/solve-google-validation-phone-number-problem/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="validate" src="roses-echo.com/images/solve-google-validation-phone-number-problem/1.png"&gt;&lt;/p&gt;
 &lt;p&gt;嗨呀。。是不是很气。。&lt;/p&gt;
 &lt;p&gt;连新申请的阿里小号，都有这种提示，特别无语。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;重点来了&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决方法：手机安装google服务框架，下载gmail(FQ什么的在大陆是肯定需要了)，在gmail里面申请google账号，这时填写在PC浏览器上用的手机号码，就不会提示无法验证了。。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>V2EX上关于如何优化CentOS服务器内存的讨论</title><link href="http://roses-echo.com/articles/2017/2%E6%9C%88/26/v2ex-improve-centos-memory-discuss/" rel="alternate"></link><published>2017-02-26T20:38:58+08:00</published><updated>2017-02-26T20:38:58+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-02-26:/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/</id><summary type="html">&lt;p&gt;V站链接 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;V站链接：&lt;a href="http://cn.v2ex.com/t/343252"&gt;请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>V2EX上关于如何优化CentOS服务器内存的讨论</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/26/v2ex-improve-centos-memory-discuss/" rel="alternate"></link><published>2017-02-26T20:38:58+08:00</published><updated>2017-02-26T20:38:58+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-26:roses-echo.com/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/</id><summary type="html">&lt;p&gt;V站链接 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;V站链接：&lt;a href="http://cn.v2ex.com/t/343252"&gt;请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;code&gt;@hl&lt;/code&gt; 的回复  &lt;/p&gt;
 &lt;p&gt;Linux 内存不是用的越少越好， Centos7 版本以前，通常看到的内存 used 比较多是因为包含了 buffer 和 cache 占用 &lt;br&gt;
 Centos7 版本以后，内存 used 显示数值不包含 buffer 和 cache   &lt;/p&gt;
@@ -67,49 +67,49 @@ linux 内核参数调优 &lt;br&gt;
 linux io 队列调优 &lt;br&gt;
 nginx 如何通过编译安装精简模块 &lt;br&gt;
 php 编译安装 精简不必要模块 &lt;br&gt;
-mysql 编译安装精简存储引擎  &lt;/p&gt;</content><category term="V2EX"></category><category term="CentOS"></category><category term="内存优化"></category></entry><entry><title>动手配置Shadowsocks服务器端+TCP BBR</title><link href="http://roses-echo.com/articles/2017/2%E6%9C%88/19/install-ss-and-use-bbr-on-vps/" rel="alternate"></link><published>2017-02-19T00:00:00+08:00</published><updated>2017-02-19T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-02-19:/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/</id><summary type="html">&lt;p&gt;最近有人出一台kvm的主机 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。&lt;br&gt;
+mysql 编译安装精简存储引擎  &lt;/p&gt;</content><category term="V2EX"></category><category term="CentOS"></category><category term="内存优化"></category></entry><entry><title>动手配置Shadowsocks服务器端+TCP BBR</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/19/install-ss-and-use-bbr-on-vps/" rel="alternate"></link><published>2017-02-19T00:00:00+08:00</published><updated>2017-02-19T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-19:roses-echo.com/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/</id><summary type="html">&lt;p&gt;最近有人出一台kvm的主机 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。&lt;br&gt;
 搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  &lt;/p&gt;
 &lt;p&gt;主机系统：CentOS 7&lt;/p&gt;
 &lt;p&gt;用xshell连上了主机。&lt;br&gt;
-&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps1.png"&gt;  &lt;/p&gt;
+&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps1.png"&gt;  &lt;/p&gt;
 &lt;p&gt;Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。&lt;br&gt;
 在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。&lt;br&gt;
 而CentOS中是自带了Python的。  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps2.png"&gt;  &lt;/p&gt;
 &lt;p&gt;可是并没有安装pip，所以要先安装pip。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;可是，问题出现了。  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps3.png"&gt;&lt;/p&gt;
 &lt;p&gt;No package。。
 谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="wiki" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="wiki" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps4.png"&gt;&lt;/p&gt;
 &lt;p&gt;那就安装吧。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install epel-release
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps5.png"&gt;&lt;/p&gt;
 &lt;p&gt;先来查找下pip的package的名称是什么。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum search pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps6.png"&gt;&lt;/p&gt;
 &lt;p&gt;因为系统中的python版本为2.x，那我就安装python2-pip。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install python2-pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps7.png"&gt;&lt;/p&gt;
 &lt;p&gt;这下可以安装shadowsocks了。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install shadowsocks
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps8.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps8.png"&gt;&lt;/p&gt;
 &lt;p&gt;安装完成。接下来配置shadowsocks。&lt;br&gt;
 shadowsocks有两种配置方法，一种是命令行配置，另一种是配置文件配置。&lt;br&gt;
 我使用了文件配置，个人感觉比较直观。  &lt;/p&gt;
@@ -136,13 +136,13 @@ shadowsocks有两种配置方法，一种是命令行配置，另一种是配置
 
 
 &lt;p&gt;后台运行shadowsocks程序。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps9.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps9.png"&gt;&lt;/p&gt;
 &lt;p&gt;服务端配置完成。&lt;br&gt;
 客户端看看是否能连接。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps10.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps10.png"&gt;&lt;/p&gt;
 &lt;p&gt;谷歌打不开。。&lt;br&gt;
 看看日志怎么回事&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ss" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps11.png"&gt;&lt;/p&gt;
 &lt;p&gt;一堆timeout。。&lt;br&gt;
 配置过程应该是没问题的。。&lt;br&gt;
 想了想，好像是忘了在vps中开端口。。&lt;br&gt;
@@ -156,16 +156,16 @@ firewall-cmd --complete-reload
 
 &lt;p&gt;全部success。&lt;br&gt;
 再次打开谷歌看看。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="explore" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps12.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="explore" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps12.png"&gt;&lt;/p&gt;
 &lt;p&gt;成功。&lt;br&gt;
 shadowsocks算是配置完了。&lt;br&gt;
 看看在youtube上看视频速度如何。  &lt;/p&gt;
 &lt;p&gt;打开youtube速度还是很快的。&lt;br&gt;
 点一个Carpool Karaoke看看。&lt;br&gt;
 清晰度切换到720P  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps13.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps13.png"&gt;&lt;/p&gt;
 &lt;p&gt;看看统计信息。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps14.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps14.png"&gt;&lt;/p&gt;
 &lt;p&gt;这速度。。难受。。&lt;/p&gt;
 &lt;p&gt;最近BBR很火。&lt;br&gt;
 BBR是谷歌开发的TCP拥塞控制算法，目的就是要尽量跑满带宽，并且尽量不要有排队的情况。&lt;br&gt;
@@ -179,15 +179,15 @@ yum --enablerepo&lt;span class="o"&gt;=&lt;/span&gt;elrepo-kernel install kernel
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps15.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps16.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps15.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps16.png"&gt;&lt;/p&gt;
 &lt;p&gt;新内核安装完成。&lt;br&gt;
 查查内核情况：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;egrep ^menuentry /etc/grub2.cfg &lt;span class="p"&gt;|&lt;/span&gt; cut -f &lt;span class="m"&gt;2&lt;/span&gt; -d &lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps17.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps17.png"&gt;&lt;/p&gt;
 &lt;p&gt;第一个就是最新的。&lt;br&gt;
 现在把引导文件中默认引导设为最新内核。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;grub2-set-default &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# 0就是第一个内核，刚才看到的第一个&lt;/span&gt;
@@ -197,7 +197,7 @@ yum --enablerepo&lt;span class="o"&gt;=&lt;/span&gt;elrepo-kernel install kernel
 &lt;p&gt;然后reboot，重启。  &lt;/p&gt;
 &lt;p&gt;（新主机重启只要几十秒。。很恐怖）  &lt;/p&gt;
 &lt;p&gt;看看内核  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps18.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps18.png"&gt;&lt;/p&gt;
 &lt;p&gt;新内核美滋滋 ~&lt;/p&gt;
 &lt;p&gt;接着把BBR打开。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;vi /etc/sysctl.conf
@@ -211,26 +211,26 @@ net.ipv4.tcp_congestion_control &lt;span class="o"&gt;=&lt;/span&gt; bbr
 
 
 &lt;p&gt;保存退出。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps19.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps19.png"&gt;&lt;/p&gt;
 &lt;p&gt;然后&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sysctl -p
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps20.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps20.png"&gt;&lt;/p&gt;
 &lt;p&gt;现在BBR设置应该生效了。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep bbr
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps21.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps21.png"&gt;&lt;/p&gt;
 &lt;p&gt;BBR正常启动了。&lt;br&gt;
 在用youtube测测速。。  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps22.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="xshell" src="roses-echo.com/images/install-ss-and-use-bbr-on-vps22.png"&gt;&lt;/p&gt;
 &lt;p&gt;好很多了。。。&lt;br&gt;
 这下看1080P就美滋滋了~  &lt;/p&gt;
 &lt;h4&gt;以上配置方法都是谷歌的，绝无半点抄袭之意，如有意见，请联系提出。&lt;/h4&gt;
-&lt;h4&gt;感谢谷歌，也感谢所有乐于分享的人。&lt;/h4&gt;</content><category term="VPS"></category><category term="Shadowsocks"></category><category term="SS"></category><category term="BBR"></category></entry><entry><title>Linux学习笔记 - Linux运行机制与systemd的使用</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/26/linux-note-linux-operation-mechanism-and-using-systemd/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-26:/articles/2017/1月/26/linux-note-linux-operation-mechanism-and-using-systemd/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;h4&gt;感谢谷歌，也感谢所有乐于分享的人。&lt;/h4&gt;</content><category term="VPS"></category><category term="Shadowsocks"></category><category term="SS"></category><category term="BBR"></category></entry><entry><title>Linux学习笔记 - Linux运行机制与systemd的使用</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/26/linux-note-linux-operation-mechanism-and-using-systemd/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-26:roses-echo.com/articles/2017/1月/26/linux-note-linux-operation-mechanism-and-using-systemd/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;em&gt;文章相关资料链接：&lt;/em&gt;&lt;br&gt;
 &lt;a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init1/"&gt;浅析 Linux 初始化 init 系统，第 1 部分: sysvinit&lt;/a&gt;&lt;br&gt;
@@ -274,20 +274,20 @@ systemd中，默认target（相当于以前的默认运行级别）通过软链�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="target" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/1.png"&gt;    &lt;/p&gt;
+&lt;p&gt;&lt;img alt="target" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/1.png"&gt;    &lt;/p&gt;
 &lt;p&gt;查看默认target&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ll /etc/systemd/system/default.target
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="target" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/2.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="target" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/2.png"&gt;  &lt;/p&gt;
 &lt;p&gt;将默认target修改为multi-user.target&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rm -rf /etc/systemd/system/default.target
 ln -sf /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="target" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/3.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="target" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/3.png"&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;在将默认target改为reboot.target后，重启系统后将会无限重启！&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;可以通过修改启动脚本，更改启动级别为1，将默认target修改回来。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3&gt;系统关机过程&lt;/h3&gt;
@@ -299,7 +299,7 @@ shutdown命令执行后，会以广播的形式通知正在系统中工作的所
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="man" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="man" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/4.png"&gt;&lt;/p&gt;
 &lt;h4&gt;halt&lt;/h4&gt;
 &lt;p&gt;最简单的关机命令，相当于shutdown -h。执行halt时，将终止所有应用程序，然后调用系统指令sync。&lt;br&gt;
 sync将所有内存信息通过文件系统写入硬盘，然后停止内核。&lt;br&gt;
@@ -356,19 +356,19 @@ halt执行时，会先检测系统的运行级别。如果为0或者6，则立�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="status" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/5.png"&gt;
+&lt;p&gt;&lt;img alt="status" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/5.png"&gt;
 查看http服务是否设置开机启动&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl is-enabled httpd.service
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="status" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="status" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/6.png"&gt;&lt;/p&gt;
 &lt;p&gt;查看各个运行级别下所有服务的启用和禁用情况&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl list-unit-files --type=service
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="status" src="http://roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="status" src="roses-echo.com/images/linux-note-linux-operation-mechanism-and-using-systemd/7.png"&gt;&lt;/p&gt;
 &lt;p&gt;用systemctl管理电源：&lt;br&gt;
 关机&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl poweroff
@@ -392,7 +392,7 @@ halt执行时，会先检测系统的运行级别。如果为0或者6，则立�
 
 &lt;p&gt;混合休眠&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl hybrid-sleep
-&lt;/pre&gt;&lt;/div&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="runlevel"></category></entry><entry><title>Linux学习笔记 - Shell简介</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/26/linux-note-shell-intro/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-26:/articles/2017/1月/26/linux-note-shell-intro/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="runlevel"></category></entry><entry><title>Linux学习笔记 - Shell简介</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/26/linux-note-shell-intro/" rel="alternate"></link><published>2017-01-26T00:00:00+08:00</published><updated>2017-01-26T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-26:roses-echo.com/articles/2017/1月/26/linux-note-shell-intro/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;shell是围绕在Linux之外的一个“壳”程序，用户在操作系统上完成的所有任务都是通过shell和Linux系统内核的交互来实现的。&lt;br&gt;
 Linux下的shell有Bourne again shell (bash)[缺省] 、C shell (csh)、Korn shell (ksh)、Bourne shell (sh)和Tenex C shell (tcsh)等。  &lt;/p&gt;
@@ -403,7 +403,7 @@ Linux下的shell有Bourne again shell (bash)[缺省] 、C shell (csh)、Korn she
 其他可执行文件与shell内置命令不同，当它们被调用时，才会被系统装入内存执行。  &lt;/p&gt;
 &lt;p&gt;字符界面中，“#”表示登录的是系统超级用户，“*”表示登录到系统的是普通用户。&lt;/p&gt;
 &lt;p&gt;shell执行命令解释过程：  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/1.png"&gt;&lt;/p&gt;
 &lt;h3&gt;shell命令的语法分析&lt;/h3&gt;
 &lt;p&gt;对于一些普通的命令，各个shell版本的语法基本相同，只有在编写一个shell脚本或者使用一些shell高级特性的时候，各个版本的shell的差异才会显示出来。&lt;/p&gt;
 &lt;p&gt;shell语法分析：shell对命令的扫描处理过程。&lt;br&gt;
@@ -432,11 +432,11 @@ rm -rf /*
 
 
 &lt;p&gt;有些命令不需要参数。若参数不够，则出现错误提示。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/2.png"&gt;&lt;/p&gt;
 &lt;p&gt;同一行可以多个命令，用“;”分开。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/3.png"&gt;&lt;/p&gt;
 &lt;p&gt;一个命令可以分行输入，用“\”分行。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/4.png"&gt;&lt;/p&gt;
 &lt;p&gt;通配符（可以组合使用）：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -469,7 +469,7 @@ rm -rf /*
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/5.png"&gt;&lt;/p&gt;
 &lt;h3&gt;shell中的引用&lt;/h3&gt;
 &lt;p&gt;引用即为通知shell将一些有特殊含义的字符当作普通字符处理。&lt;br&gt;
 转义字符&lt;code&gt;\&lt;/code&gt;，单引号&lt;code&gt;''&lt;/code&gt;，双引号&lt;code&gt;""&lt;/code&gt;&lt;/p&gt;
@@ -481,10 +481,10 @@ mv &amp;#39;abc?*&amp;#39; abc
 
 
 &lt;p&gt;双引号用法与单引号基本相同，但某些特殊字符在&lt;strong&gt;双引号&lt;/strong&gt;中依然&lt;strong&gt;起作用&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/6.png"&gt;&lt;/p&gt;
 &lt;p&gt;从图得知，&lt;code&gt;"$"&lt;/code&gt;,&lt;code&gt;"\"&lt;/code&gt; ,&lt;code&gt;"`"&lt;/code&gt; 在双引号中依然起作用。&lt;/p&gt;
 &lt;p&gt;使用tab键可以自动补全。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/7.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="shell"></category></entry><entry><title>Linux学习笔记 - Linux外在设备的使用</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-external-equipment/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-25:/articles/2017/1月/25/linux-note-external-equipment/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="roses-echo.com/images/linux-note-shell-intro/7.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="shell"></category></entry><entry><title>Linux学习笔记 - Linux外在设备的使用</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-external-equipment/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:roses-echo.com/articles/2017/1月/25/linux-note-external-equipment/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;在Linux系统下，设备都以文件的形式存在，因而不同硬件设备有不同的文件类型。&lt;br&gt;
 硬件与系统下相对应的文件称作设备文件。&lt;br&gt;
@@ -526,11 +526,11 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;td align="left"&gt;Linux下一中高性能的日志文件系统，在CentOS7.x版本中成为默认文件系统&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux文件系统结构</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-file-system-structure/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-25:/articles/2017/1月/25/linux-note-file-system-structure/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt; &lt;/p&gt;
+&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux文件系统结构</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-file-system-structure/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:roses-echo.com/articles/2017/1月/25/linux-note-file-system-structure/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt; &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;目录结构&lt;/h3&gt;
 &lt;p&gt;Linux系统以树形结构统一管理和组织文件。  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="structure" src="http://roses-echo.com/images/linux-note-file-system-structure/1.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="structure" src="roses-echo.com/images/linux-note-file-system-structure/1.png"&gt;  &lt;/p&gt;
 &lt;h3&gt;目录功能介绍&lt;/h3&gt;
 &lt;p&gt;很多Linux发行版目录结构布局都遵循FSSTND标准。这一标准的特点是根目录非常简洁，只包含系统最基本的文件。  &lt;/p&gt;
 &lt;h4&gt;/etc目录&lt;/h4&gt;
@@ -863,21 +863,21 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;td&gt;临时文件目录。里面的文件可以随时删除。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux硬件资源管理</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-hardware-managing/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-25:/articles/2017/1月/25/linux-note-hardware-managing/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;/table&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux硬件资源管理</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-hardware-managing/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:roses-echo.com/articles/2017/1月/25/linux-note-hardware-managing/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;列出所有的PCI设备  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;lspci
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/1.png"&gt;&lt;br&gt;
-&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/1.png"&gt;&lt;br&gt;
+&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/2.png"&gt;&lt;/p&gt;
 &lt;p&gt;查看cpu信息&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;more /proc/cpuinfo
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/3.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;processor -- 逻辑处理器的唯一标识符&lt;/li&gt;
 &lt;li&gt;vendor-id -- 处理器类型&lt;/li&gt;
@@ -892,32 +892,32 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/4.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/4.png"&gt;  &lt;/p&gt;
 &lt;p&gt;查看每个物理CPU中内核的个数&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat /proc/cpuinfo | grep &amp;quot;cpu cores&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/5.png"&gt;&lt;/p&gt;
 &lt;p&gt;查看系统所有逻辑CPU个数（所有物理CPU中内核的个数加上超线程个数）&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat /proc/cpuinfo | grep &amp;quot;processor&amp;quot; | wc -l
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/6.png"&gt;&lt;/p&gt;
 &lt;p&gt;可以得出：有2个物理CPU，每个CPU1个内核，没启用超线程，总共2个逻辑CPU。  &lt;/p&gt;
 &lt;p&gt;查看内存信息&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;more /proc/meminfo
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/7.png"&gt;&lt;/p&gt;
 &lt;p&gt;查看磁盘分区信息&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fdisk -l
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/8.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Hardware"></category></entry><entry><title>Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-mount-and-mount-ntfs-udisk/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-25:/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="lspci" src="roses-echo.com/images/linux-note-hardware-managing/8.png"&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Hardware"></category></entry><entry><title>Linux学习笔记 - Linux下设备挂载命令以及NTFS格式U盘的挂载</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/25/linux-note-mount-and-mount-ntfs-udisk/" rel="alternate"></link><published>2017-01-25T00:00:00+08:00</published><updated>2017-01-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-25:roses-echo.com/articles/2017/1月/25/linux-note-mount-and-mount-ntfs-udisk/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Linux系统中，使用mount命令进行设备的挂载使用。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mount -t 文件系统类型设备名挂载点
@@ -934,30 +934,30 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;p&gt;访问/mnt/floppy即可找到软盘内容。&lt;/p&gt;
 &lt;h5&gt;U盘的挂载&lt;/h5&gt;
 &lt;p&gt;插入U盘后，可以先使用&lt;code&gt;dmesg&lt;/code&gt;命令确定U盘的设备名。&lt;br&gt;
-&lt;img alt="dmesg" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/1.png"&gt;  &lt;/p&gt;
+&lt;img alt="dmesg" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/1.png"&gt;  &lt;/p&gt;
 &lt;p&gt;可以得出U盘设备名为sdb1  &lt;/p&gt;
 &lt;p&gt;使用fdisk -l 同样可以查看U盘是否被识别。&lt;br&gt;
-&lt;img alt="fdisk" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/2.png"&gt;  &lt;/p&gt;
+&lt;img alt="fdisk" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/2.png"&gt;  &lt;/p&gt;
 &lt;p&gt;接着创建挂载点：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;mkdir /mnt/usb&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;然后挂载U盘： &lt;/p&gt;
 &lt;p&gt;&lt;code&gt;mount  /dev/sdb1 /mnt/usb&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/3.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="mount" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/3.png"&gt;  &lt;/p&gt;
 &lt;p&gt;Linux系统不支持NTFS格式。此时需要使用插件ntfs-3g。&lt;/p&gt;
 &lt;p&gt;官网：&lt;a href="http://www.tuxera.com/community/open-source-ntfs-3g/"&gt;ntfs-3g&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ntfs-3g" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/4.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="ntfs-3g" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/4.png"&gt;  &lt;/p&gt;
 &lt;p&gt;下载压缩包：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="wget" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/5.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="wget" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/5.png"&gt;  &lt;/p&gt;
 &lt;p&gt;解压压缩包&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -zvxf ntfs-3g_ntfsprogs-2016.2.22.tgz
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="tar" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/6.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="tar" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/6.png"&gt;  &lt;/p&gt;
 &lt;p&gt;转到ntfs-3g的目录下&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ntfs-3g_ntfsprogs-2016.2.22
 &lt;/pre&gt;&lt;/div&gt;
@@ -973,7 +973,7 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="config" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/7.png"&gt;   &lt;/p&gt;
+&lt;p&gt;&lt;img alt="config" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/7.png"&gt;   &lt;/p&gt;
 &lt;p&gt;开始编译&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make &amp;amp;&amp;amp; make install
 &lt;/pre&gt;&lt;/div&gt;
@@ -984,22 +984,22 @@ SCSI磁盘（SCSI tape）：/dev/stx（x为编号）  &lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="mount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/8.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="mount" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/8.png"&gt;  &lt;/p&gt;
 &lt;p&gt;查看U盘内容&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /mnt/usb
 ls
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="ls" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/9.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="ls" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/9.png"&gt;  &lt;/p&gt;
 &lt;h5&gt;卸载设备&lt;/h5&gt;
 &lt;p&gt;umount 挂载目录&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;umount /mnt/usb
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="umount" src="http://roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/10.png"&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Linux对文件系统的保护做的很到位，在光盘没有卸载之前，光驱上的弹出键不起任何作用。&lt;/strong&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="NTFS"></category><category term="mount"></category></entry><entry><title>Linux系统的安装与基础配置</title><link href="http://roses-echo.com/articles/2017/1%E6%9C%88/23/linux-note-os-install-and-basic-config/" rel="alternate"></link><published>2017-01-23T00:00:00+08:00</published><updated>2017-01-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-01-23:/articles/2017/1月/23/linux-note-os-install-and-basic-config/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="umount" src="roses-echo.com/images/linux-note-mount-and-mount-ntfs-udisk/10.png"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linux对文件系统的保护做的很到位，在光盘没有卸载之前，光驱上的弹出键不起任何作用。&lt;/strong&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="NTFS"></category><category term="mount"></category></entry><entry><title>Linux系统的安装与基础配置</title><link href="roses-echo.com/articles/2017/1%E6%9C%88/23/linux-note-os-install-and-basic-config/" rel="alternate"></link><published>2017-01-23T00:00:00+08:00</published><updated>2017-01-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-01-23:roses-echo.com/articles/2017/1月/23/linux-note-os-install-and-basic-config/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;安装方式&lt;/h3&gt;
 &lt;p&gt;Linux的安装方式分为硬盘安装、U盘安装、网络安装和光驱安装。&lt;br&gt;
@@ -1034,5 +1034,5 @@ swap分区大小基本原则：如果内存较小（例如物理内存小于4GB�
 &lt;li&gt;/boot：存储系统的引导信息和内核等信息&lt;/li&gt;
 &lt;li&gt;/usr：存储系统应用软件安装信息&lt;/li&gt;
 &lt;li&gt;/var：存储系统日志信息&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>一次过安全狗和360的渗透加提权过程</title><link href="http://roses-echo.com/articles/2016/9%E6%9C%88/20/bypass-360-and-safedog-privilege-escalation/" rel="alternate"></link><published>2016-09-20T00:00:00+08:00</published><updated>2016-09-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2016-09-20:/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/</id><summary type="html">&lt;p&gt;用PDF记录了 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;用PDF记录了。&lt;br&gt;
-&lt;a href="http://roses-echo.com/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf"&gt;一次过安全狗和360的渗透加提权过程 - Ro$es.pdf&lt;/a&gt;&lt;/p&gt;</content><category term="360"></category><category term="安全狗"></category><category term="渗透"></category><category term="提权"></category></entry></feed>
+&lt;/ul&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>一次过安全狗和360的渗透加提权过程</title><link href="roses-echo.com/articles/2016/9%E6%9C%88/20/bypass-360-and-safedog-privilege-escalation/" rel="alternate"></link><published>2016-09-20T00:00:00+08:00</published><updated>2016-09-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2016-09-20:roses-echo.com/articles/2016/9月/20/bypass-360-and-safedog-privilege-escalation/</id><summary type="html">&lt;p&gt;用PDF记录了 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;用PDF记录了。&lt;br&gt;
+&lt;a href="roses-echo.com/pdfs/一次过安全狗和360的渗透加提权过程 - Ro$es.pdf"&gt;一次过安全狗和360的渗透加提权过程 - Ro$es.pdf&lt;/a&gt;&lt;/p&gt;</content><category term="360"></category><category term="安全狗"></category><category term="渗透"></category><category term="提权"></category></entry></feed>
