@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Life</title><link href="roses-echo.com/" rel="alternate"></link><link href="roses-echo.com/feeds/life.atom.xml" rel="self"></link><id>roses-echo.com/</id><updated>2017-02-25T00:00:00+08:00</updated><entry><title>2017-2-25有感</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/25/2017-2-25-thought/" rel="alternate"></link><published>2017-02-25T00:00:00+08:00</published><updated>2017-02-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-25:roses-echo.com/articles/2017/2月/25/2017-2-25-thought/</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Life</title><link href="/" rel="alternate"></link><link href="/feeds/life.atom.xml" rel="self"></link><id>/</id><updated>2017-02-25T00:00:00+08:00</updated><entry><title>2017-2-25有感</title><link href="/articles/2017/2%E6%9C%88/25/2017-2-25-thought/" rel="alternate"></link><published>2017-02-25T00:00:00+08:00</published><updated>2017-02-25T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-25:/articles/2017/2月/25/2017-2-25-thought/</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;“你是xxx …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;ul&gt;
 &lt;li&gt;“你是xxx（某歌星/影星/球星等）的粉丝吗？”&lt;/li&gt;
 &lt;li&gt;“是啊，我很喜欢他的（歌/电影）的啊。”&lt;/li&gt;
 &lt;li&gt;“听说的最近（出轨了/分手了/离婚了）啊！”&lt;/li&gt;
 &lt;li&gt;“哦，关我屁事。”&lt;/li&gt;
-&lt;/ul&gt;</content></entry><entry><title>2017-2-20凌晨</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/20/2017-2-20-midnight-thought/" rel="alternate"></link><published>2017-02-20T00:00:00+08:00</published><updated>2017-02-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-20:roses-echo.com/articles/2017/2月/20/2017-2-20-midnight-thought/</id><summary type="html">&lt;p&gt;打游戏打到一点多 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;打游戏打到一点多&lt;br&gt;
+&lt;/ul&gt;</content></entry><entry><title>2017-2-20凌晨</title><link href="/articles/2017/2%E6%9C%88/20/2017-2-20-midnight-thought/" rel="alternate"></link><published>2017-02-20T00:00:00+08:00</published><updated>2017-02-20T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-20:/articles/2017/2月/20/2017-2-20-midnight-thought/</id><summary type="html">&lt;p&gt;打游戏打到一点多 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;打游戏打到一点多&lt;br&gt;
 就上床玩手机&lt;br&gt;
 到两点&lt;br&gt;
 朋友突然问谁没睡&lt;br&gt;
@@ -25,7 +25,7 @@
 可是没我，他一个人估计麻烦到头晕&lt;br&gt;
 我相信如果是我不舒服&lt;br&gt;
 他也会帮我&lt;br&gt;
-毕竟这就是朋友  &lt;/p&gt;</content></entry><entry><title>推荐《吐槽大会》2017-02-12期</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/12/tui-jian-tu-cao-da-hui-2017-02-12qi/" rel="alternate"></link><published>2017-02-12T00:00:00+08:00</published><updated>2017-02-12T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-12:roses-echo.com/articles/2017/2月/12/tui-jian-tu-cao-da-hui-2017-02-12qi/</id><summary type="html">&lt;p&gt;本期的吐槽对象是唐国强老师 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;本期的吐槽对象是唐国强老师&lt;br&gt;
+毕竟这就是朋友  &lt;/p&gt;</content></entry><entry><title>推荐《吐槽大会》2017-02-12期</title><link href="/articles/2017/2%E6%9C%88/12/tui-jian-tu-cao-da-hui-2017-02-12qi/" rel="alternate"></link><published>2017-02-12T00:00:00+08:00</published><updated>2017-02-12T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-12:/articles/2017/2月/12/tui-jian-tu-cao-da-hui-2017-02-12qi/</id><summary type="html">&lt;p&gt;本期的吐槽对象是唐国强老师 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;本期的吐槽对象是唐国强老师&lt;br&gt;
 但这只是其中一个亮点&lt;br&gt;
 这期吐槽大会，估计是有稿子，但嘉宾不一定完全照搬稿子吐槽&lt;br&gt;
 李艾，王刚，唐国强的台词都有明显的锋利度，在突出一些事情&lt;br&gt;
@@ -39,9 +39,9 @@
 流露出了无穷无尽的演员经验和良好的职业素养&lt;br&gt;
 也许&lt;br&gt;
 这就是真正的人生如戏吧  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="唐国强图片1" src="roses-echo.com/images/唐国强图片1.png"&gt;&lt;br&gt;
-&lt;img alt="唐国强图片2" src="roses-echo.com/images/唐国强图片2.png"&gt;&lt;br&gt;
-&lt;img alt="王刚图片1" src="roses-echo.com/images/王刚图片1.png"&gt;  &lt;/p&gt;</content></entry><entry><title>《幕后玩家》有意思的台词</title><link href="roses-echo.com/articles/2016/12%E6%9C%88/23/words-in-Two-Steps-From-Heaven/" rel="alternate"></link><published>2016-12-23T00:00:00+08:00</published><updated>2016-12-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2016-12-23:roses-echo.com/articles/2016/12月/23/words-in-Two-Steps-From-Heaven/</id><summary type="html">&lt;p&gt;当我可以放下面子去赚钱 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;当我可以放下面子去赚钱，就代表我懂事；&lt;br&gt;
+&lt;p&gt;&lt;img alt="唐国强图片1" src="/images/唐国强图片1.png"&gt;&lt;br&gt;
+&lt;img alt="唐国强图片2" src="/images/唐国强图片2.png"&gt;&lt;br&gt;
+&lt;img alt="王刚图片1" src="/images/王刚图片1.png"&gt;  &lt;/p&gt;</content></entry><entry><title>《幕后玩家》有意思的台词</title><link href="/articles/2016/12%E6%9C%88/23/words-in-Two-Steps-From-Heaven/" rel="alternate"></link><published>2016-12-23T00:00:00+08:00</published><updated>2016-12-23T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2016-12-23:/articles/2016/12月/23/words-in-Two-Steps-From-Heaven/</id><summary type="html">&lt;p&gt;当我可以放下面子去赚钱 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;当我可以放下面子去赚钱，就代表我懂事；&lt;br&gt;
 当我可以用钱买回面子，就是我成功了；&lt;br&gt;
 到我可以用面子赚钱的时候，我已经是一个人物了。&lt;br&gt;
 如果我还停留在喝酒吹水，不懂装懂，凡事都要讲面子，我这辈子，只不过是不外如是。  &lt;/p&gt;
