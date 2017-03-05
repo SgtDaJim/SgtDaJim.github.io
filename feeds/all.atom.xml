@@ -29,13 +29,13 @@
 &lt;p&gt;RPM安装时若出现依赖错误，要先安装依赖软件，然后继续安装需要的软件。&lt;/p&gt;
 &lt;p&gt;常用参数：
 安装时：&lt;code&gt;-ivh&lt;/code&gt; 安装，显示详细信息并使用"#"符号表现安装过程。
-查询：&lt;code&gt;-ql 安装后包名&lt;/code&gt; 显示软件包安装后的文件列表
+查询：&lt;code&gt;-ql 安装后包名&lt;/code&gt; 显示软件包安装后的文件列表&lt;br&gt;
 &lt;img alt="rpm" src="/images/linux-note-software-installation-and-managing/1.png"&gt;&lt;/p&gt;
 &lt;h2&gt;yum安装&lt;/h2&gt;
 &lt;p&gt;yum(yellowdog updater modified)，配合互联网即可实现软件的便捷安装和自动升级。
 实质：指定远程的互联网主机上的RPM软件包，然后自动进行安装，同时解决各个软件之间的依赖关系。&lt;/p&gt;
 &lt;h3&gt;不错的yum源&lt;/h3&gt;
-&lt;p&gt;CentOS官方列出可供使用的软件库 &lt;a href="https://wiki.centos.org/zh/AdditionalResources/Repositories"&gt;可供 CentOS 使用的软件库&lt;/a&gt;
+&lt;p&gt;CentOS官方列出可供使用的软件库 &lt;a href="https://wiki.centos.org/zh/AdditionalResources/Repositories"&gt;可供 CentOS 使用的软件库&lt;/a&gt;&lt;br&gt;
 EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;二进制安装&lt;/h2&gt;
 &lt;h3&gt;二进制压缩包安装&lt;/h3&gt;
@@ -53,16 +53,16 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>Linux笔记 - Linux下常用命令</title><link href="/articles/2017/2%E6%9C%88/28/linux-note-commonly-used-commands/" rel="alternate"></link><published>2017-02-28T00:00:00+08:00</published><updated>2017-02-28T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-28:/articles/2017/2月/28/linux-note-commonly-used-commands/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;系统管理与维护&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/1.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt; 显示当前工作目录。
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt; 显示当前工作目录。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/2.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cd&lt;/code&gt; 改变当前工作目录。
+&lt;p&gt;&lt;code&gt;cd&lt;/code&gt; 改变当前工作目录。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/3.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;date&lt;/code&gt; 显示或修改系统日期时间。但只有超级用户才能设置时间。
-&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt; 显示或修改系统日期时间。但只有超级用户才能设置时间。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/4.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;passwd&lt;/code&gt; 设置用户密码。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;su&lt;/code&gt;  改变用户身份。
+&lt;p&gt;&lt;code&gt;su&lt;/code&gt;  改变用户身份。&lt;br&gt;
 &lt;strong&gt;注：&lt;code&gt;su&lt;/code&gt;命令中使用&lt;code&gt;-&lt;/code&gt;参数可以加载相应用户下的环境变量。&lt;/strong&gt; 
 &lt;strong&gt;如直接输入&lt;code&gt;su -&lt;/code&gt;，则会改为root身份，并且加载root的环境变量。&lt;/strong&gt;
 &lt;strong&gt;若不加载root的环境变量，某些指令可能无法执行，会提示"command not found"&lt;/strong&gt;&lt;/p&gt;
@@ -70,7 +70,7 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;p&gt;&lt;code&gt;man&lt;/code&gt; 显示指定指令的帮助信息。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;who&lt;/code&gt; 显示目前登录到系统的用户。
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/5.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;w&lt;/code&gt; 显示登录到系统的用户信息。
+&lt;p&gt;&lt;code&gt;w&lt;/code&gt; 显示登录到系统的用户信息。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/6.png"&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 第一行显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。
 * USER 登录系统的用户
@@ -84,18 +84,18 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;code&gt;uname&lt;/code&gt; 显示操作系统的相关信息。
+&lt;p&gt;&lt;code&gt;uname&lt;/code&gt; 显示操作系统的相关信息。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/7.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;uptime&lt;/code&gt; 输出系统任务队列信息。
-&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/8.png"&gt;
+&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/8.png"&gt;&lt;br&gt;
 显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;last&lt;/code&gt; 目前与过去登入系统的用户相关信息。（默认读取/var/log/wtmp，并把该文件记录的登入系统的用户名单全部显示出来）
+&lt;p&gt;&lt;code&gt;last&lt;/code&gt; 目前与过去登入系统的用户相关信息。（默认读取/var/log/wtmp，并把该文件记录的登入系统的用户名单全部显示出来）&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/9.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;dmesg&lt;/code&gt; 显示开机信息。（保存在/var/log/dmesg）&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;free&lt;/code&gt; 显示系统内存状态
+&lt;p&gt;&lt;code&gt;free&lt;/code&gt; 显示系统内存状态&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/10.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 显示系统进程在瞬间的运行状态&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;top&lt;/code&gt; 对系统处理器状态的实时监控，能够实时显示系统中各个进程的资源占用情况。
+&lt;p&gt;&lt;code&gt;top&lt;/code&gt; 对系统处理器状态的实时监控，能够实时显示系统中各个进程的资源占用情况。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/11.png"&gt;&lt;/p&gt;
 &lt;h2&gt;文件管理与编辑&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;mkdir&lt;/code&gt; 创建目录&lt;/p&gt;
@@ -116,27 +116,27 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;p&gt;&lt;code&gt;gzip/gunzip&lt;/code&gt; 压缩、解压。默认压缩文件后缀为“.gz”&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;bzip2/bunzip&lt;/code&gt; 压缩、解压。默认压缩文件后缀为“.bz2”&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;tar&lt;/code&gt; 归档、打包工具。（不压缩）（可以加参数进行压缩）&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;dd&lt;/code&gt; 转换或复制文件，同时可以对设备进行备份。
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt; 转换或复制文件，同时可以对设备进行备份。&lt;br&gt;
 &lt;strong&gt;注：of不能与if在同一个目录下，否则陷入死循环&lt;/strong&gt;
 &lt;strong&gt;注：恢复目标分区时，一定要先卸载目标分区，恢复完成后再进行挂载。&lt;/strong&gt;
 &lt;strong&gt;注：备份的分区和恢复的分区最好一致，恢复分区若大于备份分区，则浪费空间；否则提示空间不足。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cpio&lt;/code&gt; 通过重定向的方式将文件进行打包、备份、还原、恢复的工具。可以解压&lt;code&gt;.cpio&lt;/code&gt;或者&lt;code&gt;.tar&lt;/code&gt;结尾的文件。
+&lt;p&gt;&lt;code&gt;cpio&lt;/code&gt; 通过重定向的方式将文件进行打包、备份、还原、恢复的工具。可以解压&lt;code&gt;.cpio&lt;/code&gt;或者&lt;code&gt;.tar&lt;/code&gt;结尾的文件。&lt;br&gt;
 &lt;strong&gt;注：cpio在打包、备份时用的是绝对路径，则恢复时会自动恢复到该绝对路径下。若使用相对路径，则会还原到相对路径。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;磁盘管理与维护&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;df&lt;/code&gt; 检查Linux系统的磁盘空间占用情况
+&lt;p&gt;&lt;code&gt;df&lt;/code&gt; 检查Linux系统的磁盘空间占用情况。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/12.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;du&lt;/code&gt; 显示文件或目录所占用的磁盘空间情况
+&lt;p&gt;&lt;code&gt;du&lt;/code&gt; 显示文件或目录所占用的磁盘空间情况。&lt;br&gt;
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/13.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt; 检查文件系统并尝试修复错误。
+&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt; 检查文件系统并尝试修复错误。&lt;br&gt;
 &lt;strong&gt;注：fsck修复某个文件系统时，这个文件系统对应的磁盘分区一定要处于卸载状态，磁盘分区在挂载状态下进行修复是极为不安全的，数据可能遭到破坏，也有可能损坏磁盘。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sync&lt;/code&gt; 强制把内存中的数据写回硬盘，以免数据的丢失。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;eject&lt;/code&gt; 退出抽取式设备，如光驱或磁盘。若设备已挂载，eject将先卸载设备，再退出设备。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;mount/umount&lt;/code&gt; 挂载/卸载指定文件系统&lt;/p&gt;
 &lt;h2&gt;网络设置与维护&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ifconfig&lt;/code&gt; 配置网络或显示当前网络接口状态
-&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/14.png"&gt;
+&lt;img alt="shell" src="/images/linux-note-commonly-used-commands/14.png"&gt;&lt;br&gt;
 **注：ifconfig配置的网卡信息在网卡或者机器重启后，所有配置失效，要配置永久生效，要修改网卡配置文件。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;scp&lt;/code&gt; secure copy，将文件或目录从一个Linux系统复制到另一个Linux系统。
+&lt;p&gt;&lt;code&gt;scp&lt;/code&gt; secure copy，将文件或目录从一个Linux系统复制到另一个Linux系统。&lt;br&gt;
 scp传输数据使用了&lt;em&gt;SSH&lt;/em&gt;协议，保证了数据传输的安全。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;netstat&lt;/code&gt; 显示本机网络链接、运行端口和路由表等信息。
 &lt;img alt="shell" src="/images/linux-note-commonly-used-commands/15.png"&gt;&lt;/p&gt;
