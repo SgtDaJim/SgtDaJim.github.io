@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="roses-echo.com/" rel="alternate"></link><link href="roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>roses-echo.com/</id><updated>2017-03-01T01:24:29+08:00</updated><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="roses-echo.com/articles/2017/3%E6%9C%88/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-03-01:roses-echo.com/articles/2017/3月/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="roses-echo.com/" rel="alternate"></link><link href="roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>roses-echo.com/</id><updated>2017-03-03T00:00:00+08:00</updated><entry><title>Linux学习笔记 - Linux下软件的安装与管理</title><link href="roses-echo.com/articles/2017/3%E6%9C%88/03/linux-note-software-installation-and-managing/" rel="alternate"></link><published>2017-03-03T00:00:00+08:00</published><updated>2017-03-03T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-03-03:roses-echo.com/articles/2017/3月/03/linux-note-software-installation-and-managing/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;CentOS下软件安装方式主要有：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 源码编译安装
+* RPM安装
+* yum安装
+* 二进制安装
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;源码安装&lt;/h2&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1. 下载解压源码
+2. 分析安装平台环境（configure脚本）
+3. 编译安装（make &amp;amp;&amp;amp; make install）
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;注：在./configure时一定要注意使用--prefix参数指定安装目录（首选），或者在make &amp;amp;&amp;amp; make install时注意保存日志，方便日后管理软件。（主要是删除软件时好找位置）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;相关资料链接：&lt;a href="https://www.jisec.com/linux/90.html"&gt;Linux编译安装中configure、make和make install 命令详解 | 极安全-JiSec&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;RPM安装&lt;/h2&gt;
+&lt;p&gt;RPM(Red Hat Package Manager)，Red Hat 软件包管理器，现已成为Linux平台下通用的软件包管理方式。
+&lt;code&gt;.rpm&lt;/code&gt;结尾的软件包为RPM文件，包含了已经编译好的二进制可执行代码。
+源码进行编译、安装、封装，成为RPM文件。&lt;/p&gt;
+&lt;p&gt;优点：安装简单、方便。通过RPM安装的软件，会记录软件的安装信息，方便日后的查询、升级和卸载。
+缺点：对操作系统环境的依赖很大。&lt;/p&gt;
+&lt;p&gt;RPM包封装格式有两种：RPM（.rpm）、SRPM（.src.rpm ）。&lt;/p&gt;
+&lt;p&gt;RPM安装时若出现依赖错误，要先安装依赖软件，然后继续安装需要的软件。&lt;/p&gt;
+&lt;p&gt;常用参数：
+安装时：&lt;code&gt;-ivh&lt;/code&gt; 安装，显示详细信息并使用"#"符号表现安装过程。
+查询：&lt;code&gt;-ql 安装后包名&lt;/code&gt; 显示软件包安装后的文件列表
+&lt;img alt="rpm" src="roses-echo.com/images/linux-note-software-installation-and-managing/1.png"&gt;&lt;/p&gt;
+&lt;h2&gt;yum安装&lt;/h2&gt;
+&lt;p&gt;yum(yellowdog updater modified)，配合互联网即可实现软件的便捷安装和自动升级。
+实质：指定远程的互联网主机上的RPM软件包，然后自动进行安装，同时解决各个软件之间的依赖关系。&lt;/p&gt;
+&lt;h3&gt;不错的yum源&lt;/h3&gt;
+&lt;p&gt;CentOS官方列出可供使用的软件库 &lt;a href="https://wiki.centos.org/zh/AdditionalResources/Repositories"&gt;可供 CentOS 使用的软件库&lt;/a&gt;
+EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;二进制安装&lt;/h2&gt;
+&lt;h3&gt;二进制压缩包安装&lt;/h3&gt;
+&lt;p&gt;一般为&lt;code&gt;.tar.gz&lt;/code&gt;或&lt;code&gt;.bz2&lt;/code&gt;后缀，直接解压可用。&lt;/p&gt;
+&lt;h3&gt;有安装脚本的软件包&lt;/h3&gt;
+&lt;p&gt;解压后，目录下一般有安装脚本，名称类似&lt;code&gt;setup.sh&lt;/code&gt;或者&lt;code&gt;install&lt;/code&gt;等，赋予可执行权限后运行即可完成安装。&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="roses-echo.com/articles/2017/3%E6%9C%88/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-03-01:roses-echo.com/articles/2017/3月/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr&gt;
 &lt;p&gt;在注册google账号时 …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
 &lt;p&gt;在注册google账号时，不少人会碰到，在给出合法，而且从来没注册过google账号的手机号码进行短信验证时，却提示“该号码无法用于进行验证”。&lt;/p&gt;
 &lt;p&gt;如图：&lt;/p&gt;
@@ -8,7 +50,99 @@
 &lt;p&gt;连新申请的阿里小号，都有这种提示，特别无语。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;重点来了&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;解决方法：手机安装google服务框架，下载gmail(FQ什么的在大陆是肯定需要了)，在gmail里面申请google账号，这时填写在PC浏览器上用的手机号码，就不会提示无法验证了。。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>V2EX上关于如何优化CentOS服务器内存的讨论</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/26/v2ex-improve-centos-memory-discuss/" rel="alternate"></link><published>2017-02-26T20:38:58+08:00</published><updated>2017-02-26T20:38:58+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-26:roses-echo.com/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/</id><summary type="html">&lt;p&gt;V站链接 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;V站链接：&lt;a href="http://cn.v2ex.com/t/343252"&gt;请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>Linux笔记 - Linux下常用命令</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/28/linux-note-commonly-used-commands/" rel="alternate"></link><published>2017-02-28T00:00:00+08:00</published><updated>2017-02-28T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-28:roses-echo.com/articles/2017/2月/28/linux-note-commonly-used-commands/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;系统管理与维护&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt; 显示当前工作目录。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd&lt;/code&gt; 改变当前工作目录。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt; 显示或修改系统日期时间。但只有超级用户才能设置时间。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;passwd&lt;/code&gt; 设置用户密码。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;su&lt;/code&gt;  改变用户身份。
+&lt;strong&gt;注：&lt;code&gt;su&lt;/code&gt;命令中使用&lt;code&gt;-&lt;/code&gt;参数可以加载相应用户下的环境变量。&lt;/strong&gt; 
+&lt;strong&gt;如直接输入&lt;code&gt;su -&lt;/code&gt;，则会改为root身份，并且加载root的环境变量。&lt;/strong&gt;
+&lt;strong&gt;若不加载root的环境变量，某些指令可能无法执行，会提示"command not found"&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;clear&lt;/code&gt; 清屏。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;man&lt;/code&gt; 显示指定指令的帮助信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;who&lt;/code&gt; 显示目前登录到系统的用户。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;w&lt;/code&gt; 显示登录到系统的用户信息。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/6.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 第一行显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。
+* USER 登录系统的用户
+* TTY 用户使用的TTY
+* FROM 用户登录的远程主机的IP或主机名
+* LOGIN@ 用户登录的日期时间
+* IDLE 某个程序执行持续时间
+* JCPU 终端上所有进程和紫禁城呢个使用系统的总时间
+* PCPU 活动进程使用的系统时间
+* WHAT 用户执行的进程名称和选项
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;uname&lt;/code&gt; 显示操作系统的相关信息。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;uptime&lt;/code&gt; 输出系统任务队列信息。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/8.png"&gt;
+显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;last&lt;/code&gt; 目前与过去登入系统的用户相关信息。（默认读取/var/log/wtmp，并把该文件记录的登入系统的用户名单全部显示出来）
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/9.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dmesg&lt;/code&gt; 显示开机信息。（保存在/var/log/dmesg）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;free&lt;/code&gt; 显示系统内存状态
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/10.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 显示系统进程在瞬间的运行状态&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;top&lt;/code&gt; 对系统处理器状态的实时监控，能够实时显示系统中各个进程的资源占用情况。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/11.png"&gt;&lt;/p&gt;
+&lt;h2&gt;文件管理与编辑&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;mkdir&lt;/code&gt; 创建目录&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;more&lt;/code&gt; 分屏显示较长文本文件。按enter显示文件下一行，按空格显示文件下一屏。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cat&lt;/code&gt; 将文件内容输出到标准输出。还可以用于合并文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;diff&lt;/code&gt; 逐行比较文本文件的差异；比较目录中相同文件名的文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;grep&lt;/code&gt; 根据自定字符串，搜索文件每一行。输出字符串所在行内容。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rm&lt;/code&gt; 删除某个目录及其下的所有文件和子目录。（若为链接文件，则断开链接，源文件不变。）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;touch&lt;/code&gt; 改变指定文件的访问时间和修改时间。若文件不存在，则创建文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln&lt;/code&gt; 在文件或目录之间创建链接。（默认硬链接）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;file&lt;/code&gt; 显示文件类型。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cp&lt;/code&gt; 将一个文件或目录复制到另一个文件或目录中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;find&lt;/code&gt; 指定路径下查找指定文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;split&lt;/code&gt; 分割文档。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mv&lt;/code&gt; 将文件和目录重命名或将文件从一个目录移动到另一个目录。&lt;/p&gt;
+&lt;h2&gt;压缩与解压&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;zip/unzip&lt;/code&gt; 压缩、解压。默认压缩文件后缀为".zip"。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gzip/gunzip&lt;/code&gt; 压缩、解压。默认压缩文件后缀为“.gz”&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bzip2/bunzip&lt;/code&gt; 压缩、解压。默认压缩文件后缀为“.bz2”&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tar&lt;/code&gt; 归档、打包工具。（不压缩）（可以加参数进行压缩）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt; 转换或复制文件，同时可以对设备进行备份。
+&lt;strong&gt;注：of不能与if在同一个目录下，否则陷入死循环&lt;/strong&gt;
+&lt;strong&gt;注：恢复目标分区时，一定要先卸载目标分区，恢复完成后再进行挂载。&lt;/strong&gt;
+&lt;strong&gt;注：备份的分区和恢复的分区最好一致，恢复分区若大于备份分区，则浪费空间；否则提示空间不足。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cpio&lt;/code&gt; 通过重定向的方式将文件进行打包、备份、还原、恢复的工具。可以解压&lt;code&gt;.cpio&lt;/code&gt;或者&lt;code&gt;.tar&lt;/code&gt;结尾的文件。
+&lt;strong&gt;注：cpio在打包、备份时用的是绝对路径，则恢复时会自动恢复到该绝对路径下。若使用相对路径，则会还原到相对路径。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;磁盘管理与维护&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;df&lt;/code&gt; 检查Linux系统的磁盘空间占用情况
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/12.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;du&lt;/code&gt; 显示文件或目录所占用的磁盘空间情况
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/13.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt; 检查文件系统并尝试修复错误。
+&lt;strong&gt;注：fsck修复某个文件系统时，这个文件系统对应的磁盘分区一定要处于卸载状态，磁盘分区在挂载状态下进行修复是极为不安全的，数据可能遭到破坏，也有可能损坏磁盘。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sync&lt;/code&gt; 强制把内存中的数据写回硬盘，以免数据的丢失。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eject&lt;/code&gt; 退出抽取式设备，如光驱或磁盘。若设备已挂载，eject将先卸载设备，再退出设备。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mount/umount&lt;/code&gt; 挂载/卸载指定文件系统&lt;/p&gt;
+&lt;h2&gt;网络设置与维护&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ifconfig&lt;/code&gt; 配置网络或显示当前网络接口状态
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/14.png"&gt;
+**注：ifconfig配置的网卡信息在网卡或者机器重启后，所有配置失效，要配置永久生效，要修改网卡配置文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scp&lt;/code&gt; secure copy，将文件或目录从一个Linux系统复制到另一个Linux系统。
+scp传输数据使用了&lt;em&gt;SSH&lt;/em&gt;协议，保证了数据传输的安全。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;netstat&lt;/code&gt; 显示本机网络链接、运行端口和路由表等信息。
+&lt;img alt="shell" src="roses-echo.com/images/linux-note-commonly-used-commands/15.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;traceroute&lt;/code&gt; 显示网络数据包传输到指定主机的路径信息，追踪数据传输路由状况。&lt;strong&gt;（使用了ICMP协议）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;telnet&lt;/code&gt; 通过telnet协议与远程主机通信或获取远程主机对应端口的信息。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wget&lt;/code&gt; 从网络上下载某个文件。&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category><category term="shell"></category></entry><entry><title>V2EX上关于如何优化CentOS服务器内存的讨论</title><link href="roses-echo.com/articles/2017/2%E6%9C%88/26/v2ex-improve-centos-memory-discuss/" rel="alternate"></link><published>2017-02-26T20:38:58+08:00</published><updated>2017-02-26T20:38:58+08:00</updated><author><name>Ro$es</name></author><id>tag:None,2017-02-26:roses-echo.com/articles/2017/2月/26/v2ex-improve-centos-memory-discuss/</id><summary type="html">&lt;p&gt;V站链接 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;V站链接：&lt;a href="http://cn.v2ex.com/t/343252"&gt;请问后端和运维小伙伴们，你们都是如何优化 centos 服务器的内存？&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;code&gt;@hl&lt;/code&gt; 的回复  &lt;/p&gt;
 &lt;p&gt;Linux 内存不是用的越少越好， Centos7 版本以前，通常看到的内存 used 比较多是因为包含了 buffer 和 cache 占用 &lt;br&gt;
 Centos7 版本以后，内存 used 显示数值不包含 buffer 和 cache   &lt;/p&gt;
