@@ -68,22 +68,21 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;strong&gt;若不加载root的环境变量，某些指令可能无法执行，会提示"command not found"&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;clear&lt;/code&gt; 清屏。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;man&lt;/code&gt; 显示指定指令的帮助信息。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;who&lt;/code&gt; 显示目前登录到系统的用户。
+&lt;p&gt;&lt;code&gt;who&lt;/code&gt; 显示目前登录到系统的用户。&lt;br&gt;
 &lt;img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/5.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;w&lt;/code&gt; 显示登录到系统的用户信息。&lt;br&gt;
 &lt;img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/6.png"&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 第一行显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。
-* USER 登录系统的用户
-* TTY 用户使用的TTY
-* FROM 用户登录的远程主机的IP或主机名
-* LOGIN@ 用户登录的日期时间
-* IDLE 某个程序执行持续时间
-* JCPU 终端上所有进程和紫禁城呢个使用系统的总时间
-* PCPU 活动进程使用的系统时间
-* WHAT 用户执行的进程名称和选项
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;ul&gt;
+&lt;li&gt;第一行显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。&lt;/li&gt;
+&lt;li&gt;USER 登录系统的用户&lt;/li&gt;
+&lt;li&gt;TTY 用户使用的TTY&lt;/li&gt;
+&lt;li&gt;FROM 用户登录的远程主机的IP或主机名&lt;/li&gt;
+&lt;li&gt;LOGIN@ 用户登录的日期时间&lt;/li&gt;
+&lt;li&gt;IDLE 某个程序执行持续时间&lt;/li&gt;
+&lt;li&gt;JCPU 终端上所有进程和紫禁城呢个使用系统的总时间&lt;/li&gt;
+&lt;li&gt;PCPU 活动进程使用的系统时间&lt;/li&gt;
+&lt;li&gt;WHAT 用户执行的进程名称和选项&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;uname&lt;/code&gt; 显示操作系统的相关信息。&lt;br&gt;
 &lt;img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/7.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;uptime&lt;/code&gt; 输出系统任务队列信息。
