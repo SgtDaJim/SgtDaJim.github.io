@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-03-14T23:34:58+08:00</updated><entry><title>Linux学习笔记 - Linux软件防火墙iptables</title><link href="http://roses-echo.com/articles/2017/3%E6%9C%88/14/linux-note-linux-software-firewall-iptables/" rel="alternate"></link><published>2017-03-14T23:34:58+08:00</published><updated>2017-03-14T23:34:58+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-03-14:/articles/2017/3月/14/linux-note-linux-software-firewall-iptables/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-03-14T23:37:25+08:00</updated><entry><title>Linux学习笔记 - Linux软件防火墙iptables</title><link href="http://roses-echo.com/articles/2017/3%E6%9C%88/14/linux-note-linux-software-firewall-iptables/" rel="alternate"></link><published>2017-03-14T23:37:25+08:00</published><updated>2017-03-14T23:37:25+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-03-14:/articles/2017/3月/14/linux-note-linux-software-firewall-iptables/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;相关资料：     &lt;br&gt;
 &lt;a href="http://www.jianshu.com/p/c2aee2ff7bd8"&gt;iptables详解 - 简书&lt;/a&gt;     &lt;br&gt;
@@ -13,7 +13,7 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 &lt;li&gt;管理防火墙内部主机的NAT表&lt;/li&gt;
 &lt;li&gt;改变不同包以及包头内容的mangle表。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;filter表中内置了INPUT、OUTPUT和FORWARD链。（默认使用）（最常用）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;filter&lt;/code&gt;表中内置了INPUT、OUTPUT和FORWARD链。（默认使用）（最常用）&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -37,7 +37,7 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;NAT表中内置PREROUTING、POSTROUTING和OUTPUT链。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nat&lt;/code&gt;表中内置PREROUTING、POSTROUTING和OUTPUT链。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -60,7 +60,8 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;mangle表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mangle&lt;/code&gt;表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）&lt;/p&gt;
 &lt;p&gt;当数据包进入Linux主机前，首先经过iptables的过滤。iptables将数据包与表中规则&lt;strong&gt;按顺序&lt;/strong&gt;对比，检查是否满足规则条件，然后执行动作。&lt;/p&gt;
 &lt;p&gt;iptables工作顺序示意图：  &lt;br&gt;
 &lt;img alt="iptables工作顺序" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/1.png"&gt;&lt;/p&gt;

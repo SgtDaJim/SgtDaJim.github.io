@@ -138,7 +138,7 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 <li>管理防火墙内部主机的NAT表</li>
 <li>改变不同包以及包头内容的mangle表。</li>
 </ul>
-<p>filter表中内置了INPUT、OUTPUT和FORWARD链。（默认使用）（最常用）</p>
+<p><code>filter</code>表中内置了INPUT、OUTPUT和FORWARD链。（默认使用）（最常用）</p>
 <table>
 <thead>
 <tr>
@@ -162,7 +162,7 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 </tbody>
 </table>
 <p><br></p>
-<p>NAT表中内置PREROUTING、POSTROUTING和OUTPUT链。</p>
+<p><code>nat</code>表中内置PREROUTING、POSTROUTING和OUTPUT链。</p>
 <table>
 <thead>
 <tr>
@@ -185,7 +185,8 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 </tr>
 </tbody>
 </table>
-<p>mangle表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）</p>
+<p><br></p>
+<p><code>mangle</code>表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）</p>
 <p>当数据包进入Linux主机前，首先经过iptables的过滤。iptables将数据包与表中规则<strong>按顺序</strong>对比，检查是否满足规则条件，然后执行动作。</p>
 <p>iptables工作顺序示意图：  <br>
 <img alt="iptables工作顺序" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/1.png"></p>
@@ -292,68 +293,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
       <a href="http://roses-echo.com/tag/ntfs.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
-      </a>
-      <a href="http://roses-echo.com/tag/mount.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>mount
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/runlevel.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/ss.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>SS
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
       <a href="http://roses-echo.com/tag/ti-quan.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/mount.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
+      <a href="http://roses-echo.com/tag/runlevel.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
       </a>
       <a href="http://roses-echo.com/tag/v2ex.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      <a href="http://roses-echo.com/tag/shell.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>shell
       </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
       </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      <a href="http://roses-echo.com/tag/ss.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
       <a href="http://roses-echo.com/tag/iptables.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
-      <a href="http://roses-echo.com/tag/shell.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
