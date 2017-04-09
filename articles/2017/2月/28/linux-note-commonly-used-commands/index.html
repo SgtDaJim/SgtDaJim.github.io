@@ -124,27 +124,27 @@
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
+<hr />
 <h2>系统管理与维护</h2>
-<p><code>ls</code> 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/1.png"></p>
-<p><code>pwd</code> 显示当前工作目录。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/2.png"></p>
-<p><code>cd</code> 改变当前工作目录。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/3.png"></p>
+<p><code>ls</code> 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/1.png" /></p>
+<p><code>pwd</code> 显示当前工作目录。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/2.png" /></p>
+<p><code>cd</code> 改变当前工作目录。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/3.png" /></p>
 <p><code>date</code> 显示或修改系统日期时间。但只有超级用户才能设置时间。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/4.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/4.png" /></p>
 <p><code>passwd</code> 设置用户密码。</p>
-<p><code>su</code>  改变用户身份。<br>
+<p><code>su</code>  改变用户身份。<br />
 <strong>注：<code>su</code>命令中使用<code>-</code>参数可以加载相应用户下的环境变量。</strong> 
 <strong>如直接输入<code>su -</code>，则会改为root身份，并且加载root的环境变量。</strong>
 <strong>若不加载root的环境变量，某些指令可能无法执行，会提示"command not found"</strong></p>
 <p><code>clear</code> 清屏。</p>
 <p><code>man</code> 显示指定指令的帮助信息。</p>
-<p><code>who</code> 显示目前登录到系统的用户。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/5.png"></p>
-<p><code>w</code> 显示登录到系统的用户信息。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/6.png"></p>
+<p><code>who</code> 显示目前登录到系统的用户。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/5.png" /></p>
+<p><code>w</code> 显示登录到系统的用户信息。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/6.png" /></p>
 <ul>
 <li>第一行显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。</li>
 <li>USER 登录系统的用户</li>
@@ -156,19 +156,19 @@
 <li>PCPU 活动进程使用的系统时间</li>
 <li>WHAT 用户执行的进程名称和选项</li>
 </ul>
-<p><code>uname</code> 显示操作系统的相关信息。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/7.png"></p>
-<p><code>uptime</code> 输出系统任务队列信息。  <br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/8.png"><br>
+<p><code>uname</code> 显示操作系统的相关信息。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/7.png" /></p>
+<p><code>uptime</code> 输出系统任务队列信息。  <br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/8.png" /><br />
 显示当前系统时间、系统运行时间、登录用户数和系统平均负载（1min、5min、15min内系统负载情况）。</p>
-<p><code>last</code> 目前与过去登入系统的用户相关信息。（默认读取/var/log/wtmp，并把该文件记录的登入系统的用户名单全部显示出来）<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/9.png"></p>
+<p><code>last</code> 目前与过去登入系统的用户相关信息。（默认读取/var/log/wtmp，并把该文件记录的登入系统的用户名单全部显示出来）<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/9.png" /></p>
 <p><code>dmesg</code> 显示开机信息。（保存在/var/log/dmesg）</p>
-<p><code>free</code> 显示系统内存状态<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/10.png"></p>
+<p><code>free</code> 显示系统内存状态<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/10.png" /></p>
 <p><code>ps</code> 显示系统进程在瞬间的运行状态</p>
-<p><code>top</code> 对系统处理器状态的实时监控，能够实时显示系统中各个进程的资源占用情况。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/11.png"></p>
+<p><code>top</code> 对系统处理器状态的实时监控，能够实时显示系统中各个进程的资源占用情况。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/11.png" /></p>
 <h2>文件管理与编辑</h2>
 <p><code>mkdir</code> 创建目录</p>
 <p><code>more</code> 分屏显示较长文本文件。按enter显示文件下一行，按空格显示文件下一屏。</p>
@@ -188,30 +188,30 @@
 <p><code>gzip/gunzip</code> 压缩、解压。默认压缩文件后缀为“.gz”</p>
 <p><code>bzip2/bunzip</code> 压缩、解压。默认压缩文件后缀为“.bz2”</p>
 <p><code>tar</code> 归档、打包工具。（不压缩）（可以加参数进行压缩）</p>
-<p><code>dd</code> 转换或复制文件，同时可以对设备进行备份。<br>
+<p><code>dd</code> 转换或复制文件，同时可以对设备进行备份。<br />
 <strong>注：of不能与if在同一个目录下，否则陷入死循环</strong>
 <strong>注：恢复目标分区时，一定要先卸载目标分区，恢复完成后再进行挂载。</strong>
 <strong>注：备份的分区和恢复的分区最好一致，恢复分区若大于备份分区，则浪费空间；否则提示空间不足。</strong></p>
-<p><code>cpio</code> 通过重定向的方式将文件进行打包、备份、还原、恢复的工具。可以解压<code>.cpio</code>或者<code>.tar</code>结尾的文件。<br>
+<p><code>cpio</code> 通过重定向的方式将文件进行打包、备份、还原、恢复的工具。可以解压<code>.cpio</code>或者<code>.tar</code>结尾的文件。<br />
 <strong>注：cpio在打包、备份时用的是绝对路径，则恢复时会自动恢复到该绝对路径下。若使用相对路径，则会还原到相对路径。</strong></p>
 <h2>磁盘管理与维护</h2>
-<p><code>df</code> 检查Linux系统的磁盘空间占用情况。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/12.png"></p>
-<p><code>du</code> 显示文件或目录所占用的磁盘空间情况。<br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/13.png"></p>
-<p><code>fsck</code> 检查文件系统并尝试修复错误。<br>
+<p><code>df</code> 检查Linux系统的磁盘空间占用情况。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/12.png" /></p>
+<p><code>du</code> 显示文件或目录所占用的磁盘空间情况。<br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/13.png" /></p>
+<p><code>fsck</code> 检查文件系统并尝试修复错误。<br />
 <strong>注：fsck修复某个文件系统时，这个文件系统对应的磁盘分区一定要处于卸载状态，磁盘分区在挂载状态下进行修复是极为不安全的，数据可能遭到破坏，也有可能损坏磁盘。</strong></p>
 <p><code>sync</code> 强制把内存中的数据写回硬盘，以免数据的丢失。</p>
 <p><code>eject</code> 退出抽取式设备，如光驱或磁盘。若设备已挂载，eject将先卸载设备，再退出设备。</p>
 <p><code>mount/umount</code> 挂载/卸载指定文件系统</p>
 <h2>网络设置与维护</h2>
-<p><code>ifconfig</code> 配置网络或显示当前网络接口状态  <br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/14.png"><br>
+<p><code>ifconfig</code> 配置网络或显示当前网络接口状态  <br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/14.png" /><br />
 **注：ifconfig配置的网卡信息在网卡或者机器重启后，所有配置失效，要配置永久生效，要修改网卡配置文件。</p>
-<p><code>scp</code> secure copy，将文件或目录从一个Linux系统复制到另一个Linux系统。<br>
+<p><code>scp</code> secure copy，将文件或目录从一个Linux系统复制到另一个Linux系统。<br />
 scp传输数据使用了<em>SSH</em>协议，保证了数据传输的安全。</p>
-<p><code>netstat</code> 显示本机网络链接、运行端口和路由表等信息。 <br>
-<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/15.png"></p>
+<p><code>netstat</code> 显示本机网络链接、运行端口和路由表等信息。 <br />
+<img alt="shell" src="http://roses-echo.com/images/linux-note-commonly-used-commands/15.png" /></p>
 <p><code>traceroute</code> 显示网络数据包传输到指定主机的路径信息，追踪数据传输路由状况。<strong>（使用了ICMP协议）</strong></p>
 <p><code>telnet</code> 通过telnet协议与远程主机通信或获取远程主机对应端口的信息。</p>
 <p><code>wget</code> 从网络上下载某个文件。</p>
@@ -285,68 +285,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
       <a href="http://roses-echo.com/tag/runlevel.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/iptables.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
-      </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
       </a>
       <a href="http://roses-echo.com/tag/ss.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/ntfs.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
+      </a>
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
       <a href="http://roses-echo.com/tag/shell.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
       <a href="http://roses-echo.com/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/iptables.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>

@@ -124,50 +124,44 @@
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
-<p>shell是围绕在Linux之外的一个“壳”程序，用户在操作系统上完成的所有任务都是通过shell和Linux系统内核的交互来实现的。<br>
+<hr />
+<p>shell是围绕在Linux之外的一个“壳”程序，用户在操作系统上完成的所有任务都是通过shell和Linux系统内核的交互来实现的。<br />
 Linux下的shell有Bourne again shell (bash)[缺省] 、C shell (csh)、Korn shell (ksh)、Bourne shell (sh)和Tenex C shell (tcsh)等。  </p>
 <p>现在的Linux发行版一般都以<strong>bash</strong>作为默认shell。</p>
 <p>shell本身是一个以C语言编写的程序，是<strong>用户和操作系统内核之间通信的桥梁</strong>。shell既是一种命令解释程序，又是一种功能强大的解释型程序设计语言。作为命令解释程序，shell解释用户输入的命令，然后提交到内核处理，最后把结果返回给用户。</p>
-<p>为了加快命令的运行，同时更有效的定制shell程序，shell中定义了一些内置命令。<br>
-当用户登录系统后，shell以及内置命令就被系统载入到内存，并且一直运行，直到用户退出系统为止。<br>
+<p>为了加快命令的运行，同时更有效的定制shell程序，shell中定义了一些内置命令。<br />
+当用户登录系统后，shell以及内置命令就被系统载入到内存，并且一直运行，直到用户退出系统为止。<br />
 其他可执行文件与shell内置命令不同，当它们被调用时，才会被系统装入内存执行。  </p>
 <p>字符界面中，“#”表示登录的是系统超级用户，“*”表示登录到系统的是普通用户。</p>
 <p>shell执行命令解释过程：  </p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/1.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/1.png" /></p>
 <h3>shell命令的语法分析</h3>
 <p>对于一些普通的命令，各个shell版本的语法基本相同，只有在编写一个shell脚本或者使用一些shell高级特性的时候，各个版本的shell的差异才会显示出来。</p>
-<p>shell语法分析：shell对命令的扫描处理过程。<br>
+<p>shell语法分析：shell对命令的扫描处理过程。<br />
 包括：重定向、文件名扩展和管道等。</p>
 <p>以bash为例 </p>
 <p>命令行格式  </p>
-<div class="highlight"><pre><span></span>command [options] [arguments]
-</pre></div>
-
-
+<pre><code>command [options] [arguments]
+</code></pre>
 <ul>
 <li>command  命令名称</li>
 <li>options      命令选项</li>
 <li>arguments 命令参数</li>
 </ul>
 <p>在选项前一般有“-”符号，用于区别参数。</p>
-<div class="highlight"><pre><span></span>rm -rf /*
-</pre></div>
-
-
+<pre><code>rm -rf /*
+</code></pre>
 <p>选项可以分开列，也可以单独列。</p>
-<div class="highlight"><pre><span></span>rm -r -f /*
+<pre><code>rm -r -f /*
 或
 rm -rf /*
-</pre></div>
-
-
+</code></pre>
 <p>有些命令不需要参数。若参数不够，则出现错误提示。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/2.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/2.png" /></p>
 <p>同一行可以多个命令，用“;”分开。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/3.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/3.png" /></p>
 <p>一个命令可以分行输入，用“\”分行。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/4.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/4.png" /></p>
 <p>通配符（可以组合使用）：</p>
 <ul>
 <li>
@@ -184,38 +178,34 @@ rm -rf /*
 <p>Linux下系统打开3个文件，即标准输入、标准输出和标准错误输出。
 用户的shell将键盘设为默认的标准输入，默认的标准输出和标准错误输出为屏幕。</p>
 <h4>输入重定向</h4>
-<p>改变命令的输入源。利用输入重定向，可以将一个文件的内容作为命令的输入，而不从键盘输入。<br>
+<p>改变命令的输入源。利用输入重定向，可以将一个文件的内容作为命令的输入，而不从键盘输入。<br />
 操作符：<code>'&lt;'  '&lt;&lt;'</code></p>
 <h4>输出重定向</h4>
-<p>将输出结果输出到一个指定文件中，而不是在屏幕。<br>
+<p>将输出结果输出到一个指定文件中，而不是在屏幕。<br />
 操作符：<code>'&gt;'  '&gt;&gt;'</code></p>
 <h4>错误重定向</h4>
-<p>与输出重定向类似。<br>
+<p>与输出重定向类似。<br />
 操作符：<code>'2&gt;'  '2&gt;&gt;'</code></p>
 <h3>shell的管道</h3>
-<p>管道可以把很多命令连接起来，可以把第一个命令的输入当作第二个命令的输出，第二个命令的输出当作第三个命令的输入，依此类推。<br>
+<p>管道可以把很多命令连接起来，可以把第一个命令的输入当作第二个命令的输出，第二个命令的输出当作第三个命令的输入，依此类推。<br />
 管道符：<code>'|'</code></p>
 <p>查看系统中正在运行的httpd进程。</p>
-<div class="highlight"><pre><span></span>ps -ef | grep httpd
-</pre></div>
-
-
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/5.png"></p>
+<pre><code>ps -ef | grep httpd
+</code></pre>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/5.png" /></p>
 <h3>shell中的引用</h3>
-<p>引用即为通知shell将一些有特殊含义的字符当作普通字符处理。<br>
+<p>引用即为通知shell将一些有特殊含义的字符当作普通字符处理。<br />
 转义字符<code>\</code>，单引号<code>''</code>，双引号<code>""</code></p>
 <p>将文件“abc*?”重命名为“abc”</p>
-<div class="highlight"><pre><span></span>mv abc\?\* abc
+<pre><code>mv abc\?\* abc
 或
-mv &#39;abc?*&#39; abc
-</pre></div>
-
-
+mv 'abc?*' abc
+</code></pre>
 <p>双引号用法与单引号基本相同，但某些特殊字符在<strong>双引号</strong>中依然<strong>起作用</strong>。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/6.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/6.png" /></p>
 <p>从图得知，<code>"$"</code>,<code>"\"</code> ,<code>"`"</code> 在双引号中依然起作用。</p>
 <p>使用tab键可以自动补全。</p>
-<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/7.png"></p>
+<p><img alt="shell" src="http://roses-echo.com/images/linux-note-shell-intro/7.png" /></p>
   </div>
   
 
@@ -286,68 +276,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
       <a href="http://roses-echo.com/tag/runlevel.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/iptables.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
-      </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
       </a>
       <a href="http://roses-echo.com/tag/ss.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/ntfs.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
+      </a>
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
       <a href="http://roses-echo.com/tag/shell.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
       <a href="http://roses-echo.com/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/iptables.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>

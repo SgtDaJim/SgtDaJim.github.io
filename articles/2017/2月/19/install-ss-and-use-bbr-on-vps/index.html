@@ -124,167 +124,149 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。<br>
+	<p>最近有人出一台kvm的主机，还有8个月租用时间。刚好我的搬瓦工也差不多到期，就接过来搭梯子了。<br />
 搬瓦工的ss是可以一键配置的。所以这次配置是真正意义上的第一次配置。  </p>
 <p>主机系统：CentOS 7</p>
-<p>用xshell连上了主机。<br>
-<img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps1.png">  </p>
-<p>Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。<br>
-在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。<br>
+<p>用xshell连上了主机。<br />
+<img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps1.png" />  </p>
+<p>Shadowsocks有多种语言的版本。Python、Go、Node.js等等，在github都可以找到。<br />
+在这里我选择安装Python版本的，因为Python版本已经发布到了PyPi社区了，安装起来很方便。<br />
 而CentOS中是自带了Python的。  </p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps2.png">  </p>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps2.png" />  </p>
 <p>可是并没有安装pip，所以要先安装pip。</p>
-<div class="highlight"><pre><span></span>yum install pip
-</pre></div>
-
-
+<pre><code>:::bash
+yum install pip
+</code></pre>
 <p>可是，问题出现了。  </p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps3.png"></p>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps3.png" /></p>
 <p>No package。。
 谷歌了一下原来CentOS这类衍生的发行版的源存在内容更新滞后和没有扩展源的问题，要先安装扩展源EPEL。</p>
-<p><img alt="wiki" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps4.png"></p>
+<p><img alt="wiki" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps4.png" /></p>
 <p>那就安装吧。</p>
-<div class="highlight"><pre><span></span>yum install epel-release
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps5.png"></p>
+<pre><code>:::bash
+yum install epel-release
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps5.png" /></p>
 <p>先来查找下pip的package的名称是什么。</p>
-<div class="highlight"><pre><span></span>yum search pip
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps6.png"></p>
+<pre><code>:::bash
+yum search pip
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps6.png" /></p>
 <p>因为系统中的python版本为2.x，那我就安装python2-pip。</p>
-<div class="highlight"><pre><span></span>yum install python2-pip
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps7.png"></p>
+<pre><code>:::bash
+yum install python2-pip
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps7.png" /></p>
 <p>这下可以安装shadowsocks了。</p>
-<div class="highlight"><pre><span></span>pip install shadowsocks
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps8.png"></p>
-<p>安装完成。接下来配置shadowsocks。<br>
-shadowsocks有两种配置方法，一种是命令行配置，另一种是配置文件配置。<br>
+<pre><code>:::bash
+pip install shadowsocks
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps8.png" /></p>
+<p>安装完成。接下来配置shadowsocks。<br />
+shadowsocks有两种配置方法，一种是命令行配置，另一种是配置文件配置。<br />
 我使用了文件配置，个人感觉比较直观。  </p>
-<div class="highlight"><pre><span></span>vi /etc/shadowsocks/config.json
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>{
-  &quot;server&quot;:&quot;x.x.x.x&quot;, #vps的ip
-  &quot;server_port&quot;:2333, #服务器端口
-  &quot;local_address&quot;:&quot;127.0.0.1&quot;, #本地地址
-  &quot;local_port&quot;:1080,  #本地代理端口
-  &quot;password&quot;:&quot;xxxxx&quot;, #认证密码
-  &quot;timeout&quot;:5,        #超时时间，单位为秒
-  &quot;method&quot;:&quot;aes-256-cfb&quot; #加密方式，推荐使用aes-256-cfb
-}
-</pre></div>
-
-
-<p>写完保存。<br>
+<pre><code>:::bash
+vi /etc/shadowsocks/config.json
+</code></pre>
+<p><code>{
+  "server":"x.x.x.x", #vps的ip
+  "server_port":2333, #服务器端口
+  "local_address":"127.0.0.1", #本地地址
+  "local_port":1080,  #本地代理端口
+  "password":"xxxxx", #认证密码
+  "timeout":5,        #超时时间，单位为秒
+  "method":"aes-256-cfb" #加密方式，推荐使用aes-256-cfb
+}</code></p>
+<p>写完保存。<br />
 然后执行命令</p>
-<div class="highlight"><pre><span></span>ssserver -c /etc/shadowsocks/config.json -d start
-</pre></div>
-
-
+<pre><code>:::bash
+ssserver -c /etc/shadowsocks/config.json -d start
+</code></pre>
 <p>后台运行shadowsocks程序。</p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps9.png"></p>
-<p>服务端配置完成。<br>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps9.png" /></p>
+<p>服务端配置完成。<br />
 客户端看看是否能连接。</p>
-<p><img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps10.png"></p>
-<p>谷歌打不开。。<br>
+<p><img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps10.png" /></p>
+<p>谷歌打不开。。<br />
 看看日志怎么回事</p>
-<p><img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps11.png"></p>
-<p>一堆timeout。。<br>
-配置过程应该是没问题的。。<br>
-想了想，好像是忘了在vps中开端口。。<br>
-试试把端口打开看看。<br>
+<p><img alt="ss" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps11.png" /></p>
+<p>一堆timeout。。<br />
+配置过程应该是没问题的。。<br />
+想了想，好像是忘了在vps中开端口。。<br />
+试试把端口打开看看。<br />
 CentOS 7使用了firewalld防火墙。  </p>
-<div class="highlight"><pre><span></span>firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span><span class="m">2333</span>/tcp --permanent
-firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span><span class="m">2333</span>/udp --permanent
+<pre><code>:::bash
+firewall-cmd --zone=public --add-port=2333/tcp --permanent
+firewall-cmd --zone=public --add-port=2333/udp --permanent
 firewall-cmd --complete-reload
-</pre></div>
-
-
-<p>全部success。<br>
+</code></pre>
+<p>全部success。<br />
 再次打开谷歌看看。</p>
-<p><img alt="explore" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps12.png"></p>
-<p>成功。<br>
-shadowsocks算是配置完了。<br>
+<p><img alt="explore" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps12.png" /></p>
+<p>成功。<br />
+shadowsocks算是配置完了。<br />
 看看在youtube上看视频速度如何。  </p>
-<p>打开youtube速度还是很快的。<br>
-点一个Carpool Karaoke看看。<br>
+<p>打开youtube速度还是很快的。<br />
+点一个Carpool Karaoke看看。<br />
 清晰度切换到720P  </p>
-<p><img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps13.png"></p>
+<p><img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps13.png" /></p>
 <p>看看统计信息。</p>
-<p><img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps14.png"></p>
+<p><img alt="youtube" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps14.png" /></p>
 <p>这速度。。难受。。</p>
-<p>最近BBR很火。<br>
-BBR是谷歌开发的TCP拥塞控制算法，目的就是要尽量跑满带宽，并且尽量不要有排队的情况。<br>
-最近这货已经被开源，提交到了Linux内核。现在更新到最新内核应该就能用上BBR。<br>
-那我也来试一试。<br>
-CentOS可以直接使用ELRepo Project上的最新内核。<br>
+<p>最近BBR很火。<br />
+BBR是谷歌开发的TCP拥塞控制算法，目的就是要尽量跑满带宽，并且尽量不要有排队的情况。<br />
+最近这货已经被开源，提交到了Linux内核。现在更新到最新内核应该就能用上BBR。<br />
+那我也来试一试。<br />
+CentOS可以直接使用ELRepo Project上的最新内核。<br />
 CentOS 7执行命令：  </p>
-<div class="highlight"><pre><span></span>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+<pre><code>:::bash
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-yum --enablerepo<span class="o">=</span>elrepo-kernel install kernel-ml -y
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps15.png"></p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps16.png"></p>
-<p>新内核安装完成。<br>
+yum --enablerepo=elrepo-kernel install kernel-ml -y
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps15.png" /></p>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps16.png" /></p>
+<p>新内核安装完成。<br />
 查查内核情况：</p>
-<div class="highlight"><pre><span></span>egrep ^menuentry /etc/grub2.cfg <span class="p">|</span> cut -f <span class="m">2</span> -d <span class="se">\&#39;</span>
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps17.png"></p>
-<p>第一个就是最新的。<br>
+<pre><code>:::bash
+egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \'
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps17.png" /></p>
+<p>第一个就是最新的。<br />
 现在把引导文件中默认引导设为最新内核。</p>
-<div class="highlight"><pre><span></span>grub2-set-default <span class="m">0</span> <span class="c1"># 0就是第一个内核，刚才看到的第一个</span>
-</pre></div>
-
-
+<pre><code>:::bash
+grub2-set-default 0 # 0就是第一个内核，刚才看到的第一个
+</code></pre>
 <p>然后reboot，重启。  </p>
 <p>（新主机重启只要几十秒。。很恐怖）  </p>
 <p>看看内核  </p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps18.png"></p>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps18.png" /></p>
 <p>新内核美滋滋 ~</p>
 <p>接着把BBR打开。</p>
-<div class="highlight"><pre><span></span>vi /etc/sysctl.conf
-</pre></div>
-
-
+<pre><code>:::bash
+vi /etc/sysctl.conf
+</code></pre>
 <p>在这个文件中加入两行：  </p>
-<div class="highlight"><pre><span></span>net.core.default_qdisc <span class="o">=</span> fq
-net.ipv4.tcp_congestion_control <span class="o">=</span> bbr
-</pre></div>
-
-
+<pre><code>:::bash
+net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+</code></pre>
 <p>保存退出。</p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps19.png"></p>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps19.png" /></p>
 <p>然后</p>
-<div class="highlight"><pre><span></span>sysctl -p
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps20.png"></p>
+<pre><code>:::bash
+sysctl -p
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps20.png" /></p>
 <p>现在BBR设置应该生效了。  </p>
-<div class="highlight"><pre><span></span>lsmod <span class="p">|</span> grep bbr
-</pre></div>
-
-
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps21.png"></p>
-<p>BBR正常启动了。<br>
+<pre><code>:::bash
+lsmod | grep bbr
+</code></pre>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps21.png" /></p>
+<p>BBR正常启动了。<br />
 在用youtube测测速。。  </p>
-<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps22.png"></p>
-<p>好很多了。。。<br>
+<p><img alt="xshell" src="http://roses-echo.com/images/install-ss-and-use-bbr-on-vps22.png" /></p>
+<p>好很多了。。。<br />
 这下看1080P就美滋滋了~  </p>
 <h4>以上配置方法都是谷歌的，绝无半点抄袭之意，如有意见，请联系提出。</h4>
 <h4>感谢谷歌，也感谢所有乐于分享的人。</h4>
@@ -358,68 +340,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
       <a href="http://roses-echo.com/tag/runlevel.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/iptables.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
-      </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
       </a>
       <a href="http://roses-echo.com/tag/ss.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/ntfs.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
+      </a>
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
       <a href="http://roses-echo.com/tag/shell.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
       <a href="http://roses-echo.com/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/iptables.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>

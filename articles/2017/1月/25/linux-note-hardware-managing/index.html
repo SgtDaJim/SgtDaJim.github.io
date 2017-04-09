@@ -123,20 +123,14 @@
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
-<p>列出所有的PCI设备  </p>
-<div class="highlight"><pre><span></span>lspci
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/1.png"><br>
-<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/2.png"></p>
-<p>查看cpu信息</p>
-<div class="highlight"><pre><span></span>more /proc/cpuinfo
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/3.png"></p>
+<hr />
+<p>列出所有的PCI设备<br />
+<code>lspci</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/1.png" /><br />
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/2.png" /></p>
+<p>查看cpu信息
+<code>more /proc/cpuinfo</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/3.png" /></p>
 <ul>
 <li>processor -- 逻辑处理器的唯一标识符</li>
 <li>vendor-id -- 处理器类型</li>
@@ -146,37 +140,22 @@
 <li>cpu cores -- 位于相同物理封装中的内核数量</li>
 </ul>
 <p><strong>若siblings是cpu cores的两倍，则说明系统支持超线程，而且超线程已打开；如果siblings和cpu cores一致，则说明系统不支持超线程，或者超线程未打开。</strong></p>
-<p>查看系统物理CPU的个数</p>
-<div class="highlight"><pre><span></span>cat /proc/cpuinfo | grep &quot;physical id&quot; | sort | uniq | wc -l
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/4.png">  </p>
-<p>查看每个物理CPU中内核的个数</p>
-<div class="highlight"><pre><span></span>cat /proc/cpuinfo | grep &quot;cpu cores&quot;
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/5.png"></p>
-<p>查看系统所有逻辑CPU个数（所有物理CPU中内核的个数加上超线程个数）</p>
-<div class="highlight"><pre><span></span>cat /proc/cpuinfo | grep &quot;processor&quot; | wc -l
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/6.png"></p>
+<p>查看系统物理CPU的个数
+<code>cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/4.png" />  </p>
+<p>查看每个物理CPU中内核的个数
+<code>cat /proc/cpuinfo | grep "cpu cores"</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/5.png" /></p>
+<p>查看系统所有逻辑CPU个数（所有物理CPU中内核的个数加上超线程个数）
+<code>cat /proc/cpuinfo | grep "processor" | wc -l</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/6.png" /></p>
 <p>可以得出：有2个物理CPU，每个CPU1个内核，没启用超线程，总共2个逻辑CPU。  </p>
-<p>查看内存信息</p>
-<div class="highlight"><pre><span></span>more /proc/meminfo
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/7.png"></p>
-<p>查看磁盘分区信息</p>
-<div class="highlight"><pre><span></span>fdisk -l
-</pre></div>
-
-
-<p><img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/8.png"></p>
+<p>查看内存信息
+<code>more /proc/meminfo</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/7.png" /></p>
+<p>查看磁盘分区信息
+<code>fdisk -l</code>
+<img alt="lspci" src="http://roses-echo.com/images/linux-note-hardware-managing/8.png" /></p>
   </div>
   
 
@@ -247,68 +226,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
       <a href="http://roses-echo.com/tag/runlevel.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/iptables.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
-      </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
       </a>
       <a href="http://roses-echo.com/tag/ss.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/ntfs.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
+      </a>
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
       <a href="http://roses-echo.com/tag/shell.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
       <a href="http://roses-echo.com/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/iptables.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>

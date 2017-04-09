@@ -125,12 +125,12 @@
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr>
-<p>相关资料：     <br>
-<a href="http://www.jianshu.com/p/c2aee2ff7bd8">iptables详解 - 简书</a>     <br>
+<hr />
+<p>相关资料：     <br />
+<a href="http://www.jianshu.com/p/c2aee2ff7bd8">iptables详解 - 简书</a>     <br />
 <a href="http://www.361way.com/icmp-type/1186.html">icmp-type对应表 - 运维之路</a></p>
-<p>防火墙分为封包过滤式防火墙（Packet Filter）、应用层网关防火墙（Application-Level Gateway）两种。<br>
-iptables属于封包过滤式防火墙。  <br>
+<p>防火墙分为封包过滤式防火墙（Packet Filter）、应用层网关防火墙（Application-Level Gateway）两种。<br />
+iptables属于封包过滤式防火墙。  <br />
 iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核中，因此执行效率非常高。</p>
 <p>iptables中有3中表选项：</p>
 <ul>
@@ -188,44 +188,36 @@ iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核�
 <p><br></p>
 <p><code>mangle</code>表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）</p>
 <p>当数据包进入Linux主机前，首先经过iptables的过滤。iptables将数据包与表中规则<strong>按顺序</strong>对比，检查是否满足规则条件，然后执行动作。</p>
-<p>iptables工作顺序示意图：  <br>
-<img alt="iptables工作顺序" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/1.png"></p>
+<p>iptables工作顺序示意图：  <br />
+<img alt="iptables工作顺序" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/1.png" /></p>
 <p>列出filter表的规则：</p>
-<div class="highlight"><pre><span></span> iptables -t filter -L -n
-</pre></div>
-
-
+<pre><code> iptables -t filter -L -n
+</code></pre>
 <p>清空所有规则：</p>
-<div class="highlight"><pre><span></span> iptables -F
+<pre><code> iptables -F
  iptables -X
  iptables -Z
-</pre></div>
-
-
+</code></pre>
 <ul>
 <li>-F 清空指定表中所有链的规则</li>
 <li>-X 删除使用者自定义的表</li>
 <li>-Z 将数据包计数器清零</li>
 </ul>
 <p>将filter表中INPUT的预设规则改为DROP</p>
-<div class="highlight"><pre><span></span> iptables -P INPUT DROP
-</pre></div>
-
-
-<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/2.png"></p>
+<pre><code> iptables -P INPUT DROP
+</code></pre>
+<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/2.png" /></p>
 <p>将来自10.10.10.1的数据包丢弃</p>
-<div class="highlight"><pre><span></span> iptables -t filter -A INPUT -s 10.10.10.1 -j DROP
-</pre></div>
-
-
-<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/3.png"><br>
-<img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/4.png"></p>
+<pre><code> iptables -t filter -A INPUT -s 10.10.10.1 -j DROP
+</code></pre>
+<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/3.png" /><br />
+<img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/4.png" /></p>
 <p><strong>注：只有在设置tcp或udp规则时，才能使用--sport或--dport参数。</strong></p>
 <h4>iptables规则练习</h4>
 <p><a href="https://www.centos.bz/2012/08/iptables-exercises/">iptables练习题 - Linux运维日志</a></p>
-<p><strong>注：在CentOS 7.x后默认使用firewalld了。相关资料如下：</strong> <br>
-<a href="http://www.firewalld.org/">firewalld: Home</a>  <br>
-<a href="https://fedoraproject.org/wiki/FirewallD/zh-cn#.E4.BD.BF.E7.94.A8_FirewallD_.E6.9E.84.E5.BB.BA.E5.8A.A8.E6.80.81.E9.98.B2.E7.81.AB.E5.A2.99">使用firewalld - Fedora</a>     <br>
+<p><strong>注：在CentOS 7.x后默认使用firewalld了。相关资料如下：</strong> <br />
+<a href="http://www.firewalld.org/">firewalld: Home</a>  <br />
+<a href="https://fedoraproject.org/wiki/FirewallD/zh-cn#.E4.BD.BF.E7.94.A8_FirewallD_.E6.9E.84.E5.BB.BA.E5.8A.A8.E6.80.81.E9.98.B2.E7.81.AB.E5.A2.99">使用firewalld - Fedora</a>     <br />
 <a href="http://www.centoscn.com/CentOS/help/2015/0208/4667.html">CentOS 7 firewalld使用简介</a></p>
   </div>
   
@@ -297,68 +289,68 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>提权
-      </a>
-      <a href="http://roses-echo.com/tag/ntfs.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
-      </a>
-      <a href="http://roses-echo.com/tag/centos.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
-      </a>
-      <a href="http://roses-echo.com/tag/v2ex.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
-      </a>
-      <a href="http://roses-echo.com/tag/hardware.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
-      </a>
-      <a href="http://roses-echo.com/tag/vps.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
-      </a>
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
-      </a>
       <a href="http://roses-echo.com/tag/runlevel.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>runlevel
-      </a>
-      <a href="http://roses-echo.com/tag/iptables.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
-      </a>
-      <a href="http://roses-echo.com/tag/firewalld.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
-      </a>
-      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
-      </a>
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
-      </a>
-      <a href="http://roses-echo.com/tag/360.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>360
-      </a>
-      <a href="http://roses-echo.com/tag/google.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Google
-      </a>
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
-      </a>
-      <a href="http://roses-echo.com/tag/bbr.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
-      </a>
-      <a href="http://roses-echo.com/tag/linux.html">
-        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
       </a>
       <a href="http://roses-echo.com/tag/ss.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>SS
       </a>
+      <a href="http://roses-echo.com/tag/centos.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>CentOS
+      </a>
+      <a href="http://roses-echo.com/tag/bbr.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>BBR
+      </a>
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>提权
+      </a>
+      <a href="http://roses-echo.com/tag/hardware.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Hardware
+      </a>
+      <a href="http://roses-echo.com/tag/ntfs.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>NTFS
+      </a>
+      <a href="http://roses-echo.com/tag/firewalld.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>firewalld
+      </a>
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Shadowsocks
+      </a>
       <a href="http://roses-echo.com/tag/shell.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>shell
+      </a>
+      <a href="http://roses-echo.com/tag/360.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>360
+      </a>
+      <a href="http://roses-echo.com/tag/vps.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>VPS
+      </a>
+      <a href="http://roses-echo.com/tag/v2ex.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>V2EX
       </a>
       <a href="http://roses-echo.com/tag/tao-lu.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>套路
       </a>
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>渗透
+      </a>
       <a href="http://roses-echo.com/tag/mount.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>mount
+      </a>
+      <a href="http://roses-echo.com/tag/google.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Google
+      </a>
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>安全狗
+      </a>
+      <a href="http://roses-echo.com/tag/linux.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>Linux
+      </a>
+      <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>内存优化
+      </a>
+      <a href="http://roses-echo.com/tag/iptables.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>iptables
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
