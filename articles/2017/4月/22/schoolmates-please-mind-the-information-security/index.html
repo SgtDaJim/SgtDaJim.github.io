@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with Shadowsocks" />
+    <meta name="description" content="" />
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:Shadowsocks - Ro$es Echo</title>
+    <title>宇工大老哥老姐们，你们就这么不注意信息与系统安全吗？ - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -98,19 +98,14 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://roses-echo.com/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">Shadowsocks</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  CST, 2017 02 19, 星期日
+  CST, 2017 04 22, 星期六
 </abbr> <h1>
-  <a href="http://roses-echo.com/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/" rel="bookmark"
-     title="Permalink to 动手配置Shadowsocks服务器端+TCP BBR">
-    动手配置Shadowsocks服务器端+TCP BBR
+  <a href="http://roses-echo.com/articles/2017/4月/22/schoolmates-please-mind-the-information-security/" rel="bookmark"
+     title="Permalink to 宇工大老哥老姐们，你们就这么不注意信息与系统安全吗？">
+    宇工大老哥老姐们，你们就这么不注意信息与系统安全吗？
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -121,24 +116,89 @@
     </a>
     <div>
       <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/vps.html"><i class="fa fa-tag"></i>VPS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/shadowsocks.html"><i class="fa fa-tag"></i>Shadowsocks</a>&nbsp;
-        <a href="http://roses-echo.com/tag/ss.html"><i class="fa fa-tag"></i>SS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/bbr.html"><i class="fa fa-tag"></i>BBR</a>&nbsp;
+        <a href="http://roses-echo.com/tag/tao-lu.html"><i class="fa fa-tag"></i>套路</a>&nbsp;
+        <a href="http://roses-echo.com/tag/shen-tou.html"><i class="fa fa-tag"></i>渗透</a>&nbsp;
     </div>
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>最近有人出一台kvm的主机 …</p>
-		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2017/2月/19/install-ss-and-use-bbr-on-vps/">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p>不久前，微软被爆出了大量0day漏洞，而NSA针对这些漏洞的利用工具也被泄漏了出来。       <br />
+这简直就是一场巨大的地震。       <br />
+某些漏洞的利用简直就是神不知，鬼不觉，打的你一点脾气都没有。            <br />
+其中EternalBlue（永恒之蓝），就是最可怕的漏洞之一。  <br />
+只要你的系统是win7或以下版本，并开放了445端口。（相信我，你甚至不知道什么时候开放了这个端口）     <br />
+你的系统就能被直接入侵。    <br />
+毫无防备。          </p>
+<p>作为一个信息安全爱好者，我也针对我校某个网段进行了一次友情检测。（并无丝毫恶意，仅仅进行了漏洞测试，绝无任何信息盗取行为。）          </p>
+<p>先上nmap扫了一下。    <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/1.png" />        </p>
+<p>然后写脚本，把开了445端口的windows机器的ip保存下来。    <br />
+部分截图：    <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/2.PNG" />         </p>
+<p>然后就是上NSA泄漏出来的工具了。   <br />
+复现过程百度一堆，在这不再赘述。  <br />
+复现过程部分截图：    <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/3.PNG" />     <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/4.PNG" />     <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/5.PNG" />       </p>
+<h3>受害者1：</h3>
+<p>桌面截图：  <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/6.PNG" />                     </p>
+<p>摄像头快照：（晚上11点30分之后了。刚好不用我来打码。）    <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/7.PNG" />                        </p>
+<p>文件目录和我的权限：      <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/8.PNG" />                   </p>
+<h3>受害者2：</h3>
+<p><img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/9.PNG" />                     </p>
+<p>桌面截图：（在学习呢~）       <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/10.PNG" />                 </p>
+<p>摄像头快照：（原来是熟人。。）             <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/11.PNG" />                                 </p>
+<h3>受害者3：</h3>
+<p><img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/12.PNG" />                         </p>
+<p>桌面截图：      <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/13.jpeg" />       </p>
+<p>部分文件目录：（看来是个编程大神）             <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/14.PNG" />                      </p>
+<h3>受害者4：</h3>
+<p><img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/15.PNG" />  <br />
+桌面截图： （可惜了，没在游戏中。。）   <br />
+<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/schoolmates-please-mind-the-information-security/16.PNG" />      </p>
+<hr />
+<p>别看我只是截图和拍照。我能做的事情绝对不止这么多。                <br />
+<strong>偷窥聊天记录，盗用账号密码。</strong>               <br />
+<strong>删除、窃取重要信息。</strong>              <br />
+<strong>留下后门，方便下次入侵。</strong>            <br />
+<strong>...还有很多...</strong>       </p>
+<p>以上事情我都没有做。因为我是个<strong>好人</strong>。           </p>
+<p>扫出来的ip绝对不止这么多，我只是懒得去点而已。                   <br />
+漏洞的修复方法实际上非常简单。关闭445端口，或者防火墙设置规则过滤445端口即可。                  <br />
+从这可以看出的是，我宇工大的学生在信息安全方面的认识是绝对不够深刻的。
+这么大的漏洞风险，居然还有这么多的同学无动于衷。           <br />
+人们总是想着信息泄漏与信息安全距离自己十分遥远。         <br />
+可谁知自己的信息早就在无声无息之中传遍整个互联网而变得毫无价值。                      </p>
+<p>说到这里，我居然不知道接着说什么了。                  <br />
+只能再次提醒大家，提高信息安全意识，关注漏洞预警，做好防御措施。                 <br />
+别到各种“门”发生在自己身上时，才觉得后悔。                     </p>
+  </div>
+  
 
-<nav class="index-pager">
+  <!--Add by Ro$es-->
 
-</nav> <!-- /index-pager -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "4273eb2cb9c743b4b90f4773d8e6d9c2",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>  
+  <!--Add by Ro$es-->
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
