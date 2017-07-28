@@ -101,20 +101,17 @@ p.standfirst {
 }*/
 
 /*Add by Ro$es*/
-/* body {
+ body {
   color: #516272;
 } */
-body {
-  color: #cc0000;
-}
 /*------------------------------------------*/
-/* #main-container{
+#main-container{
   font-family: "Consolas, Microsoft Yahei";
   font-size: 18px;
 }
 div.summary{
   font-size: 12px;
-} */
+}  
 /*------------------------------------------*/
 a {
   color: #4183C4; }
