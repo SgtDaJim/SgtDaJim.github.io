@@ -106,7 +106,7 @@ p.standfirst {
 } */
 /*------------------------------------------*/
 #main-container{
-  font-family: "Consolas, Microsoft Yahei";
+  font-family: "Consolas", "Microsoft Yahei";
   font-size: 18px;
 }
 div.summary{
