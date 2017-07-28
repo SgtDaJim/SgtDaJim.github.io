@@ -101,11 +101,21 @@ p.standfirst {
 }*/
 
 /*Add by Ro$es*/
+/* body {
+  color: #516272;
+} */
 body {
- font-family: "Microsoft Yahei", Helvetica, arial, sans-serif ;
+  color: #cc0000;
+}
+/*------------------------------------------*/
+/* #main-container{
+  font-family: "Consolas, Microsoft Yahei";
   font-size: 18px;
-color: #516272;}
-
+}
+div.summary{
+  font-size: 12px;
+} */
+/*------------------------------------------*/
 a {
   color: #4183C4; }
 a.absent {
