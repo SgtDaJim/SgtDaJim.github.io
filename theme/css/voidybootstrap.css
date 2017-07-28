@@ -102,11 +102,11 @@ p.standfirst {
 
 /*Add by Ro$es*/
  body {
+  font-family: Consolas, "Microsoft YaHei";
   color: #516272;
-} */
+} 
 /*------------------------------------------*/
-#main-container{
-  font-family: "Consolas",;
+#main-container{ 
   font-size: 18px;
 }
 div.summary{
