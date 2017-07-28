@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-04-19T18:10:42+08:00</updated><entry><title>主机与VMware的虚拟机互相传送文件时，临时文件的存放位置</title><link href="http://roses-echo.com/articles/2017/Apr/19/the-location-of-temp-files-created-by-sending-files-with-vmware-tools/" rel="alternate"></link><published>2017-04-19T18:10:42+08:00</published><updated>2017-04-19T18:10:42+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-04-19:/articles/2017/Apr/19/the-location-of-temp-files-created-by-sending-files-with-vmware-tools/</id><summary type="html">&lt;h2&gt;虚拟机与主机的文件传送 …&lt;/h2&gt;</summary><content type="html">&lt;h2&gt;虚拟机与主机的文件传送&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-07-28T12:47:17+08:00</updated><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="http://roses-echo.com/articles/2017/Jul/28/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-07-28T12:47:17+08:00</published><updated>2017-07-28T12:47:17+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-07-28:/articles/2017/Jul/28/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;p&gt;在注册google账号时 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;在注册google账号时，不少人会碰到，在给出合法，而且从来没注册过google账号的手机号码进行短信验证时，却提示“该号码无法用于进行验证”。&lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="validate" src="http://roses-echo.com/images/solve-google-validation-phone-number-problem/1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;嗨呀。。是不是很气。。&lt;/p&gt;
+&lt;p&gt;连新申请的阿里小号，都有这种提示，特别无语。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重点来了&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方法：手机安装google服务框架，下载gmail(FQ什么的在大陆是肯定需要了)，在gmail里面申请google账号，这时填写在PC浏览器上用的手机号码，就不会提示无法验证了。。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>主机与VMware的虚拟机互相传送文件时，临时文件的存放位置</title><link href="http://roses-echo.com/articles/2017/Apr/19/the-location-of-temp-files-created-by-sending-files-with-vmware-tools/" rel="alternate"></link><published>2017-04-19T18:10:42+08:00</published><updated>2017-04-19T18:10:42+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-04-19:/articles/2017/Apr/19/the-location-of-temp-files-created-by-sending-files-with-vmware-tools/</id><summary type="html">&lt;h2&gt;虚拟机与主机的文件传送 …&lt;/h2&gt;</summary><content type="html">&lt;h2&gt;虚拟机与主机的文件传送&lt;/h2&gt;
 &lt;p&gt;众所周知，VMware虚拟机与主机之间可以通过vmware-tools发送文件。 &lt;br /&gt;
 而在发送文件时，被传送的文件会先保存到目的主机的一个临时目录中，然后把临时目录的该文件复制到目的主机中需要被传送到的目录。  &lt;br /&gt;
 例如，在我的Kali Linux虚拟机中有一个txt文档：        &lt;br /&gt;
@@ -163,16 +170,7 @@ EPEL &lt;a href="https://fedoraproject.org/wiki/EPEL/zh-cn"&gt;EPEL wiki&lt;/a&g
 &lt;h3&gt;二进制压缩包安装&lt;/h3&gt;
 &lt;p&gt;一般为&lt;code&gt;.tar.gz&lt;/code&gt;或&lt;code&gt;.bz2&lt;/code&gt;后缀，直接解压可用。&lt;/p&gt;
 &lt;h3&gt;有安装脚本的软件包&lt;/h3&gt;
-&lt;p&gt;解压后，目录下一般有安装脚本，名称类似&lt;code&gt;setup.sh&lt;/code&gt;或者&lt;code&gt;install&lt;/code&gt;等，赋予可执行权限后运行即可完成安装。&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>解决注册Google账号时提示该号码无法用于进行验证的方法</title><link href="http://roses-echo.com/articles/2017/Mar/01/solve-google-validation-phone-number-problem/" rel="alternate"></link><published>2017-03-01T01:24:29+08:00</published><updated>2017-03-01T01:24:29+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-03-01:/articles/2017/Mar/01/solve-google-validation-phone-number-problem/</id><summary type="html">&lt;hr /&gt;
-&lt;p&gt;在注册google账号时 …&lt;/p&gt;</summary><content type="html">&lt;hr /&gt;
-&lt;p&gt;在注册google账号时，不少人会碰到，在给出合法，而且从来没注册过google账号的手机号码进行短信验证时，却提示“该号码无法用于进行验证”。&lt;/p&gt;
-&lt;p&gt;如图：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="validate" src="http://roses-echo.com/images/solve-google-validation-phone-number-problem/1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;嗨呀。。是不是很气。。&lt;/p&gt;
-&lt;p&gt;连新申请的阿里小号，都有这种提示，特别无语。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;重点来了&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解决方法：手机安装google服务框架，下载gmail(FQ什么的在大陆是肯定需要了)，在gmail里面申请google账号，这时填写在PC浏览器上用的手机号码，就不会提示无法验证了。。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;做法很简单，就是安装google框架有点麻烦而已。&lt;/p&gt;</content><category term="套路"></category><category term="Google"></category></entry><entry><title>Linux学习笔记 - Linux下常用命令</title><link href="http://roses-echo.com/articles/2017/Feb/28/linux-note-commonly-used-commands/" rel="alternate"></link><published>2017-02-28T00:00:00+08:00</published><updated>2017-02-28T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-02-28:/articles/2017/Feb/28/linux-note-commonly-used-commands/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;解压后，目录下一般有安装脚本，名称类似&lt;code&gt;setup.sh&lt;/code&gt;或者&lt;code&gt;install&lt;/code&gt;等，赋予可执行权限后运行即可完成安装。&lt;/p&gt;</content><category term="Linux"></category><category term="CentOS"></category></entry><entry><title>Linux学习笔记 - Linux下常用命令</title><link href="http://roses-echo.com/articles/2017/Feb/28/linux-note-commonly-used-commands/" rel="alternate"></link><published>2017-02-28T00:00:00+08:00</published><updated>2017-02-28T00:00:00+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-02-28:/articles/2017/Feb/28/linux-note-commonly-used-commands/</id><summary type="html">&lt;p&gt;&lt;em&gt;参考资料 …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;系统管理与维护&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ls&lt;/code&gt; 显示指定工作目录下的内容，列出工作目录所含的文件以及子目录。&lt;br /&gt;
