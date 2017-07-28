@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content=" Posts tagged with VPS" />
+    <meta name="description" content="" />
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Tag:VPS - Ro$es Echo</title>
+    <title>运维之路 - 运维原则与奇技淫巧[持续更新] - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -98,22 +98,17 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<ol class="breadcrumb">
-    <li><a href="http://roses-echo.com/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
-    <li>Tags </li>
-    <li class="active">VPS</li>
-</ol>
-    <article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
 <abbr class="article-header-date">
-  CST, 2017-02-19, Sunday
+  CST, 2017-07-28, Friday
 </abbr> <!-- Add by Ro$es on 2017-07-28 -->
-<span></span>
+<span><i class="glyphicon glyphicon-pushpin"></i></span>
 <!-------------------------------->
 <h1>
-  <a href="http://roses-echo.com/articles/2017/Feb/19/install-ss-and-use-bbr-on-vps/" rel="bookmark"
-     title="Permalink to 动手配置Shadowsocks服务器端+TCP BBR">
-    动手配置Shadowsocks服务器端+TCP BBR
+  <a href="http://roses-echo.com/articles/2017/Jul/28/road-to-ops-principle-and-tricks/" rel="bookmark"
+     title="Permalink to 运维之路 - 运维原则与奇技淫巧[持续更新]">
+    运维之路 - 运维原则与奇技淫巧[持续更新]
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -124,24 +119,45 @@
     </a>
     <div>
       <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/vps.html"><i class="fa fa-tag"></i>VPS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/shadowsocks.html"><i class="fa fa-tag"></i>Shadowsocks</a>&nbsp;
-        <a href="http://roses-echo.com/tag/ss.html"><i class="fa fa-tag"></i>SS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/bbr.html"><i class="fa fa-tag"></i>BBR</a>&nbsp;
+        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
+        <a href="http://roses-echo.com/tag/ops.html"><i class="fa fa-tag"></i>Ops</a>&nbsp;
     </div>
   </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<p>最近有人出一台kvm的主机 …</p>
-		<p class="content-emphasis"><a href="http://roses-echo.com/articles/2017/Feb/19/install-ss-and-use-bbr-on-vps/">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
+</div> <!-- /.article-header-info -->  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<ul>
+<li>
+<p><strong>做改动前做备份，无论多小的修改，都要做备份,因为备份是救命用的。</strong></p>
+</li>
+<li>
+<p>做改动之前，先小范围测试，百分之一万确定没有任何问题时，再全范围修改。（此处可以参考版本发布流程规范）</p>
+</li>
+<li>
+<p>在执行命令或者其他操作时，<strong>前后三思</strong>，做好最坏打算，同时做好回滚准备。</p>
+</li>
+<li>
+<p>在执行别人给的命令和操作时，先粘贴到别的地方看清楚，有没有错误，确定没有错误再执行。</p>
+</li>
+</ul>
+  </div>
+  
 
-<nav class="index-pager">
+  <!--Add by Ro$es-->
 
-</nav> <!-- /index-pager -->
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "4273eb2cb9c743b4b90f4773d8e6d9c2",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>  
+  <!--Add by Ro$es-->
+</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
