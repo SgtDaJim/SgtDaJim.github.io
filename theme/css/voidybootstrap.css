@@ -49,7 +49,8 @@ p.standfirst {
 }
 
 .tag-1 {
-  margin: 1px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 	font-size: 20pt;
 }
 .tag-2 {
