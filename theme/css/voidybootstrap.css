@@ -49,23 +49,28 @@ p.standfirst {
 }
 
 .tag-1 {
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px;
 	font-size: 20pt;
 }
 .tag-2 {
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px;
 	font-size: 18pt;
 }
 .tag-3 {
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px;
 	font-size: 16pt;
 }
 .tag-4 {
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px;
 	font-size: 14pt;
 }
 .tag-5 {
-  margin: 5px;
+  /* margin: 5px; */
+  padding: 5px;
 	font-size: 12pt;
 }
 
