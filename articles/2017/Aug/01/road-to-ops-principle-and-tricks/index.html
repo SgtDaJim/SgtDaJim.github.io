@@ -125,7 +125,7 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><strong>现总计29条</strong></p>
+	<p><strong>现总计30条</strong></p>
 <ul>
 <li>
 <p><strong>做改动前做备份，无论多小的修改，都要做备份,因为备份是救命用的。</strong></p>
@@ -170,7 +170,7 @@
 </li>
 <li>
 <p>善用screen，防止断网或者其他突发情况时，正在ssh上做的东西被中断导致严重后果！！
-<code>screen -R 名称</code></p>
+    <code>screen -R 名称</code></p>
 </li>
 <li>
 <p>安装PHP扩展时，可以选择使用PHP自带PECL扩展库安装。<br />
@@ -216,18 +216,22 @@
 <p><code>zgrep</code> 可以不解压日志直接抓关键字</p>
 </li>
 <li>
-<p>统计每分钟日志数 <br />
-<code>awk '{a[$2]++}END{for(i in a){print i" "a[i]}}'</code></p>
+<p>统计每分钟日志数
+    <code>awk '{a[$2]++}END{for(i in a){print i" "a[i]}}'</code></p>
 </li>
 <li>
 <p>centos中，nginx做转发时，记得修改SELinux配置。
-<code>setsebool -P httpd_can_network_connect 1</code></p>
+    <code>setsebool -P httpd_can_network_connect 1</code></p>
 </li>
 <li>
 <p>当遇到4xx问题时，先考虑文件是否存在，然后考虑nginx配置是否正确。遇到5xx问题时，先考虑后端不返回。</p>
 </li>
 <li>
 <p>在ssh时，提示permission denied(publickey)，其中一个点是可以尝试留意下.ssh/config中的内容。有时候这里会出问题。</p>
+</li>
+<li>
+<p>tar命令中， -C 参数意思是change to directory，可以做到跳到某目录然后打包该目录下所有文件的效果。
+    <code>tar -C ~/test/111/ -zcvf 123.tar.gz ./</code></p>
 </li>
 </ul>
 <p>------------未完待续----------------</p>
@@ -299,100 +303,10 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/linux.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Linux
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://roses-echo.com/tag/shell.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        shell
-      </a>
-    </span>
     <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vmware.html">
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VMware
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/runlevel.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        runlevel
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/v2ex.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        V2EX
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vps.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VPS
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/centos.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        CentOS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/hardware.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Hardware
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/bbr.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        BBR
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/mount.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        mount
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ntfs.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        NTFS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/iptables.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        iptables
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/google.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Google
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        安全狗
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ops.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Ops
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/360.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        360
+        Shadowsocks
       </a>
     </span>
     <span class="tag-5">
@@ -402,9 +316,9 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
-      <a href="http://roses-echo.com/tag/firewalld.html">
+      <a href="http://roses-echo.com/tag/iptables.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        firewalld
+        iptables
       </a>
     </span>
     <span class="tag-3">
@@ -413,10 +327,52 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
         套路
       </a>
     </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/linux.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Shadowsocks
+        Linux
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/vmware.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        VMware
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/hardware.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Hardware
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/runlevel.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        runlevel
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        安全狗
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://roses-echo.com/tag/shell.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        shell
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/google.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Google
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/bbr.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        BBR
       </a>
     </span>
     <span class="tag-5">
@@ -426,15 +382,63 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ss.html">
+      <a href="http://roses-echo.com/tag/firewalld.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        SS
+        firewalld
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/centos.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        CentOS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/360.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        360
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ops.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Ops
       </a>
     </span>
     <span class="tag-5">
       <a href="http://roses-echo.com/tag/shen-tou.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
         渗透
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/v2ex.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        V2EX
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/mount.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        mount
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/vps.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        VPS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ntfs.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        NTFS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ss.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        SS
       </a>
     </span>
 </p>
