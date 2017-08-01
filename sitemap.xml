@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://roses-echo.com/</loc>
-<lastmod>2017-08-01T14:08:42-00:00</lastmod>
+<lastmod>2017-08-01T14:10:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://roses-echo.com/archives.html</loc>
-<lastmod>2017-08-01T14:08:42-00:00</lastmod>
+<lastmod>2017-08-01T14:10:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://roses-echo.com/tags.html</loc>
-<lastmod>2017-08-01T14:08:42-00:00</lastmod>
+<lastmod>2017-08-01T14:10:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://roses-echo.com/categories.html</loc>
-<lastmod>2017-08-01T14:08:42-00:00</lastmod>
+<lastmod>2017-08-01T14:10:52-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://roses-echo.com/articles/2017/Aug/01/road-to-ops-principle-and-tricks/</loc>
-<lastmod>2017-08-01T14:08:06+08:00</lastmod>
+<lastmod>2017-08-01T14:09:37+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -187,49 +187,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://roses-echo.com/category/technology.html</loc>
-<lastmod>2017-08-01T14:08:06+08:06</lastmod>
+<lastmod>2017-08-01T14:09:37+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/centos.html</loc>
-<lastmod>2017-08-01T10:13:37+08:06</lastmod>
+<loc>http://roses-echo.com/tag/v2ex.html</loc>
+<lastmod>2017-02-26T20:38:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/hardware.html</loc>
-<lastmod>2017-01-25T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/ops.html</loc>
-<lastmod>2017-08-01T14:08:06+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/an-quan-gou.html</loc>
+<loc>http://roses-echo.com/tag/ti-quan.html</loc>
 <lastmod>2016-09-20T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/firewalld.html</loc>
-<lastmod>2017-08-01T10:13:37+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/iptables.html</loc>
-<lastmod>2017-08-01T10:13:37+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -243,7 +215,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://roses-echo.com/tag/linux.html</loc>
-<lastmod>2017-08-01T14:08:06+08:06</lastmod>
+<lastmod>2017-08-01T14:09:37+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -256,15 +228,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/vmware.html</loc>
-<lastmod>2017-08-01T10:13:02+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/google.html</loc>
-<lastmod>2017-08-01T10:10:27+08:06</lastmod>
+<loc>http://roses-echo.com/tag/360.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -277,15 +242,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/ss.html</loc>
-<lastmod>2017-02-19T00:00:00+08:06</lastmod>
+<loc>http://roses-echo.com/tag/iptables.html</loc>
+<lastmod>2017-08-01T10:13:37+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/v2ex.html</loc>
-<lastmod>2017-02-26T20:38:58+08:06</lastmod>
+<loc>http://roses-echo.com/tag/centos.html</loc>
+<lastmod>2017-08-01T10:13:37+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/ops.html</loc>
+<lastmod>2017-08-01T14:09:37+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/an-quan-gou.html</loc>
+<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/vmware.html</loc>
+<lastmod>2017-08-01T10:13:02+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -298,8 +284,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/ntfs.html</loc>
-<lastmod>2017-01-25T00:00:00+08:06</lastmod>
+<loc>http://roses-echo.com/tag/google.html</loc>
+<lastmod>2017-08-01T10:10:27+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -319,29 +305,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/tao-lu.html</loc>
-<lastmod>2017-08-01T10:13:02+08:06</lastmod>
+<loc>http://roses-echo.com/tag/hardware.html</loc>
+<lastmod>2017-01-25T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://roses-echo.com/tag/360.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/nei-cun-you-hua.html</loc>
-<lastmod>2017-02-26T20:38:58+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://roses-echo.com/tag/ti-quan.html</loc>
-<lastmod>2016-09-20T00:00:00+08:06</lastmod>
+<loc>http://roses-echo.com/tag/ntfs.html</loc>
+<lastmod>2017-01-25T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -354,8 +326,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://roses-echo.com/tag/nei-cun-you-hua.html</loc>
+<lastmod>2017-02-26T20:38:58+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/ss.html</loc>
+<lastmod>2017-02-19T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/tao-lu.html</loc>
+<lastmod>2017-08-01T10:13:02+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://roses-echo.com/tag/firewalld.html</loc>
+<lastmod>2017-08-01T10:13:37+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://roses-echo.com/author/roes.html</loc>
-<lastmod>2017-08-01T14:08:06+08:06</lastmod>
+<lastmod>2017-08-01T14:09:37+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
