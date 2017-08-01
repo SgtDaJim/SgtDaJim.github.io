@@ -8,7 +8,7 @@
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>主机与VMware的虚拟机互相传送文件时，临时文件的存放位置 - Ro$es Echo</title>
+    <title>Ro$es Echo - 风雪夜归人</title>
 
    
         <link rel="stylesheet"
@@ -98,85 +98,6 @@
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
-<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header class="article-header">
-<abbr class="article-header-date">
-  CST, 2017-04-19, Wednesday
-</abbr> <!-- Add by Ro$es on 2017-07-28 -->
-<span></span>
-<!-------------------------------->
-<h1>
-  <a href="http://roses-echo.com/articles/2017/Apr/19/the-location-of-temp-files-created-by-sending-files-with-vmware-tools/" rel="bookmark"
-     title="Permalink to 主机与VMware的虚拟机互相传送文件时，临时文件的存放位置">
-    主机与VMware的虚拟机互相传送文件时，临时文件的存放位置
-  </a>
-</h1><div class="article-header-info">
-  <p>
-      Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
-    in 
-    <a href="http://roses-echo.com/category/technology.html">
-      Technology
-    </a>
-    <div>
-      <span class="label label-default">Tags</span>
-        <a href="http://roses-echo.com/tag/vmware.html"><i class="fa fa-tag"></i>VMware</a>&nbsp;
-        <a href="http://roses-echo.com/tag/tao-lu.html"><i class="fa fa-tag"></i>套路</a>&nbsp;
-    </div>
-  </p>
-</div> <!-- /.article-header-info -->  </header>
-  <div class="content-body" itemprop="text articleBody">
-	<h2>虚拟机与主机的文件传送</h2>
-<p>众所周知，VMware虚拟机与主机之间可以通过vmware-tools发送文件。 <br />
-而在发送文件时，被传送的文件会先保存到目的主机的一个临时目录中，然后把临时目录的该文件复制到目的主机中需要被传送到的目录。  <br />
-例如，在我的Kali Linux虚拟机中有一个txt文档：        <br />
-<img alt="1" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../1.png" />    <br />
-现在把这个123.txt，复制到主机的桌面：  <br />
-<img alt="2" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../2.png" />      <br />
-其实这中间有个两个文件发送的过程： <br />
-<strong>虚拟机中的文件发送到临时目录</strong>  <br />
-<strong>临时目录中文件复制到桌面</strong>    </p>
-<h2>如何验证呢？</h2>
-<p>其实当我们从虚拟机中发送一个较大的文件时，就可以看到这两个过程了，因为会有进度条显示。    </p>
-<h2>那么临时目录在哪呢？</h2>
-<p>经过观察和搜索，  <br />
-<strong>在Windows主机中，临时目录的位置是：<code>C:\Users\使用账户\AppData\Local\Temp\vmware-账户名称\VMwareDnD</code></strong>   <br />
-<img alt="3" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../3.png" />         </p>
-<p>在这些随即名称的文件夹中，就可以找到我们发送的文件。      <br />
-<img alt="4" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../4.png" />        </p>
-<p><strong>而在Linux主机中，临时目录的位置是：<code>/tmp/VMwareDnD</code>和 <code>账户目录/.cache/vmware/drag_and_drop</code></strong>    <br />
-为什么说有两个呢？  <br />
-先查看下<code>/tmp/VMwareDnD</code>：   <br />
-<img alt="5" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../5.png" />        </p>
-<p>可以发现目录下确实有临时文件，但都是符号链接。    <br />
-而真正的文件所在目录，是<code>账户目录/.cache/vmware/drag_and_drop</code>。  <img alt="6" src="http://blogpictures-1252239032.cosgz.myqcloud.com/the-location-of-t.../6.png" />          </p>
-<p>这样，临时文件目录就很清楚了。    </p>
-<h2>得知临时文件的目录，有什么用？</h2>
-<p><strong>用处大了！</strong>  <br />
-通过分析文件的传送过程，我们可以得知：<strong>目的主机上保存了两份需要发送的文件！</strong>   <br />
-这样就造成了容量的大量浪费。   <br />
-所以我们<strong>必须按时清理临时文件目录，避免容量浪费。</strong>   <br />
-在Windows上，大数字或者CCleaner这些软件能扫描到这个缓存目录文件并自动清理。 <br />
-但Linux上呢？    <br />
-只能手动找目录，写脚本自动清理了。  </p>
-  </div>
-  
-
-  <!--Add by Ro$es-->
-
-<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-<script>
-var cloudTieConfig = {
-  url: document.location.href, 
-  sourceId: "",
-  productKey: "4273eb2cb9c743b4b90f4773d8e6d9c2",
-  target: "cloud-tie-wrapper"
-};
-var yunManualLoad = true;
-Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-</script>  
-  <!--Add by Ro$es-->
-</article>
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
@@ -226,16 +147,10 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vmware.html">
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/linux.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VMware
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/hardware.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Hardware
+        Linux
       </a>
     </span>
     <span class="tag-3">
@@ -245,111 +160,9 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
-      <a href="http://roses-echo.com/tag/360.html">
+      <a href="http://roses-echo.com/tag/vmware.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        360
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ss.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        SS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        提权
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/iptables.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        iptables
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/centos.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        CentOS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/mount.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        mount
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vps.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VPS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ops.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Ops
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/firewalld.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        firewalld
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ntfs.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        NTFS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Shadowsocks
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/bbr.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        BBR
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        安全狗
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/linux.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Linux
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://roses-echo.com/tag/tao-lu.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        套路
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        渗透
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/google.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Google
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/v2ex.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        V2EX
+        VMware
       </a>
     </span>
     <span class="tag-5">
@@ -359,9 +172,117 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
+      <a href="http://roses-echo.com/tag/v2ex.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        V2EX
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/vps.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        VPS
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/centos.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        CentOS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/hardware.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Hardware
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/bbr.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        BBR
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/mount.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        mount
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ntfs.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        NTFS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/iptables.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        iptables
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/google.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Google
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        安全狗
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ops.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Ops
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/360.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        360
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        提权
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/firewalld.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        firewalld
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://roses-echo.com/tag/tao-lu.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        套路
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Shadowsocks
+      </a>
+    </span>
+    <span class="tag-5">
       <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
         内存优化
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ss.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        SS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        渗透
       </a>
     </span>
 </p>

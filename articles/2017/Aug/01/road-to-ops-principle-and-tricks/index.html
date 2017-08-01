@@ -8,7 +8,7 @@
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>Linux学习笔记 - Linux软件防火墙iptables - Ro$es Echo</title>
+    <title>运维之路 - 运维原则与奇技淫巧[持续更新] - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -101,14 +101,14 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  CST, 2017-03-14, Tuesday
+  CST, 2017-08-01, Tuesday
 </abbr> <!-- Add by Ro$es on 2017-07-28 -->
-<span></span>
+<span><i class="glyphicon glyphicon-pushpin"></i></span>
 <!-------------------------------->
 <h1>
-  <a href="http://roses-echo.com/articles/2017/Mar/14/linux-note-linux-software-firewall-iptables/" rel="bookmark"
-     title="Permalink to Linux学习笔记 - Linux软件防火墙iptables">
-    Linux学习笔记 - Linux软件防火墙iptables
+  <a href="http://roses-echo.com/articles/2017/Aug/01/road-to-ops-principle-and-tricks/" rel="bookmark"
+     title="Permalink to 运维之路 - 运维原则与奇技淫巧[持续更新]">
+    运维之路 - 运维原则与奇技淫巧[持续更新]
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -120,108 +120,117 @@
     <div>
       <span class="label label-default">Tags</span>
         <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
-        <a href="http://roses-echo.com/tag/centos.html"><i class="fa fa-tag"></i>CentOS</a>&nbsp;
-        <a href="http://roses-echo.com/tag/iptables.html"><i class="fa fa-tag"></i>iptables</a>&nbsp;
-        <a href="http://roses-echo.com/tag/firewalld.html"><i class="fa fa-tag"></i>firewalld</a>&nbsp;
+        <a href="http://roses-echo.com/tag/ops.html"><i class="fa fa-tag"></i>Ops</a>&nbsp;
     </div>
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><em>参考资料：《循序渐进Linux第二版》</em></p>
-<hr />
-<p>相关资料：     <br />
-<a href="http://www.jianshu.com/p/c2aee2ff7bd8">iptables详解 - 简书</a>     <br />
-<a href="http://www.361way.com/icmp-type/1186.html">icmp-type对应表 - 运维之路</a></p>
-<p>防火墙分为封包过滤式防火墙（Packet Filter）、应用层网关防火墙（Application-Level Gateway）两种。<br />
-iptables属于封包过滤式防火墙。  <br />
-iptables是Linux系统内嵌的一个防火墙软件，它继承在系统内核中，因此执行效率非常高。</p>
-<p>iptables中有3中表选项：</p>
+	<p><strong>现总计29条</strong></p>
 <ul>
-<li>管理本机数据进出的filter表</li>
-<li>管理防火墙内部主机的NAT表</li>
-<li>改变不同包以及包头内容的mangle表。</li>
+<li>
+<p><strong>做改动前做备份，无论多小的修改，都要做备份,因为备份是救命用的。</strong></p>
+</li>
+<li>
+<p>做改动之前，先小范围测试，百分之一万确定没有任何问题时，再全范围修改。（此处可以参考版本发布流程规范）</p>
+</li>
+<li>
+<p>在执行命令或者其他操作时，<strong>前后三思</strong>，做好最坏打算，同时做好回滚准备。</p>
+</li>
+<li>
+<p>在执行别人给的命令和操作时，先粘贴到别的地方看清楚，有没有错误，确定没有错误再执行。</p>
+</li>
+<li>
+<p>在查问题时，首先要想到查看日志。（没有日志？那就提前创造日志，别等出了事才知道慌。）</p>
+</li>
+<li>
+<p>处理技术问题的基本思路:</p>
+<ol>
+<li>怎么发现问题的</li>
+<li>怎么处理的</li>
+<li>影响多大</li>
+<li>怎么预防/避免</li>
+</ol>
+</li>
+<li>
+<p>做出改动前，先认真考虑影响。直接改动的影响是什么？（业务影响、维护影响等）影响面广、影响重要应用的，请求多人确认；影响面小的，直接干。不能确定影响的，找人当面询问。（最低限度发邮件）</p>
+</li>
+<li>
+<p>善用md5sum，可以快速找出哪些文件是不一样的。（特别是用Ansible对比多台机器上的配置文件时，非常方便直观）</p>
+</li>
+<li>
+<p>查看mongodb运行状态  <code>mongostat</code></p>
+</li>
+<li>
+<p>ss(Socket Statistics的缩写)命令可以用来获取 socket统计信息，此命令输出的结果类似于 netstat输出的内容，但它能显示更多更详细的 TCP连接状态的信息，且比 netstat 更快速高效。<br />
+<code>ss -s</code> 输出统计信息。</p>
+</li>
+<li>
+<p>在zabbix server上运行zabbix_get，可以执行一个key。这样可以检查key是否设置正常。<br />
+<code>zabbix_get -s host/IP [-p 端口] -k key</code></p>
+</li>
+<li>
+<p>善用screen，防止断网或者其他突发情况时，正在ssh上做的东西被中断导致严重后果！！
+<code>screen -R 名称</code></p>
+</li>
+<li>
+<p>安装PHP扩展时，可以选择使用PHP自带PECL扩展库安装。<br />
+<a href="https://pecl.php.net/">PECL</a><br />
+<a href="http://php.net/manual/zh/install.pecl.pear.php">pecl命令</a>  </p>
+</li>
+<li>
+<p><code>nginx -t</code>  检测配置文件语法错误，同时会显示主配置文件路径</p>
+</li>
+<li>
+<p><code>nginx -s reload</code> 工作过程：<br />
+    master进程检查配置文件是否正确。若错误，则返回错误信息,使用原来的配置继续工作；若正确，则启动新的worker进程,这些worker使用新的配置文件，新的请求也会分发到新的worker;旧的worker在处理完已分配的旧的请求后，就会被关闭。在这个过程，nginx的工作完全不受影响。</p>
+</li>
+<li>
+<p>python 连接数据库时，为了能重复使用cursor，避免在多次连接数据库上花费大量时间，可以将数据库的连接做成class。</p>
+</li>
+<li>
+<p><code>curl -I</code> 可以输出http header，-s 静默模式，不输出进度表</p>
+</li>
+<li>
+<p>当机器无端端ssh连不上，但机器存活时，可以检查cpu和内存情况，然后再考虑ssh服务情况。</p>
+</li>
+<li>
+<p>zabbix中端口监控，type应该选active，使监控更加准确。</p>
+</li>
+<li>
+<p>在修改crontab时，尽量跳到该用户下，使用crontab -e命令进行修改。</p>
+</li>
+<li>
+<p>在shell中，冒号“:”可以当占位符使用。（与Python的“pass”相同）</p>
+</li>
+<li>
+<p>Zabbix的日志监控<br />
+    Zabbix会跟踪日志的大小、最后的修改时间，有时会有inode号或者indexes号。Zabbix将这些数据保存在数据库中。当Zabbix分析文件时，会检查这些数据，判断日志进行过最新修改后已经被分析过了。如果（最新修改时间已经改变，而且根据日志的大小判断上一次分析到的地方，从那个地方开始）有新的部分没有分析，就会接着分析，满足条件时触发trigger。</p>
+</li>
+<li>
+<p><code>logtail</code> 分析日志，并记录下分析到日志的哪个地方。</p>
+</li>
+<li>
+<p><code>sh -x 脚本名</code>  可以在运行脚本时实现shell脚本逐条语句的跟踪。</p>
+</li>
+<li>
+<p><code>zgrep</code> 可以不解压日志直接抓关键字</p>
+</li>
+<li>
+<p>统计每分钟日志数 <br />
+<code>awk '{a[$2]++}END{for(i in a){print i" "a[i]}}'</code></p>
+</li>
+<li>
+<p>centos中，nginx做转发时，记得修改SELinux配置。
+<code>setsebool -P httpd_can_network_connect 1</code></p>
+</li>
+<li>
+<p>当遇到4xx问题时，先考虑文件是否存在，然后考虑nginx配置是否正确。遇到5xx问题时，先考虑后端不返回。</p>
+</li>
+<li>
+<p>在ssh时，提示permission denied(publickey)，其中一个点是可以尝试留意下.ssh/config中的内容。有时候这里会出问题。</p>
+</li>
 </ul>
-<p><code>filter</code>表中内置了INPUT、OUTPUT和FORWARD链。（默认使用）（最常用）</p>
-<table>
-<thead>
-<tr>
-<th>链</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>INPUT</td>
-<td>主要对外部数据包进入Linux系统进行信息过滤</td>
-</tr>
-<tr>
-<td>OUTPUT</td>
-<td>主要对内部Linux系统所要发送的数据包进行信息过滤</td>
-</tr>
-<tr>
-<td>FORWARD</td>
-<td>将外面过来的数据包传递到内部计算机中</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p><code>nat</code>表中内置PREROUTING、POSTROUTING和OUTPUT链。</p>
-<table>
-<thead>
-<tr>
-<th>链</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PREROUTING</td>
-<td>在数据包刚刚到达防火墙时，根据需要改变它的目的地址</td>
-</tr>
-<tr>
-<td>POSTROUTING</td>
-<td>在包就要离开防火墙之前改变其源地址</td>
-</tr>
-<tr>
-<td>OUTPUT</td>
-<td>改变本地产生的包的目的地址</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p><code>mangle</code>表中内置PREROUTING、POSTROUTING、OUTPUT、INPUT和FORWARD链。（不常用）</p>
-<p>当数据包进入Linux主机前，首先经过iptables的过滤。iptables将数据包与表中规则<strong>按顺序</strong>对比，检查是否满足规则条件，然后执行动作。</p>
-<p>iptables工作顺序示意图：  <br />
-<img alt="iptables工作顺序" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/1.png" /></p>
-<p>列出filter表的规则：</p>
-<pre><code> iptables -t filter -L -n
-</code></pre>
-<p>清空所有规则：</p>
-<pre><code> iptables -F
- iptables -X
- iptables -Z
-</code></pre>
-<ul>
-<li>-F 清空指定表中所有链的规则</li>
-<li>-X 删除使用者自定义的表</li>
-<li>-Z 将数据包计数器清零</li>
-</ul>
-<p>将filter表中INPUT的预设规则改为DROP</p>
-<pre><code> iptables -P INPUT DROP
-</code></pre>
-<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/2.png" /></p>
-<p>将来自10.10.10.1的数据包丢弃</p>
-<pre><code> iptables -t filter -A INPUT -s 10.10.10.1 -j DROP
-</code></pre>
-<p><img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/3.png" /><br />
-<img alt="iptables" src="http://roses-echo.com/images/linux-note-linux-software-firewall-iptables/4.png" /></p>
-<p><strong>注：只有在设置tcp或udp规则时，才能使用--sport或--dport参数。</strong></p>
-<h4>iptables规则练习</h4>
-<p><a href="https://www.centos.bz/2012/08/iptables-exercises/">iptables练习题 - Linux运维日志</a></p>
-<p><strong>注：在CentOS 7.x后默认使用firewalld了。相关资料如下：</strong> <br />
-<a href="http://www.firewalld.org/">firewalld: Home</a>  <br />
-<a href="https://fedoraproject.org/wiki/FirewallD/zh-cn#.E4.BD.BF.E7.94.A8_FirewallD_.E6.9E.84.E5.BB.BA.E5.8A.A8.E6.80.81.E9.98.B2.E7.81.AB.E5.A2.99">使用firewalld - Fedora</a>     <br />
-<a href="http://www.centoscn.com/CentOS/help/2015/0208/4667.html">CentOS 7 firewalld使用简介</a></p>
+<p>------------未完待续----------------</p>
   </div>
   
 
@@ -290,16 +299,10 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   </ul>
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vmware.html">
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/linux.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VMware
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/hardware.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Hardware
+        Linux
       </a>
     </span>
     <span class="tag-3">
@@ -309,111 +312,9 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
-      <a href="http://roses-echo.com/tag/360.html">
+      <a href="http://roses-echo.com/tag/vmware.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        360
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ss.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        SS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ti-quan.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        提权
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/iptables.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        iptables
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/centos.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        CentOS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/mount.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        mount
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/vps.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        VPS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ops.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Ops
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/firewalld.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        firewalld
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/ntfs.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        NTFS
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/shadowsocks.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Shadowsocks
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/bbr.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        BBR
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/an-quan-gou.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        安全狗
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="http://roses-echo.com/tag/linux.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Linux
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="http://roses-echo.com/tag/tao-lu.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        套路
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/shen-tou.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        渗透
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/google.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        Google
-      </a>
-    </span>
-    <span class="tag-5">
-      <a href="http://roses-echo.com/tag/v2ex.html">
-            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
-        V2EX
+        VMware
       </a>
     </span>
     <span class="tag-5">
@@ -423,9 +324,117 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
       </a>
     </span>
     <span class="tag-5">
+      <a href="http://roses-echo.com/tag/v2ex.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        V2EX
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/vps.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        VPS
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="http://roses-echo.com/tag/centos.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        CentOS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/hardware.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Hardware
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/bbr.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        BBR
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/mount.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        mount
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ntfs.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        NTFS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/iptables.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        iptables
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/google.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Google
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/an-quan-gou.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        安全狗
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ops.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Ops
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/360.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        360
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ti-quan.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        提权
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/firewalld.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        firewalld
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="http://roses-echo.com/tag/tao-lu.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        套路
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/shadowsocks.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        Shadowsocks
+      </a>
+    </span>
+    <span class="tag-5">
       <a href="http://roses-echo.com/tag/nei-cun-you-hua.html">
             <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
         内存优化
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/ss.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        SS
+      </a>
+    </span>
+    <span class="tag-5">
+      <a href="http://roses-echo.com/tag/shen-tou.html">
+            <!-- <i class="fa fa-tag"></i> -->  <!-- modified by Ro$es on 2017-07-28 -->
+        渗透
       </a>
     </span>
 </p>
