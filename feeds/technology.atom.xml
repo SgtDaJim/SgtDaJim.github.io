@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-02T15:42:57+08:00</updated><entry><title>运维之路 - 运维原则与奇技淫巧[持续更新]</title><link href="http://roses-echo.com/articles/2017/Aug/02/road-to-ops-principle-and-tricks/" rel="alternate"></link><published>2017-08-02T15:42:57+08:00</published><updated>2017-08-02T15:42:57+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-02:/articles/2017/Aug/02/road-to-ops-principle-and-tricks/</id><summary type="html">&lt;p&gt;本文章内容是我在日常工作中学习、摸索出来的一些经验。这些东西不是什么很高深的知识，很多人都早已烂熟于心。但我还是希望po出来，自己留个印记，也能让没注意过这些小点的人得到帮助。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;现总计32条&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo - Technology</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/technology.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-02T17:49:22+08:00</updated><entry><title>运维之路 - 运维原则与奇技淫巧[持续更新]</title><link href="http://roses-echo.com/articles/2017/Aug/02/road-to-ops-principle-and-tricks/" rel="alternate"></link><published>2017-08-02T17:49:22+08:00</published><updated>2017-08-02T17:49:22+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-02:/articles/2017/Aug/02/road-to-ops-principle-and-tricks/</id><summary type="html">&lt;p&gt;本文章内容是我在日常工作中学习、摸索出来的一些经验。这些东西不是什么很高深的知识，很多人都早已烂熟于心。但我还是希望po出来，自己留个印记，也能让没注意过这些小点的人得到帮助。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;现总计33条&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;做改动前做备份，无论多小的修改，都要做备份,因为备份是救命用的。&lt;/strong&gt;&lt;/p&gt;
@@ -113,6 +113,9 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;nginx在处理请求时，当有多个配置中，使用相同域名和相同端口，则访问域名时，nginx将请求发给default server（在listen字段加default）。当没设定default server时，若配置都在同一个配置文件中，请求则发给第一个配置；若在不同配置文件中，则按ascii码，找最前的配置文件。当然，listen字段中，同ip同端口只能有一个设定为default server。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;php-fpm的process_control_timeout参数应该设置为适当的值。php-fpm在reload时，process_control_timeout过小，会导致请求处理时间不够，出现502错误。当process_control_timeout的值过大时，空闲的fastcgi进程关闭，正在处理请求的进程则继续处理，若处理速度过慢，则会导致fastcgi进程不够而导致请求大量堆积。（所以迫切需要重启php-fpm的，还是把机器下流量，然后php-fpm restart吧。）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;------------未完待续----------------&lt;/p&gt;</content><category term="Linux"></category><category term="Ops"></category></entry><entry><title>Linux学习笔记 - Linux软件防火墙iptables</title><link href="http://roses-echo.com/articles/2017/Aug/01/linux-note-linux-software-firewall-iptables/" rel="alternate"></link><published>2017-08-01T10:13:37+08:00</published><updated>2017-08-01T10:13:37+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-01:/articles/2017/Aug/01/linux-note-linux-software-firewall-iptables/</id><summary type="html">&lt;p&gt;iptables的介绍与使用。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;参考资料：《循序渐进Linux第二版》&lt;/em&gt;&lt;/p&gt;
