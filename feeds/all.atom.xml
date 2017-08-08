@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/all.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-08T18:43:56+08:00</updated><entry><title>运维之路 - 根据crontab时间语法推算任务上一次的执行时间</title><link href="http://roses-echo.com/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/" rel="alternate"></link><published>2017-08-08T18:43:56+08:00</published><updated>2017-08-08T18:43:56+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-08:/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/</id><summary type="html">&lt;p&gt;根据Linux的crontab中的时间语法(cronExpression)，推算出任务的上一次执行时间。&lt;/p&gt;</summary><content type="html">&lt;h1&gt;背景&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/all.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-08T18:46:50+08:00</updated><entry><title>运维之路 - 根据crontab时间语法推算任务上一次的执行时间</title><link href="http://roses-echo.com/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/" rel="alternate"></link><published>2017-08-08T18:46:50+08:00</published><updated>2017-08-08T18:46:50+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-08:/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/</id><summary type="html">&lt;p&gt;根据Linux的crontab中的时间语法(cronExpression)，推算出任务的上一次执行时间。&lt;/p&gt;</summary><content type="html">&lt;h1&gt;背景&lt;/h1&gt;
 &lt;p&gt;在我的运维工作中，出现过这么一个需求：&lt;br /&gt;
 crontab中的定时任务开始执行和执行结束，都会往数据库里面写日志。此时要对任务进行监控，根据日志判断任务的执行情况（是否按时执行、执行是否超时……）。所以，就需要对定时任务的执行时间进行推算了。在Baidu和Google上都搜索过，没有相关的轮子，大多都是对计划任务的下一次执行时间进行推算，没有对上一次推算的。。&lt;br /&gt;
 于是，就有了这么一个轮子。&lt;/p&gt;
@@ -11,6 +11,54 @@ crontab中的定时任务开始执行和执行结束，都会往数据库里面�
 如有侵权风险，请及时通知处理！！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本代码基于Python 2.7编写&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;代码：  &lt;/p&gt;
+&lt;div class="gist"&gt;
+    &lt;script src='https://gist.github.com/3254906.js'&gt;&lt;/script&gt;
+    &lt;noscript&gt;
+        &lt;pre&gt;&lt;code&gt;#!/bin/bash
+#
+# Notify of Homebrew updates via Notification Center on Mac OS X
+#
+# Author: Chris Streeter http://www.chrisstreeter.com
+# Requires: terminal-notifier. Install with:
+#   gem install terminal-notifier
+
+TERM_APP='/Applications/Terminal.app'
+BREW_EXEC='/usr/local/bin/brew'
+TERMINAL_NOTIFIER=`which terminal-notifier`
+NOTIF_ARGS="-activate com.apple.Terminal"
+
+$BREW_EXEC update 2&gt;&amp;1 &gt; /dev/null
+outdated=`$BREW_EXEC outdated | tr ' ' '\n'`
+
+if [ -z "$outdated" ] ; then
+    if [ -e $TERMINAL_NOTIFIER ]; then
+        # No updates available
+        $TERMINAL_NOTIFIER $NOTIF_ARGS \
+            -title "No Homebrew Updates Available" \
+            -message "No updates available yet for any homebrew packages."
+    fi
+else
+    # We've got an outdated formula or two
+
+    # Nofity via Notification Center
+    if [ -e $TERMINAL_NOTIFIER ]; then
+        lc=$((`echo "$outdated" | wc -l`))
+        outdated=`echo "$outdated" | tail -$lc`
+        message=`echo "$outdated" | head -5`
+        if [ "$outdated" != "$message" ]; then
+            message="Some of the outdated formulae are:
+$message"
+        else
+            message="The following formulae are outdated:
+$message"
+        fi
+        # Send to the Nofication Center
+        $TERMINAL_NOTIFIER $NOTIF_ARGS \
+            -title "Homebrew Update(s) Available" -message "$message"
+    fi
+fi&lt;/code&gt;&lt;/pre&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
 &lt;h1&gt;测试效果&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="test" src="http://blogpictures-1252239032.cosgz.myqcloud.com/road-to-ops-cron-exp/1.png" /&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Ops"></category><category term="crontab"></category><category term="Python"></category><category term="code"></category></entry><entry><title>运维之路 - 运维原则与奇技淫巧[持续更新]</title><link href="http://roses-echo.com/articles/2017/Aug/07/road-to-ops-principle-and-tricks/" rel="alternate"></link><published>2017-08-07T18:30:02+08:00</published><updated>2017-08-07T18:30:02+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-07:/articles/2017/Aug/07/road-to-ops-principle-and-tricks/</id><summary type="html">&lt;p&gt;本文章内容是我在日常工作中学习、摸索出来的一些经验。这些东西不是什么很高深的知识，很多人都早已烂熟于心。但我还是希望po出来，自己留个印记，也能让没注意过这些小点的人得到帮助。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;现总计35条&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
