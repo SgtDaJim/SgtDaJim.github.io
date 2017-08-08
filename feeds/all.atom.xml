@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/all.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-07T18:30:02+08:00</updated><entry><title>运维之路 - 运维原则与奇技淫巧[持续更新]</title><link href="http://roses-echo.com/articles/2017/Aug/07/road-to-ops-principle-and-tricks/" rel="alternate"></link><published>2017-08-07T18:30:02+08:00</published><updated>2017-08-07T18:30:02+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-07:/articles/2017/Aug/07/road-to-ops-principle-and-tricks/</id><summary type="html">&lt;p&gt;本文章内容是我在日常工作中学习、摸索出来的一些经验。这些东西不是什么很高深的知识，很多人都早已烂熟于心。但我还是希望po出来，自己留个印记，也能让没注意过这些小点的人得到帮助。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;现总计35条&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ro$es Echo</title><link href="http://roses-echo.com/" rel="alternate"></link><link href="http://roses-echo.com/feeds/all.atom.xml" rel="self"></link><id>http://roses-echo.com/</id><updated>2017-08-08T18:43:56+08:00</updated><entry><title>运维之路 - 根据crontab时间语法推算任务上一次的执行时间</title><link href="http://roses-echo.com/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/" rel="alternate"></link><published>2017-08-08T18:43:56+08:00</published><updated>2017-08-08T18:43:56+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-08:/articles/2017/Aug/08/road-to-ops-calculate-last-startup-time-according-to-cron-expression/</id><summary type="html">&lt;p&gt;根据Linux的crontab中的时间语法(cronExpression)，推算出任务的上一次执行时间。&lt;/p&gt;</summary><content type="html">&lt;h1&gt;背景&lt;/h1&gt;
+&lt;p&gt;在我的运维工作中，出现过这么一个需求：&lt;br /&gt;
+crontab中的定时任务开始执行和执行结束，都会往数据库里面写日志。此时要对任务进行监控，根据日志判断任务的执行情况（是否按时执行、执行是否超时……）。所以，就需要对定时任务的执行时间进行推算了。在Baidu和Google上都搜索过，没有相关的轮子，大多都是对计划任务的下一次执行时间进行推算，没有对上一次推算的。。&lt;br /&gt;
+于是，就有了这么一个轮子。&lt;/p&gt;
+&lt;h1&gt;代码&lt;/h1&gt;
+&lt;p&gt;实际上代码分为两个部分：
+- 对cronExpression进行解析
+- 推算上一次执行时间&lt;/p&gt;
+&lt;p&gt;而其中的第一部分是我在Google上找到的。。&lt;br /&gt;
+如有侵权风险，请及时通知处理！！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本代码基于Python 2.7编写&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;代码：  &lt;/p&gt;
+&lt;h1&gt;测试效果&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="test" src="http://blogpictures-1252239032.cosgz.myqcloud.com/road-to-ops-cron-exp/1.png" /&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Ops"></category><category term="crontab"></category><category term="Python"></category><category term="code"></category></entry><entry><title>运维之路 - 运维原则与奇技淫巧[持续更新]</title><link href="http://roses-echo.com/articles/2017/Aug/07/road-to-ops-principle-and-tricks/" rel="alternate"></link><published>2017-08-07T18:30:02+08:00</published><updated>2017-08-07T18:30:02+08:00</updated><author><name>Ro$es</name></author><id>tag:roses-echo.com,2017-08-07:/articles/2017/Aug/07/road-to-ops-principle-and-tricks/</id><summary type="html">&lt;p&gt;本文章内容是我在日常工作中学习、摸索出来的一些经验。这些东西不是什么很高深的知识，很多人都早已烂熟于心。但我还是希望po出来，自己留个印记，也能让没注意过这些小点的人得到帮助。&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;现总计35条&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;做改动前做备份，无论多小的修改，都要做备份,因为备份是救命用的。&lt;/strong&gt;&lt;/p&gt;
