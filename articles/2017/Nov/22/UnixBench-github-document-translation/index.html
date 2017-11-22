@@ -8,7 +8,7 @@
     <meta name="author" content="Ro$es" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 
-    <title>2017-2-20凌晨 - Ro$es Echo</title>
+    <title>UnixBench说明文档 - Ro$es Echo</title>
 
    
         <link rel="stylesheet"
@@ -101,48 +101,88 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  CST, 2017-02-20, Monday
+  CST, 2017-11-22, Wednesday
 </abbr> <!-- Add by Ro$es on 2017-07-28 -->
 <span></span>
 <!-------------------------------->
 <h1>
-  <a href="http://roses-echo.com/articles/2017/Feb/20/2017-2-20-midnight-thought/" rel="bookmark"
-     title="Permalink to 2017-2-20凌晨">
-    2017-2-20凌晨
+  <a href="http://roses-echo.com/articles/2017/Nov/22/UnixBench-github-document-translation/" rel="bookmark"
+     title="Permalink to UnixBench说明文档">
+    UnixBench说明文档
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by <a href="http://roses-echo.com/author/roes.html">Ro$es</a>
     in 
-    <a href="http://roses-echo.com/category/life.html">
-      Life
+    <a href="http://roses-echo.com/category/technology.html">
+      Technology
     </a>
     <div>
+      <span class="label label-default">Tags</span>
+        <a href="http://roses-echo.com/tag/unixbench.html"><i class="fa fa-tag"></i>UnixBench</a>&nbsp;
+        <a href="http://roses-echo.com/tag/benchmark.html"><i class="fa fa-tag"></i>Benchmark</a>&nbsp;
+        <a href="http://roses-echo.com/tag/linux.html"><i class="fa fa-tag"></i>Linux</a>&nbsp;
     </div>
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>打游戏打到一点多<br />
-就上床玩手机<br />
-到两点<br />
-朋友突然问谁没睡<br />
-我打了个“？”<br />
-结果朋友说不舒服，想去医院<br />
-我直接说等我换衣服，到他宿舍门口叫他。<br />
-现在3点49分<br />
-期间陪朋友看医生，打点滴，帮他倒水，付费，拿药<br />
-现在坐在他床边等他打点滴<br />
-想了很多东西<br />
-我想起我寒假口角炎的时候一个人坐那打点滴<br />
-药水很冷，很痛<br />
-而且没法上厕所<br />
-难受的一比<br />
-我很庆幸我朋友有我这个朋友<br />
-倒不是说我吹我自己<br />
-可是没我，他一个人估计麻烦到头晕<br />
-我相信如果是我不舒服<br />
-他也会帮我<br />
-毕竟这就是朋友  </p>
+	<h1>UnixBench</h1>
+<p><a href="https://github.com/kdlucas/byte-unixbench.git">UnixBench Github Link</a></p>
+<p>UnixBench是一套unix系统基准测试套件。UnixBench的设计目标是为类unix系统提供一套基本的指标，所以有许多项目测试系统各方面的性能。各项的测试有得分，然后有一个综合的得分，这样可以很方便的通过分数去比较。</p>
+<p>UnixBench对多处理单元情况有所处理。（注：原文中写的是CPUs。但实际上UnixBench对于单个CPU中多个核心也会作出处理，所以此处翻译为处理单元。）当你的系统有多个处理单元时，UnixBench默认会运行两次测试：一次是每个测试程序跑一个副本，另一次是每个测试程序跑N个副本。N为处理单元的个数。</p>
+<p>目标：</p>
+<pre><code>* 测试系统的单任务性能
+* 测试系统的多任务性能
+* 测试系统并行处理的能力
+</code></pre>
+<p><strong><em>需要注意的是，UnixBench是一个系统层面的基准测试，而不是单纯的CPU、内存或者磁盘的基准测试。测试结果不单单会依赖于硬件，还会与机器的操作系统、系统库甚至编译器有关。</em></strong></p>
+<h2>测试程序</h2>
+<ol>
+<li>
+<p>Dhrystone<br />
+    这个基准测试使用来计算和比较计算机性能的。由于没有浮点操作，这个测试主要集中在字符串处理上。这个测试深受以下因素的影响：硬件和软件设计，编译程序和链接程序选项，代码优化，高速缓冲存储器, 等待状态和整数数据类型。</p>
+</li>
+<li>
+<p>Whetstone<br />
+    这个测试测量浮点运算速度和效率。这个测试包含几个模块，这些模块被认为是由在典型运用在科学应用中的操作组成的混合体。各种各样的C函数，包括sin、cos、sqrt、exp和log还有整形，浮点算术操作、数组访问、条件转移和过程调用等都有运行。整数和浮点算术在这个测试中都有包含。</p>
+</li>
+<li>
+<p>Execl Throughput<br />
+    这个测试计算每秒钟可以运行execl次数。Execl是 exec 函数家族的一部分。它用一个新的进程映像更新当前的进程映像。它和许多其他相似的命令都是execve()的前端程序。</p>
+</li>
+<li>
+<p>File Copy<br />
+    这个测试测量使用不同的缓冲区大小时，数据可以从一个文件被传输到另一个的速率。文件的读写复制测试可以获得在指定时间内（默认为10秒）能够读、写、复制的字符数目。</p>
+</li>
+<li>
+<p>Pipe Throughput<br />
+    管道是进程间通信最简单的方式之一。管道吞吐量指的是每秒中，一个进程能将512个字节数据写入管道和从管道中回读它们的次数。这个测试在真实的程序设计中并没有对应物。</p>
+</li>
+<li>
+<p>Pipe-based Context Switching<br />
+    这个测试是计算两个进程通过管道交换一个增长的整数的次数。基于管道的上下文切换测试更像一个真实的应用程序。这个测试产生一个可以用来继续双向管对话的子进程。</p>
+</li>
+<li>
+<p>Process Creation<br />
+    这个测试计算一个进程派生和收获一个马上退出的子进程的次数。由于进程创建涉及创建进程控制块和为新的进程分配内存，因此这项测试直接取决于内存带宽。这个测试一般地会用于比较各种各样的操作系统进程创建调用的执行。</p>
+</li>
+<li>
+<p>Shell Scripts<br />
+    Shell Scripts测试的是，一分钟内，一个进程，可以启动和收割（reap）一组个数为1、2、4、8的、并行的、执行一系列数据文件转换的shell脚本副本的次数。</p>
+</li>
+<li>
+<p>System Call Overhead<br />
+    这个测试是估计进入和离开操作系统内核的开销。例如执行一个系统调用的开销。它由一个简单的系统组成，这个系统重复的调用getid系统调用，getid返回调用进程的进程IS号。这个测试是用执行这些调用的时间来估算进入和离开内核的开销。</p>
+</li>
+<li>
+<p>Graphical Tests<br />
+    这个测试提供了2D，3D的图形化测试。报告性能不仅依赖于硬件，还与你的系统是否对硬件有合适的驱动程序有关。</p>
+</li>
+</ol>
+<p>出现</p>
+<p><code>Can't locate Time/HiRes.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at ./Run line 6.
+BEGIN failed--compilation aborted at ./Run line 6.</code></p>
+<p>错误时，执行<code>yum install perl-Time-HiRes</code>，安装perl相关包。</p>
   </div>
   
 
